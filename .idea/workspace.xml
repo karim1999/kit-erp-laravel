@@ -1,15 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2284fbe7-6c19-421a-a1c6-ce5d74747c2d" name="Default Changelist" comment="" />
+    <list default="true" id="2284fbe7-6c19-421a-a1c6-ce5d74747c2d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/SFUIText-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/fonts/SFUIText-Semibold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/bin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/eye_closed.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/eye_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/icon-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/icon-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/import.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/minus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/move_down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/move_up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/images/plus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/jquery-3.1.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/slick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/AccountInfoComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/AddressInfoComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/ContactInfoComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Fields/DatePickerFieldComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Fields/TextFieldComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/HeaderComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/PricingTableComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/QuoteBasicInfoComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/QuoteOtherInfoComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/SalesPersonInfoComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Table/DragHandlerComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Table/TableBody.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Table/TableItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Show.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/helpers/helpers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/helpers/samples.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kit-erp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kit-erp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Zoho/DealController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Zoho/DealController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_25_120730_create_quotes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_25_120730_create_quotes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zcrm_oauthtokens.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zcrm_oauthtokens.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="blade" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -123,9 +189,13 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/zohocrm/php-sdk-archive" />
+      <path value="$PROJECT_DIR$/vendor/inertiajs/inertia-laravel" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qA3tqtxQzzDQDnJlysFnigd6SI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -133,15 +203,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Table" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\karim\AppData\Local\JetBrains\Toolbox\apps\PhpStorm\ch-0\202.7319.77\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\web\ICIGAI\erp\kit-erp\database\migrations" />
-      <recent name="C:\projects\web\ICIGAI\erp\kit-erp\app\Models" />
-      <recent name="C:\projects\web\ICIGAI\erp\kit-erp" />
+      <recent name="C:\projects\web\ICIGAI\erp\kit-erp\resources\js\Pages\Deal\Components\Table" />
+      <recent name="C:\projects\web\ICIGAI\erp\kit-erp\resources\js\Pages\Deal\Components\Fields" />
+      <recent name="C:\projects\web\ICIGAI\erp\kit-erp\resources\js\Pages\Deal\Components" />
+      <recent name="C:\projects\web\ICIGAI\erp\kit-erp\public" />
+      <recent name="C:\projects\web\ICIGAI\erp\kit-erp\resources\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -159,6 +238,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616508784664</updated>
       <workItem from="1616508785719" duration="655000" />
+      <workItem from="1616509460145" duration="29710000" />
     </task>
     <servers />
   </component>
@@ -166,9 +246,17 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616509021268">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616509509484">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616509021268" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616509509484" />
+    <state x="838" y="418" key="Github.ShareDialog" timestamp="1616509482095">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="838" y="418" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616509482095" />
+    <state x="732" y="219" key="Github.UntrackedFilesDialog" timestamp="1616509486926">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="732" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616509486926" />
   </component>
 </project>

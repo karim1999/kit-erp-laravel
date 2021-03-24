@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use zcrmsdk\crm\setup\restclient\ZCRMRestClient;
+use zcrmsdk\oauth\ZohoOAuth;
 
 class AppServiceProvider extends ServiceProvider
 {
