@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 Route::get('deals/{id}', "App\\Http\\Controllers\\Zoho\\DealController@show");
+Route::get('search/{module}/{keyword}', "App\\Http\\Controllers\\Zoho\\ModuleController@search");
+Route::get('products/{product}/pricing/{account}', "App\\Http\\Controllers\\Zoho\\ProductController@pricing");

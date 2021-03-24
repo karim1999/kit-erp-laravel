@@ -5,8 +5,6 @@ import {useField} from "formik";
 
 export default SortableContainer(({items, insert, remove, push, products}) => {
     const [{value}, meta] = useField("items");
-
-    console.log("TableBody");
     return (
         <tbody>
         {value.map((item, index) => (

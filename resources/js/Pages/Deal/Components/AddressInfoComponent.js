@@ -3,13 +3,14 @@ import Constants from "../../../helpers/samples";
 import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
 import CheckBoxFieldComponent from "./Fields/CheckBoxFieldComponent";
+import ReactSelectFieldComponent from "./Fields/ReactSelectFieldComponent";
 
-export default function ({deal}) {
+export default function ({deal, contacts}) {
     return (
         <div className="container my-4">
             <div className="row">
                 <div className="col-xl-5 col-lg-5 col-sm-5 col-12">
-                    <CheckBoxFieldComponent name="includeBilling" className="form-check-input">
+                    <CheckBoxFieldComponent name="include_billing" className="form-check-input">
                         Include Billing Address
                     </CheckBoxFieldComponent>
                     <table className="table table-bordered mt-2">
@@ -18,55 +19,71 @@ export default function ({deal}) {
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing Contact Name
                             </th>
-                            <td className="text-muted">Mahmoud Kamal</td>
+                            <td className="text-muted">
+                                <ReactSelectFieldComponent label="" name="billing.contact" options={contacts.map(contact => ({value: contact.id, label: contact.Contact_Auto_No}))} />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing Unit / Floor No.
                             </th>
-                            <td className="text-muted">Unit 301, 3rd Floor</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="billing.floor" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing Building Name
                             </th>
-                            <td className="text-muted">Al Yateem Building</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="billing.building" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing Street Name
                             </th>
-                            <td className="text-muted">Kuwait Street</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="billing.street" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing District
                             </th>
-                            <td className="text-muted">Al Raffa</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="billing.district" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing State / City
                             </th>
-                            <td className="text-muted">Dubai</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="billing.state" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing Country
                             </th>
-                            <td className="text-muted">Unitied Arab Emirates</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="billing.country" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing ZIP / P.O.Box
                             </th>
-                            <td className="text-muted">6856</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="billing.zip" />
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <div className="col-xl-5 col-lg-5 col-sm-5 col-12">
-                    <CheckBoxFieldComponent name="includeShipping" className="form-check-input">
+                    <CheckBoxFieldComponent name="include_shipping" className="form-check-input">
                         Include Shipping Address
                     </CheckBoxFieldComponent>
                     <table className="table table-bordered mt-2">
@@ -75,49 +92,65 @@ export default function ({deal}) {
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping Contact Name
                             </th>
-                            <td className="text-muted">Moumen Mohammed</td>
+                            <td className="text-muted">
+                                <ReactSelectFieldComponent label="" name="shipping.contact" options={contacts.map(contact => ({value: contact.id, label: contact.Contact_Auto_No}))} />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping Unit / Floor No.
                             </th>
-                            <td className="text-muted">Unit 103, 1st Floor</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.floor" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping Building Name
                             </th>
-                            <td className="text-muted">Al Gurg Building</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.building" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping Street Name
                             </th>
-                            <td className="text-muted">Al Raffa Street</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.street" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping District
                             </th>
-                            <td className="text-muted">Al Mankhool</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.district" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping State / City
                             </th>
-                            <td className="text-muted">Dubai</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.state" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping Country
                             </th>
-                            <td className="text-muted">Unitied Arab Emirates</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.country" />
+                            </td>
                         </tr>
                         <tr>
                             <th className="table-info">
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping ZIP / P.O.Box
                             </th>
-                            <td className="text-muted">7840</td>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.zip" />
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -125,5 +158,5 @@ export default function ({deal}) {
             </div>
             <hr />
         </div>
-)
+    )
 }

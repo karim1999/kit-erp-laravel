@@ -91,6 +91,79 @@ var Constants = Object.freeze({
   header: {
     name: ""
   },
+  sampleShipping: {
+    contact: "",
+    country: "",
+    district: "",
+    state: "",
+    postal: "",
+    street: "",
+    floor: "",
+    building: ""
+  },
+  sampleBilling: {
+    contact: "",
+    country: "",
+    district: "",
+    state: "",
+    postal: "",
+    street: "",
+    floor: "",
+    building: ""
+  },
+  paymentTermsTypes: [{
+    value: "Advance"
+  }, {
+    value: "Before Delivery"
+  }, {
+    value: "On Delivery"
+  }, {
+    value: "License Issurance"
+  }, {
+    value: "Cloud Provisioning"
+  }, {
+    value: "TOMA Acceptance"
+  }, {
+    value: "Go Live"
+  }, {
+    value: "Project Completion"
+  }, {
+    value: "Date of Tax Invoice"
+  }, {
+    value: "Date of Performa Invoice"
+  }, {
+    value: "Purchase Order"
+  }, {
+    value: "Before Subscription"
+  }, {
+    value: "On Subscription"
+  }, {
+    value: "Before Renewal"
+  }],
+  paymentTermsMethods: [{
+    value: "Wire Transfer"
+  }, {
+    value: "Current Dated Cheque"
+  }, {
+    value: "Post Dated Cheque"
+  }, {
+    value: "Cash"
+  }, {
+    value: "Credit Card"
+  }, {
+    value: "Bank Standing Order"
+  }, {
+    value: "Bank Direct Debit"
+  }],
+  samplePricingTerm: {
+    selected: false,
+    percent: 0,
+    value: 0,
+    type: "",
+    method: "",
+    days: 365,
+    date: new Date()
+  },
   samplePricingItem: {
     selected: false,
     productId: "",
@@ -104,11 +177,29 @@ var Constants = Object.freeze({
     costPrice: 0,
     unitPrice: 0,
     margin: 0,
-    marginType: "%",
+    marginPercent: 0,
     discount: 0,
-    discountType: "%",
+    discountPercent: 0,
     gross: 0,
     net: 0
+  },
+  samplePricingItemMap: {
+    productId: "id",
+    partNumber: "Product_Code",
+    vendorPartNumber: "SKU_No",
+    type: "Product_Type",
+    name: "Product_Name",
+    description: "Product_Description",
+    unit: "Usage_Unit",
+    costPrice: 0,
+    unitPrice: "Unit_Price",
+    margin: "Margin_Value",
+    marginPercent: "Margin" // discount: 0,
+    // discountPercent: 0,
+    //
+    // gross: 0,
+    // net: 0,
+
   },
   // sampleFormItem: {
   // 	partNumber: "",

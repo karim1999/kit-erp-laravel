@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Deal_Components_AccountInfoComponent_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Deal_Components_Fields_AsyncReactSelectFieldComponent_js"],{
 
 /***/ "./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js":
 /*!*********************************************************************!*\
@@ -2058,153 +2058,10 @@ var weakMemoize = function weakMemoize(func) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Deal/Components/AccountInfoComponent.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/Pages/Deal/Components/AccountInfoComponent.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(_ref) {
-  var _account, _account2, _account3, _account4;
-
-  var deal = _ref.deal,
-      accounts = _ref.accounts;
-
-  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_1__.useField)("account"),
-      _useField2 = _slicedToArray(_useField, 2),
-      value = _useField2[0].value,
-      meta = _useField2[1];
-
-  var account = function account() {
-    return accounts.find(function (account) {
-      return account.id === value;
-    });
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "container my-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "row",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "col-xl-2 col-lg-2 col-sm-2 col-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__.default, {
-            label: "Account ID No.",
-            name: "account",
-            options: accounts.map(function (account) {
-              return {
-                value: account.id,
-                label: account.Account_Auto_ID
-              };
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "col-xl-2 col-lg-2 col-sm-2 col-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "assets/images/eye_icon.svg",
-                alt: ""
-              }), "Account Name"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-              type: "text",
-              className: "form-control",
-              placeholder: "",
-              value: ((_account = account()) === null || _account === void 0 ? void 0 : _account.Account_Name) || "",
-              disabled: true
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "col-xl-2 col-lg-2 col-sm-2 col-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "assets/images/eye_icon.svg",
-                alt: ""
-              }), "Account TRN No."]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-              type: "text",
-              className: "form-control",
-              placeholder: "",
-              value: ((_account2 = account()) === null || _account2 === void 0 ? void 0 : _account2.Account_TRN_No) || "",
-              disabled: true
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "col-xl-2 col-lg-2 col-sm-2 col-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "assets/images/eye_icon.svg",
-                alt: ""
-              }), "Account Landline No."]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-              type: "text",
-              className: "form-control",
-              placeholder: "",
-              value: ((_account3 = account()) === null || _account3 === void 0 ? void 0 : _account3.Landline_No) || "",
-              disabled: true
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "col-xl-2 col-lg-2 col-sm-2 col-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "form-group",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                src: "assets/images/eye_icon.svg",
-                alt: ""
-              }), "Account Fax No."]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-              type: "text",
-              className: "form-control",
-              placeholder: "",
-              value: ((_account4 = account()) === null || _account4 === void 0 ? void 0 : _account4.Account_Fax_No) || "",
-              disabled: true
-            })]
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {})]
-    })
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js":
-/*!********************************************************************************!*\
-  !*** ./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js ***!
-  \********************************************************************************/
+/***/ "./resources/js/Pages/Deal/Components/Fields/AsyncReactSelectFieldComponent.js":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Pages/Deal/Components/Fields/AsyncReactSelectFieldComponent.js ***!
+  \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2249,7 +2106,8 @@ function ReactSelectFieldComponent(_ref) {
   var form = _ref.form,
       label = _ref.label,
       options = _ref.options,
-      props = _objectWithoutProperties(_ref, ["form", "label", "options"]);
+      loadOptions = _ref.loadOptions,
+      props = _objectWithoutProperties(_ref, ["form", "label", "options", "loadOptions"]);
 
   var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_1__.useField)(props),
       _useField2 = _slicedToArray(_useField, 3),
@@ -2262,21 +2120,7 @@ function ReactSelectFieldComponent(_ref) {
     children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: props.id || props.name,
       children: label
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__.default, _objectSpread(_objectSpread(_objectSpread({}, field), props), {}, {
-      menuPortalTarget: document.body,
-      menuPosition: 'fixed',
-      options: options,
-      value: options ? options.find(function (option) {
-        return option.value === field.value;
-      }) : '',
-      onChange: function onChange(option) {
-        helpers.setValue(option.value);
-
-        if (props.onChange) {
-          props.onChange(option);
-        }
-      }
-    })), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__.default, _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "error",
       children: meta.error
     }) : null]

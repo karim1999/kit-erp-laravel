@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Deal_Components_Fields_TextAreaFieldComponent_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_Pages_Deal_Components_NotesComponent_js"],{
 
 /***/ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js":
 /*!*****************************************************************************!*\
@@ -61,6 +61,44 @@ function TextAreaFieldComponent(_ref) {
       className: "error",
       children: meta.error
     }) : null]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Deal/Components/NotesComponent.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/Pages/Deal/Components/NotesComponent.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Fields/TextAreaFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(_ref) {
+  var deal = _ref.deal;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "container my-4",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "row",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "col-xl-12 col-lg-12 col-sm-12 col-12",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_1__.default, {
+          label: "Quote Notes",
+          className: "form-control",
+          rows: "5",
+          name: "notes"
+        })
+      })
+    })
   });
 }
 

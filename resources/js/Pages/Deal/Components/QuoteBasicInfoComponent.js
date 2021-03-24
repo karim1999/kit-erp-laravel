@@ -8,7 +8,7 @@ export default function ({deal}) {
         <div className="container my-4">
             <div className="row">
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-8">
-                    <TextFieldComponent type="text" label="Quote ID No." className="form-control" name="quote_no" />
+                    <TextFieldComponent type="text" label="Quote ID No." placeholder="Will be generated automatically" className="form-control" name="quote_no" disabled />
                 </div>
                 <div className="col-xl-1 col-lg-1 col-sm-1 col-2">
                     <label>&nbsp;</label>

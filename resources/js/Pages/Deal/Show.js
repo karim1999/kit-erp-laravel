@@ -12,6 +12,9 @@ import AccountInfoComponent from "./Components/AccountInfoComponent";
 import AddressInfoComponent from "./Components/AddressInfoComponent";
 import PricingTableComponent from "./Components/PricingTableComponent";
 import QuoteOtherInfoComponent from "./Components/QuoteOtherInfoComponent";
+import OverviewComponent from "./Components/OverviewComponent";
+import PaymentTermsComponent from "./Components/PaymentTermsComponent";
+import NotesComponent from "./Components/NotesComponent";
 
 export default function Show({ current_quote_id, current_deal_id, current_deal= Constants.sampleOpportunity, current_quotes= [], current_quote= null, contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
     const [deal, setDeal]= useState({...current_deal.data[0]});
@@ -25,18 +28,24 @@ export default function Show({ current_quote_id, current_deal_id, current_deal= 
     console.log({accounts});
 
     const initialValues= {
+        quote_no: "",
         status: Constants.statusTypes[0].value,
-        approvalStatus: Constants.approvalStatusTypes[0].value,
-        salesPerson: users.find(user => user.id === deal.Owner.id)?.id,
+        approval_status: Constants.approvalStatusTypes[0].value,
+        sales_person: users.find(user => user.id === deal.Owner.id)?.id,
         contact: contacts.find(contact => contact.id === deal.Contact_Name.id)?.id,
         account: accounts.find(account => account.id === deal.Account_Name.id)?.id,
-        includeShipping: false,
-        includeBilling: true,
-        Deal_Name: deal.Deal_Name,
+        include_shipping: false,
+        include_billing: true,
+        shipping: {},
+        billing: {},
+        deal_name: deal.Deal_Name,
         valid_from: new Date(),
         valid_to: new Date(),
         description: "",
-        items: []
+        items: [],
+        notes: "",
+        paymentTerms: [],
+        vat: 0,
     }
     const validationSchema= Yup.object({
         status: Yup.string()
@@ -48,7 +57,8 @@ export default function Show({ current_quote_id, current_deal_id, current_deal= 
     })
 
     const onSubmit= (values, { setSubmitting }) => {
-        alert(JSON.stringify(values, null, 2));
+        console.log(values)
+        // alert(JSON.stringify(values, null, 2));
     }
     return (
         <>
@@ -62,13 +72,20 @@ export default function Show({ current_quote_id, current_deal_id, current_deal= 
                     <SalesPersonInfoComponent users={users} deal={deal}/>
                     <ContactInfoComponent contacts={contacts} deal={deal}/>
                     <AccountInfoComponent accounts={accounts} deal={deal}/>
-                    <AddressInfoComponent deal={deal}/>
+                    <AddressInfoComponent contacts={contacts} deal={deal}/>
                     <QuoteOtherInfoComponent deal={deal}/>
                     <FieldArray name="items">
                         {(actions) => (
                             <PricingTableComponent products={products} deal={deal} {...actions}/>
                         )}
                     </FieldArray>
+                    <OverviewComponent deal={deal} />
+                    <FieldArray name="paymentTerms">
+                        {(actions) => (
+                            <PaymentTermsComponent deal={deal} {...actions} />
+                        )}
+                    </FieldArray>
+                    <NotesComponent deal={deal}/>
                 </Form>
             </Formik>
         </>

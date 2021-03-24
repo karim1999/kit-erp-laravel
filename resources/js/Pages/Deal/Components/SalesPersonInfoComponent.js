@@ -6,7 +6,7 @@ import {useField} from "formik";
 import ReactSelectFieldComponent from "./Fields/ReactSelectFieldComponent";
 
 export default function ({deal, users}) {
-    const [{value}, meta] = useField("salesPerson");
+    const [{value}, meta] = useField("sales_person");
 
     const salesPerson= () => {
         return users.find(user => user.id === value)
@@ -17,7 +17,7 @@ export default function ({deal, users}) {
                 <div className="row">
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
                         <div className="form-group">
-                            <ReactSelectFieldComponent label="Salesperson Name" name="salesPerson" options={users.map(user => ({value: user.id, label: user.full_name}))} />
+                            <ReactSelectFieldComponent label="Salesperson Name" name="sales_person" options={users.map(user => ({value: user.id, label: user.full_name}))} />
                         </div>
                     </div>
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-9">

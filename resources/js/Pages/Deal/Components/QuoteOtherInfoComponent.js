@@ -27,7 +27,7 @@ export default function ({deal}) {
                 {/*    </div>*/}
                 {/*</div>*/}
                 <div className="col-xl-3 col-lg-3 col-sm-3 col-3">
-                    <TextFieldComponent type="text" label="Deal Title" className="form-control" name="Deal_Name" />
+                    <TextFieldComponent type="text" label="Deal Title" className="form-control" name="deal_name" />
                 </div>
             </div>
             <div className="row mt-2">

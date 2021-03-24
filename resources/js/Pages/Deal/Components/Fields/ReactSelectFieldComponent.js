@@ -14,9 +14,16 @@ export default function ReactSelectFieldComponent({ form, label, options, ...pro
             <Select
                 {...field}
                 {...props}
+                menuPortalTarget={document.body}
+                menuPosition={'fixed'}
                 options={options}
                 value={options ? options.find(option => option.value === field.value) : ''}
-                onChange={(option) => helpers.setValue(option.value)}
+                onChange={(option) => {
+                    helpers.setValue(option.value)
+                    if(props.onChange){
+                        props.onChange(option)
+                    }
+                }}
             />
             {meta.touched && meta.error ? (
                 <div className="error">{meta.error}</div>

@@ -19,12 +19,29 @@ class CreateQuotesTable extends Migration
             $table->string('books_id')->nullable();
 
             $table->string('quote_no');
+            $table->string('status')->nullable();
+            $table->string('approval_status')->nullable();
+            $table->string('sales_person')->nullable();
 
-            $table->date('expiry_date');
+            $table->string('contact')->nullable();
+            $table->string('account')->nullable();
 
-            $table->decimal('sub_total', 15, 2)->default(0);
-            $table->decimal('total', 15, 2)->default(0);
-            $table->decimal('final', 15, 2)->default(0);
+            $table->boolean('include_shipping')->default(1);
+            $table->boolean('include_billing')->default(1);
+
+            $table->string('deal_name')->nullable();
+
+            $table->date('valid_from')->nullable();
+            $table->date('valid_to')->nullable();
+
+            $table->decimal('vat', 15, 2)->default(0);
+
+            $table->longText('description')->nullable();
+            $table->longText('notes')->nullable();
+
+//            $table->decimal('sub_total', 15, 2)->default(0);
+//            $table->decimal('total', 15, 2)->default(0);
+//            $table->decimal('final', 15, 2)->default(0);
 
 //            $table->string('eventlab_fees_label')->nullable();
 //            $table->decimal('eventlab_fees', 15, 2)->default(0);
@@ -36,8 +53,8 @@ class CreateQuotesTable extends Migration
 //            $table->decimal('tax', 15, 2)->default(0);
 
 
-            $table->unsignedBigInteger('term_id')->nullable();
-            $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
+//            $table->unsignedBigInteger('term_id')->nullable();
+//            $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
 
             $table->timestamps();
         });

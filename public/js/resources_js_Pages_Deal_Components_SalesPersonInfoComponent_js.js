@@ -2120,12 +2120,18 @@ function ReactSelectFieldComponent(_ref) {
       htmlFor: props.id || props.name,
       children: label
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_select__WEBPACK_IMPORTED_MODULE_4__.default, _objectSpread(_objectSpread(_objectSpread({}, field), props), {}, {
+      menuPortalTarget: document.body,
+      menuPosition: 'fixed',
       options: options,
       value: options ? options.find(function (option) {
         return option.value === field.value;
       }) : '',
       onChange: function onChange(option) {
-        return helpers.setValue(option.value);
+        helpers.setValue(option.value);
+
+        if (props.onChange) {
+          props.onChange(option);
+        }
       }
     })), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "error",
@@ -2210,7 +2216,7 @@ function SelectFieldComponent(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ SelectFieldComponent)
+/* harmony export */   "default": () => (/* binding */ TextFieldComponent)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
@@ -2243,7 +2249,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
-function SelectFieldComponent(_ref) {
+function TextFieldComponent(_ref) {
   var label = _ref.label,
       props = _objectWithoutProperties(_ref, ["label"]);
 
@@ -2254,7 +2260,7 @@ function SelectFieldComponent(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "form-group",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+    children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: props.id || props.name,
       children: label
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -2311,7 +2317,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   var deal = _ref.deal,
       users = _ref.users;
 
-  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useField)("salesPerson"),
+  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useField)("sales_person"),
       _useField2 = _slicedToArray(_useField, 2),
       value = _useField2[0].value,
       meta = _useField2[1];
@@ -2333,7 +2339,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
             className: "form-group",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_5__.default, {
               label: "Salesperson Name",
-              name: "salesPerson",
+              name: "sales_person",
               options: users.map(function (user) {
                 return {
                   value: user.id,
@@ -2462,6 +2468,79 @@ var Constants = Object.freeze({
   header: {
     name: ""
   },
+  sampleShipping: {
+    contact: "",
+    country: "",
+    district: "",
+    state: "",
+    postal: "",
+    street: "",
+    floor: "",
+    building: ""
+  },
+  sampleBilling: {
+    contact: "",
+    country: "",
+    district: "",
+    state: "",
+    postal: "",
+    street: "",
+    floor: "",
+    building: ""
+  },
+  paymentTermsTypes: [{
+    value: "Advance"
+  }, {
+    value: "Before Delivery"
+  }, {
+    value: "On Delivery"
+  }, {
+    value: "License Issurance"
+  }, {
+    value: "Cloud Provisioning"
+  }, {
+    value: "TOMA Acceptance"
+  }, {
+    value: "Go Live"
+  }, {
+    value: "Project Completion"
+  }, {
+    value: "Date of Tax Invoice"
+  }, {
+    value: "Date of Performa Invoice"
+  }, {
+    value: "Purchase Order"
+  }, {
+    value: "Before Subscription"
+  }, {
+    value: "On Subscription"
+  }, {
+    value: "Before Renewal"
+  }],
+  paymentTermsMethods: [{
+    value: "Wire Transfer"
+  }, {
+    value: "Current Dated Cheque"
+  }, {
+    value: "Post Dated Cheque"
+  }, {
+    value: "Cash"
+  }, {
+    value: "Credit Card"
+  }, {
+    value: "Bank Standing Order"
+  }, {
+    value: "Bank Direct Debit"
+  }],
+  samplePricingTerm: {
+    selected: false,
+    percent: 0,
+    value: 0,
+    type: "",
+    method: "",
+    days: 365,
+    date: new Date()
+  },
   samplePricingItem: {
     selected: false,
     productId: "",
@@ -2475,11 +2554,29 @@ var Constants = Object.freeze({
     costPrice: 0,
     unitPrice: 0,
     margin: 0,
-    marginType: "%",
+    marginPercent: 0,
     discount: 0,
-    discountType: "%",
+    discountPercent: 0,
     gross: 0,
     net: 0
+  },
+  samplePricingItemMap: {
+    productId: "id",
+    partNumber: "Product_Code",
+    vendorPartNumber: "SKU_No",
+    type: "Product_Type",
+    name: "Product_Name",
+    description: "Product_Description",
+    unit: "Usage_Unit",
+    costPrice: 0,
+    unitPrice: "Unit_Price",
+    margin: "Margin_Value",
+    marginPercent: "Margin" // discount: 0,
+    // discountPercent: 0,
+    //
+    // gross: 0,
+    // net: 0,
+
   },
   // sampleFormItem: {
   // 	partNumber: "",

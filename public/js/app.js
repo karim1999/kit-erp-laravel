@@ -53085,6 +53085,14 @@ var map = {
 		"./resources/js/Pages/Deal/Components/ContactInfoComponent.js",
 		"resources_js_Pages_Deal_Components_ContactInfoComponent_js"
 	],
+	"./Deal/Components/Fields/AsyncReactSelectFieldComponent": [
+		"./resources/js/Pages/Deal/Components/Fields/AsyncReactSelectFieldComponent.js",
+		"resources_js_Pages_Deal_Components_Fields_AsyncReactSelectFieldComponent_js"
+	],
+	"./Deal/Components/Fields/AsyncReactSelectFieldComponent.js": [
+		"./resources/js/Pages/Deal/Components/Fields/AsyncReactSelectFieldComponent.js",
+		"resources_js_Pages_Deal_Components_Fields_AsyncReactSelectFieldComponent_js"
+	],
 	"./Deal/Components/Fields/CheckBoxFieldComponent": [
 		"./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js",
 		"resources_js_Pages_Deal_Components_Fields_CheckBoxFieldComponent_js"
@@ -53141,6 +53149,30 @@ var map = {
 		"./resources/js/Pages/Deal/Components/HeaderComponent.js",
 		"resources_js_Pages_Deal_Components_HeaderComponent_js"
 	],
+	"./Deal/Components/NotesComponent": [
+		"./resources/js/Pages/Deal/Components/NotesComponent.js",
+		"resources_js_Pages_Deal_Components_NotesComponent_js"
+	],
+	"./Deal/Components/NotesComponent.js": [
+		"./resources/js/Pages/Deal/Components/NotesComponent.js",
+		"resources_js_Pages_Deal_Components_NotesComponent_js"
+	],
+	"./Deal/Components/OverviewComponent": [
+		"./resources/js/Pages/Deal/Components/OverviewComponent.js",
+		"resources_js_Pages_Deal_Components_OverviewComponent_js"
+	],
+	"./Deal/Components/OverviewComponent.js": [
+		"./resources/js/Pages/Deal/Components/OverviewComponent.js",
+		"resources_js_Pages_Deal_Components_OverviewComponent_js"
+	],
+	"./Deal/Components/PaymentTermsComponent": [
+		"./resources/js/Pages/Deal/Components/PaymentTermsComponent.js",
+		"resources_js_Pages_Deal_Components_PaymentTermsComponent_js"
+	],
+	"./Deal/Components/PaymentTermsComponent.js": [
+		"./resources/js/Pages/Deal/Components/PaymentTermsComponent.js",
+		"resources_js_Pages_Deal_Components_PaymentTermsComponent_js"
+	],
 	"./Deal/Components/PricingTableComponent": [
 		"./resources/js/Pages/Deal/Components/PricingTableComponent.js",
 		"resources_js_Pages_Deal_Components_PricingTableComponent_js"
@@ -53196,6 +53228,30 @@ var map = {
 	"./Deal/Components/Table/TableItem.js": [
 		"./resources/js/Pages/Deal/Components/Table/TableItem.js",
 		"resources_js_Pages_Deal_Components_Table_TableItem_js"
+	],
+	"./Deal/Components/TermsTable/DragHandlerComponent": [
+		"./resources/js/Pages/Deal/Components/TermsTable/DragHandlerComponent.js",
+		"resources_js_Pages_Deal_Components_TermsTable_DragHandlerComponent_js"
+	],
+	"./Deal/Components/TermsTable/DragHandlerComponent.js": [
+		"./resources/js/Pages/Deal/Components/TermsTable/DragHandlerComponent.js",
+		"resources_js_Pages_Deal_Components_TermsTable_DragHandlerComponent_js"
+	],
+	"./Deal/Components/TermsTable/TableBody": [
+		"./resources/js/Pages/Deal/Components/TermsTable/TableBody.js",
+		"resources_js_Pages_Deal_Components_TermsTable_TableBody_js"
+	],
+	"./Deal/Components/TermsTable/TableBody.js": [
+		"./resources/js/Pages/Deal/Components/TermsTable/TableBody.js",
+		"resources_js_Pages_Deal_Components_TermsTable_TableBody_js"
+	],
+	"./Deal/Components/TermsTable/TableItem": [
+		"./resources/js/Pages/Deal/Components/TermsTable/TableItem.js",
+		"resources_js_Pages_Deal_Components_TermsTable_TableItem_js"
+	],
+	"./Deal/Components/TermsTable/TableItem.js": [
+		"./resources/js/Pages/Deal/Components/TermsTable/TableItem.js",
+		"resources_js_Pages_Deal_Components_TermsTable_TableItem_js"
 	],
 	"./Deal/Show": [
 		"./resources/js/Pages/Deal/Show.js",
@@ -53342,7 +53398,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Deal_Components_AccountInfoComponent_js":1,"resources_js_Pages_Deal_Components_AddressInfoComponent_js":1,"resources_js_Pages_Deal_Components_ContactInfoComponent_js":1,"resources_js_Pages_Deal_Components_Fields_CheckBoxFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_DatePickerFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_ReactSelectFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_SelectFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_TextAreaFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_TextFieldComponent_js":1,"resources_js_Pages_Deal_Components_HeaderComponent_js":1,"resources_js_Pages_Deal_Components_PricingTableComponent_js":1,"resources_js_Pages_Deal_Components_QuoteBasicInfoComponent_js":1,"resources_js_Pages_Deal_Components_QuoteOtherInfoComponent_js":1,"resources_js_Pages_Deal_Components_SalesPersonInfoComponent_js":1,"resources_js_Pages_Deal_Components_Table_DragHandlerComponent_js":1,"resources_js_Pages_Deal_Components_Table_TableBody_js":1,"resources_js_Pages_Deal_Components_Table_TableItem_js":1,"resources_js_Pages_Deal_Show_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Deal_Components_AccountInfoComponent_js":1,"resources_js_Pages_Deal_Components_AddressInfoComponent_js":1,"resources_js_Pages_Deal_Components_ContactInfoComponent_js":1,"resources_js_Pages_Deal_Components_Fields_AsyncReactSelectFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_CheckBoxFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_DatePickerFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_ReactSelectFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_SelectFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_TextAreaFieldComponent_js":1,"resources_js_Pages_Deal_Components_Fields_TextFieldComponent_js":1,"resources_js_Pages_Deal_Components_HeaderComponent_js":1,"resources_js_Pages_Deal_Components_NotesComponent_js":1,"resources_js_Pages_Deal_Components_OverviewComponent_js":1,"resources_js_Pages_Deal_Components_PaymentTermsComponent_js":1,"resources_js_Pages_Deal_Components_PricingTableComponent_js":1,"resources_js_Pages_Deal_Components_QuoteBasicInfoComponent_js":1,"resources_js_Pages_Deal_Components_QuoteOtherInfoComponent_js":1,"resources_js_Pages_Deal_Components_SalesPersonInfoComponent_js":1,"resources_js_Pages_Deal_Components_Table_DragHandlerComponent_js":1,"resources_js_Pages_Deal_Components_Table_TableBody_js":1,"resources_js_Pages_Deal_Components_Table_TableItem_js":1,"resources_js_Pages_Deal_Components_TermsTable_DragHandlerComponent_js":1,"resources_js_Pages_Deal_Components_TermsTable_TableBody_js":1,"resources_js_Pages_Deal_Components_TermsTable_TableItem_js":1,"resources_js_Pages_Deal_Show_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

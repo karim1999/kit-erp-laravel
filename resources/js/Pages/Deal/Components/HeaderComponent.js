@@ -41,7 +41,7 @@ export default function ({deal}){
                                 </div>
                             </div>
                             <div className="col-xl-2 col-lg-2 col-sm-2 col-2">
-                                <SelectFieldComponent className="custom-select" label="Quote Approval Status" name="approvalStatus">
+                                <SelectFieldComponent className="custom-select" label="Quote Approval Status" name="approval_status">
                                     {
                                         Constants.approvalStatusTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
                                     }
