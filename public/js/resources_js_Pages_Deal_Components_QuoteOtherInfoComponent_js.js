@@ -22221,9 +22221,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var deep_equal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! deep-equal */ "./node_modules/deep-equal/index.js");
 /* harmony import */ var deep_equal__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(deep_equal__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
-/* harmony import */ var _Manager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Manager */ "./node_modules/react-popper/lib/esm/Manager.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils */ "./node_modules/react-popper/lib/esm/utils.js");
+/* harmony import */ var popper_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+/* harmony import */ var _Manager__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Manager */ "./node_modules/react-popper/lib/esm/Manager.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils */ "./node_modules/react-popper/lib/esm/utils.js");
 
 
 
@@ -22269,7 +22269,7 @@ function (_React$Component) {
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_4__.default)((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__.default)((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__.default)(_this)), "setPopperNode", function (popperNode) {
       if (!popperNode || _this.popperNode === popperNode) return;
-      (0,_utils__WEBPACK_IMPORTED_MODULE_9__.setRef)(_this.props.innerRef, popperNode);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_7__.setRef)(_this.props.innerRef, popperNode);
       _this.popperNode = popperNode;
 
       _this.updatePopperInstance();
@@ -22346,7 +22346,7 @@ function (_React$Component) {
 
       var referenceElement = _this.props.referenceElement;
       if (!referenceElement || !popperNode) return;
-      _this.popperInstance = new popper_js__WEBPACK_IMPORTED_MODULE_7__.default(referenceElement, popperNode, _this.getOptions());
+      _this.popperInstance = new popper_js__WEBPACK_IMPORTED_MODULE_8__.default(referenceElement, popperNode, _this.getOptions());
     });
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_4__.default)((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__.default)((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__.default)(_this)), "scheduleUpdate", function () {
@@ -22367,7 +22367,7 @@ function (_React$Component) {
     })) {
       // develop only check that modifiers isn't being updated needlessly
       if (true) {
-        if (this.props.modifiers !== prevProps.modifiers && this.props.modifiers != null && prevProps.modifiers != null && (0,_utils__WEBPACK_IMPORTED_MODULE_9__.shallowEqual)(this.props.modifiers, prevProps.modifiers)) {
+        if (this.props.modifiers !== prevProps.modifiers && this.props.modifiers != null && prevProps.modifiers != null && (0,_utils__WEBPACK_IMPORTED_MODULE_7__.shallowEqual)(this.props.modifiers, prevProps.modifiers)) {
           console.warn("'modifiers' prop reference updated even though all values appear the same.\nConsider memoizing the 'modifiers' object to avoid needless rendering.");
         }
       }
@@ -22387,12 +22387,12 @@ function (_React$Component) {
   };
 
   _proto.componentWillUnmount = function componentWillUnmount() {
-    (0,_utils__WEBPACK_IMPORTED_MODULE_9__.setRef)(this.props.innerRef, null);
+    (0,_utils__WEBPACK_IMPORTED_MODULE_7__.setRef)(this.props.innerRef, null);
     this.destroyPopperInstance();
   };
 
   _proto.render = function render() {
-    return (0,_utils__WEBPACK_IMPORTED_MODULE_9__.unwrapArray)(this.props.children)({
+    return (0,_utils__WEBPACK_IMPORTED_MODULE_7__.unwrapArray)(this.props.children)({
       ref: this.setPopperNode,
       style: this.getPopperStyle(),
       placement: this.getPopperPlacement(),
@@ -22415,13 +22415,13 @@ function (_React$Component) {
   positionFixed: false
 });
 
-var placements = popper_js__WEBPACK_IMPORTED_MODULE_7__.default.placements;
+var placements = popper_js__WEBPACK_IMPORTED_MODULE_8__.default.placements;
 
 function Popper(_ref) {
   var referenceElement = _ref.referenceElement,
       props = (0,_babel_runtime_helpers_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__.default)(_ref, ["referenceElement"]);
 
-  return react__WEBPACK_IMPORTED_MODULE_6__.createElement(_Manager__WEBPACK_IMPORTED_MODULE_8__.ManagerReferenceNodeContext.Consumer, null, function (referenceNode) {
+  return react__WEBPACK_IMPORTED_MODULE_6__.createElement(_Manager__WEBPACK_IMPORTED_MODULE_9__.ManagerReferenceNodeContext.Consumer, null, function (referenceNode) {
     return react__WEBPACK_IMPORTED_MODULE_6__.createElement(InnerPopper, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_1__.default)({
       referenceElement: referenceElement !== undefined ? referenceElement : referenceNode
     }, props));
@@ -22448,8 +22448,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var warning__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! warning */ "./node_modules/warning/warning.js");
 /* harmony import */ var warning__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(warning__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _Manager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Manager */ "./node_modules/react-popper/lib/esm/Manager.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils */ "./node_modules/react-popper/lib/esm/utils.js");
+/* harmony import */ var _Manager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Manager */ "./node_modules/react-popper/lib/esm/Manager.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils */ "./node_modules/react-popper/lib/esm/utils.js");
 
 
 
@@ -22474,8 +22474,8 @@ function (_React$Component) {
     _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_3__.default)((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__.default)((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__.default)(_this)), "refHandler", function (node) {
-      (0,_utils__WEBPACK_IMPORTED_MODULE_7__.setRef)(_this.props.innerRef, node);
-      (0,_utils__WEBPACK_IMPORTED_MODULE_7__.safeInvoke)(_this.props.setReferenceNode, node);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_6__.setRef)(_this.props.innerRef, node);
+      (0,_utils__WEBPACK_IMPORTED_MODULE_6__.safeInvoke)(_this.props.setReferenceNode, node);
     });
 
     return _this;
@@ -22484,12 +22484,12 @@ function (_React$Component) {
   var _proto = InnerReference.prototype;
 
   _proto.componentWillUnmount = function componentWillUnmount() {
-    (0,_utils__WEBPACK_IMPORTED_MODULE_7__.setRef)(this.props.innerRef, null);
+    (0,_utils__WEBPACK_IMPORTED_MODULE_6__.setRef)(this.props.innerRef, null);
   };
 
   _proto.render = function render() {
     warning__WEBPACK_IMPORTED_MODULE_5___default()(Boolean(this.props.setReferenceNode), '`Reference` should not be used outside of a `Manager` component.');
-    return (0,_utils__WEBPACK_IMPORTED_MODULE_7__.unwrapArray)(this.props.children)({
+    return (0,_utils__WEBPACK_IMPORTED_MODULE_6__.unwrapArray)(this.props.children)({
       ref: this.refHandler
     });
   };
@@ -22498,7 +22498,7 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_4__.Component);
 
 function Reference(props) {
-  return react__WEBPACK_IMPORTED_MODULE_4__.createElement(_Manager__WEBPACK_IMPORTED_MODULE_6__.ManagerReferenceNodeSetterContext.Consumer, null, function (setReferenceNode) {
+  return react__WEBPACK_IMPORTED_MODULE_4__.createElement(_Manager__WEBPACK_IMPORTED_MODULE_7__.ManagerReferenceNodeSetterContext.Consumer, null, function (setReferenceNode) {
     return react__WEBPACK_IMPORTED_MODULE_4__.createElement(InnerReference, (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__.default)({
       setReferenceNode: setReferenceNode
     }, props));
