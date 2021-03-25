@@ -109,22 +109,25 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote}){
                     </div>
                 </div>
                 <hr />
-                <div className="row">
-                    <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
-                        <label>Quote Version</label>
-                        <Slider {...settings}>
-                            {
-                                quotes.map(quote => (
-                                    <InertiaLink key={quote.id} href={"/quotes/"+quote.id} method="get" as="div" type="button">
-                                        <span className="horizontal-span">
-                                            {quote.quote_no}
-                                        </span>
-                                    </InertiaLink>
-                                ))
-                            }
-                        </Slider>
+                {
+                    quotes && quotes.length > 0 &&
+                    <div className="row">
+                        <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
+                            <label>Quote Version</label>
+                            <Slider {...settings}>
+                                {
+                                    quotes.map(quote => (
+                                        <InertiaLink key={quote.id} href={"/quotes/"+quote.id} method="get" as="div" type="button">
+                                            <span className="horizontal-span">
+                                                {quote.quote_no}
+                                            </span>
+                                        </InertiaLink>
+                                    ))
+                                }
+                            </Slider>
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     )

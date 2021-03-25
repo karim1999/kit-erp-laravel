@@ -1,17 +1,1 @@
-.react-datepicker-wrapper{
-    width: 100%;
-}
-.scrollBox{
-    height: auto;
-    max-height: 70vh;
-}
-.form-control {
-    min-width: 70px;
-}
-.form-group {
-    margin-bottom: 0;
-}
-.slick-track{
-    width: auto !important;
-}
-
+.react-datepicker-wrapper{width:100%}.scrollBox{height:auto;max-height:70vh}.form-control{min-width:70px}.form-group{margin-bottom:0}.slick-track{width:auto!important}
