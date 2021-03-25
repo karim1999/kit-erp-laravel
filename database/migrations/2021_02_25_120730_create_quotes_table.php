@@ -16,6 +16,7 @@ class CreateQuotesTable extends Migration
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
             $table->string('zoho_id');
+            $table->integer('version')->default(1);
             $table->string('books_id')->nullable();
 
             $table->string('quote_no');

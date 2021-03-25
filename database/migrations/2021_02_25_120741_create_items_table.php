@@ -16,27 +16,32 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
 
+            $table->string('product_id')->nullable();
+            $table->string('part_number')->nullable();
+            $table->string('type')->nullable();
+            $table->string('vendor_part_number')->nullable();
+
             $table->string('name')->nullable();
             $table->mediumText('description')->nullable();
+
             $table->integer('quantity')->default(1);
 
-            $table->decimal('in_rate', 15, 2)->default(0);
-            $table->decimal('out_rate', 15, 2)->default(0);
+            $table->decimal('margin_percent', 15, 2)->default(0);
             $table->decimal('margin', 15, 2)->default(0);
-            $table->enum('margin_type', ["%", "actual"])->default('%');
-            $table->decimal('discount', 15, 2)->default(0);
-            $table->enum('discount_type', ["%", "actual"])->default('%');
 
-            $table->decimal('amount', 15, 2)->default(0);
-            $table->decimal('actual', 15, 2)->default(0);
-            $table->decimal('period', 15, 2)->default(0);
-            $table->string('period_unit')->nullable();
+            $table->decimal('discount_percent', 15, 2)->default(0);
+            $table->decimal('discount', 15, 2)->default(0);
+
+            $table->decimal('cost_price', 15, 2)->default(0);
+            $table->decimal('unit_price', 15, 2)->default(0);
 
             $table->string('unit')->nullable();
 
-            $table->boolean('is_header')->default(false);
-            $table->boolean('is_text')->default(true);
-            $table->string('product_id')->nullable();
+            $table->decimal('gross', 15, 2)->default(0);
+            $table->decimal('net', 15, 2)->default(0);
+
+//            $table->boolean('is_header')->default(false);
+//            $table->boolean('is_text')->default(true);
 
 
             $table->unsignedBigInteger('quote_id')->nullable();

@@ -4,17 +4,51 @@ import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { InertiaLink } from '@inertiajs/inertia-react'
 
-export default function ({deal}){
+export default function ({deal, generateQuote, updateQuote, quotes, quote}){
     const settings= {
-        infinite: true,
+        infinite: false,
         // rows: 0,
-        // slidesToShow: 10,
+        slidesToShow: 10,
         slidesToScroll: 1,
         arrows: true,
         dots: false,
         draggable: true,
-        touchMove: true
+        touchMove: true,
+        centerMode: false,
+        responsive: [
+            {
+                breakpoint: 1920,
+                settings: {
+                    slidesToShow: 12,
+                }
+            },
+            {
+                breakpoint: 1440,
+                settings: {
+                    slidesToShow: 9,
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 6,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
     }
     return (
         <div className="jumbotron jumbotron-fluid sticky-top">
@@ -47,22 +81,31 @@ export default function ({deal}){
                                     }
                                 </SelectFieldComponent>
                             </div>
-                            <div className="col-xl-2 col-lg-2 col-sm-2 col-2 text-right">
-                                <label>&nbsp;</label>
-                                <div className="clearfix"></div>
-                                <button type="button" className="btn btn-warning btn-sm">Request Approval</button>
-                            </div>
+                            {
+                                quote &&
+                                <div className="col-xl-2 col-lg-2 col-sm-2 col-2 text-right">
+                                    <label>&nbsp;</label>
+                                    <div className="clearfix"></div>
+                                    <button onClick={() => updateQuote()} type="button" className="btn btn-warning btn-sm">Update Quote</button>
+                                </div>
+                            }
                             <div className="col-xl-2 col-lg-2 col-sm-2 col-2">
                                 <label>&nbsp;</label>
                                 <div className="clearfix"></div>
-                                <button type="submit" className="btn btn-success btn-sm">Generate Quote</button>
+                                <button onClick={() => generateQuote()} type="button" className="btn btn-success btn-sm">Generate Quote</button>
                             </div>
                         </div>
                     </div>
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-12 text-right">
                         <label>&nbsp;</label>
                         <div className="clearfix"></div>
-                        <button type="button" className="btn btn-primary btn-sm">Back to Deal</button>
+                        {
+                            quote &&
+                            <InertiaLink href={"/deals/"+deal.id} method="get" as="button" type="button" className="btn btn-primary btn-sm">
+                                Back to Deal
+                            </InertiaLink>
+                        }
+                        {/*<button type="button" className="btn btn-primary btn-sm">Back to Deal</button>*/}
                     </div>
                 </div>
                 <hr />
@@ -70,16 +113,15 @@ export default function ({deal}){
                     <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
                         <label>Quote Version</label>
                         <Slider {...settings}>
-                            <div>
-                                <span className="horizontal-span">
-                                    QT-1234-V1-DDMMYY
-                                </span>
-                            </div>
-                            <div>
-                                <span className="horizontal-span">
-                                    QT-1234-V1-DDMMYY
-                                </span>
-                            </div>
+                            {
+                                quotes.map(quote => (
+                                    <InertiaLink key={quote.id} href={"/quotes/"+quote.id} method="get" as="div" type="button">
+                                        <span className="horizontal-span">
+                                            {quote.quote_no}
+                                        </span>
+                                    </InertiaLink>
+                                ))
+                            }
                         </Slider>
                     </div>
                 </div>

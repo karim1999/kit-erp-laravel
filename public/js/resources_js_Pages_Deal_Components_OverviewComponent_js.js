@@ -353,7 +353,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "costPrice"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "cost_price"),
                   disabled: true
                 })
               })]
@@ -392,7 +392,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "discountPercent"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "discount_percent"),
                   disabled: true
                 })
               })]
@@ -418,7 +418,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "marginPercent"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "margin_percent"),
                   disabled: true
                 })
               })]
@@ -493,7 +493,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(itemsField.value, "discountPercent"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(itemsField.value, "discount_percent"),
                   disabled: true
                 })
               })]
@@ -596,8 +596,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getTotalDiscount": () => (/* binding */ getTotalDiscount),
 /* harmony export */   "getTotalByKey": () => (/* binding */ getTotalByKey),
 /* harmony export */   "getTotalVat": () => (/* binding */ getTotalVat),
-/* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc)
+/* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc),
+/* harmony export */   "mapItems": () => (/* binding */ mapItems),
+/* harmony export */   "mapTerms": () => (/* binding */ mapTerms)
 /* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var calculateItemDiscount = function calculateItemDiscount(item) {
   if (item.discountType == "%") {
     return precise(item.outRate * item.quantity * (item.discount / 100));
@@ -619,10 +627,10 @@ var precise = function precise(x) {
   return Math.round((x + Number.EPSILON) * 100) / 100; // }
 };
 var grossValue = function grossValue(item) {
-  return precise(item.quantity * item.costPrice);
+  return precise(item.quantity * item.cost_price);
 };
 var discount = function discount(item) {
-  return precise(grossValue(item) * item.discountPercent / 100);
+  return precise(grossValue(item) * item.discount_percent / 100);
 };
 var calculateNet = function calculateNet(item) {
   return precise(grossValue(item) - discount(item));
@@ -638,7 +646,7 @@ var getTotalDiscount = function getTotalDiscount(items) {
 };
 var getTotalByKey = function getTotalByKey(items, key) {
   return getTotalByFunc(items, function (item) {
-    return item[key];
+    return (item[key] || 0) * 1;
   });
 };
 var getTotalVat = function getTotalVat(items, vat) {
@@ -649,6 +657,23 @@ var getTotalByFunc = function getTotalByFunc(items, func) {
   return precise(items.reduce(function (accumulator, currentValue) {
     return accumulator * 1 + func(currentValue);
   }, 0));
+};
+var mapItems = function mapItems(items) {
+  return items.map(function (item) {
+    return _objectSpread(_objectSpread({}, item), {}, {
+      gross: grossValue(item),
+      discount: discount(item),
+      net: calculateNet(item)
+    });
+  });
+};
+var mapTerms = function mapTerms(terms, items) {
+  var total = getTotalNet(items);
+  return terms.map(function (term) {
+    return _objectSpread(_objectSpread({}, term), {}, {
+      value: precise(term.percent / 100 * total)
+    });
+  });
 };
 
 /***/ }),
@@ -736,42 +761,42 @@ var Constants = Object.freeze({
     selected: false,
     percent: 0,
     value: 0,
-    type: "",
-    method: "",
+    type: "Advance",
+    method: "Wire Transfer",
     days: 365,
-    date: new Date()
+    end_date: new Date()
   },
   samplePricingItem: {
     selected: false,
-    productId: "",
-    partNumber: "",
-    vendorPartNumber: "",
+    product_id: "",
+    part_number: "",
+    vendor_part_number: "",
     type: "",
     name: "",
     description: "",
     quantity: 1,
     unit: "Month",
-    costPrice: 0,
-    unitPrice: 0,
+    cost_price: 0,
+    unit_price: 0,
     margin: 0,
-    marginPercent: 0,
+    margin_percent: 0,
     discount: 0,
-    discountPercent: 0,
+    discount_percent: 0,
     gross: 0,
     net: 0
   },
   samplePricingItemMap: {
-    productId: "id",
-    partNumber: "Product_Code",
-    vendorPartNumber: "SKU_No",
+    product_id: "id",
+    part_number: "Product_Code",
+    vendor_part_number: "SKU_No",
     type: "Product_Type",
     name: "Product_Name",
     description: "Product_Description",
     unit: "Usage_Unit",
-    costPrice: 0,
-    unitPrice: "Unit_Price",
+    cost_price: 0,
+    unit_price: "Unit_Price",
     margin: "Margin_Value",
-    marginPercent: "Margin" // discount: 0,
+    margin_percent: "Margin" // discount: 0,
     // discountPercent: 0,
     //
     // gross: 0,

@@ -3,8 +3,8 @@ import React from 'react'
 import { render } from 'react-dom'
 import { InertiaProgress } from '@inertiajs/progress'
 require('./bootstrap');
-
 InertiaProgress.init()
+import 'react-toastify/dist/ReactToastify.css';
 
 const el = document.getElementById('app')
 

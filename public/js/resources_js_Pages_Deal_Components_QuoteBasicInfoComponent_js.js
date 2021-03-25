@@ -157,7 +157,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(_ref) {
   var _deal$Created_By, _deal$Modified_By;
 
-  var deal = _ref.deal;
+  var deal = _ref.deal,
+      pushDeal = _ref.pushDeal,
+      pushQuote = _ref.pushQuote,
+      pushAll = _ref.pushAll,
+      quote = _ref.quote;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "container my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -177,18 +181,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
           children: "\xA0"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          disabled: !quote,
+          onClick: pushQuote,
           type: "button",
           className: "btn btn-warning btn-sm btn-block",
-          children: "Edit Quote"
+          children: "Push Quote"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "col-xl-1 col-lg-1 col-sm-1 col-2 px-2",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
           children: "\xA0"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          disabled: !quote,
+          onClick: pushDeal,
           type: "button",
           className: "btn btn-primary btn-sm btn-block",
-          children: "Save Quote"
+          children: "Push Deal"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "col-xl-2 col-lg-2 col-sm-2 col-9",
@@ -208,9 +216,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
           children: "\xA0"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          disabled: !quote,
+          onClick: pushAll,
           type: "button",
           className: "btn btn-success btn-sm btn-block",
-          children: "Push Quote Status to Deal"
+          children: "Push All"
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -360,42 +370,42 @@ var Constants = Object.freeze({
     selected: false,
     percent: 0,
     value: 0,
-    type: "",
-    method: "",
+    type: "Advance",
+    method: "Wire Transfer",
     days: 365,
-    date: new Date()
+    end_date: new Date()
   },
   samplePricingItem: {
     selected: false,
-    productId: "",
-    partNumber: "",
-    vendorPartNumber: "",
+    product_id: "",
+    part_number: "",
+    vendor_part_number: "",
     type: "",
     name: "",
     description: "",
     quantity: 1,
     unit: "Month",
-    costPrice: 0,
-    unitPrice: 0,
+    cost_price: 0,
+    unit_price: 0,
     margin: 0,
-    marginPercent: 0,
+    margin_percent: 0,
     discount: 0,
-    discountPercent: 0,
+    discount_percent: 0,
     gross: 0,
     net: 0
   },
   samplePricingItemMap: {
-    productId: "id",
-    partNumber: "Product_Code",
-    vendorPartNumber: "SKU_No",
+    product_id: "id",
+    part_number: "Product_Code",
+    vendor_part_number: "SKU_No",
     type: "Product_Type",
     name: "Product_Name",
     description: "Product_Description",
     unit: "Usage_Unit",
-    costPrice: 0,
-    unitPrice: "Unit_Price",
+    cost_price: 0,
+    unit_price: "Unit_Price",
     margin: "Margin_Value",
-    marginPercent: "Margin" // discount: 0,
+    margin_percent: "Margin" // discount: 0,
     // discountPercent: 0,
     //
     // gross: 0,

@@ -3,7 +3,7 @@ import Constants from "../../../helpers/samples";
 import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
 
-export default function ({deal}) {
+export default function ({deal, pushDeal, pushQuote, pushAll, quote}) {
     return (
         <div className="container my-4">
             <div className="row">
@@ -12,11 +12,11 @@ export default function ({deal}) {
                 </div>
                 <div className="col-xl-1 col-lg-1 col-sm-1 col-2">
                     <label>&nbsp;</label>
-                    <button type="button" className="btn btn-warning btn-sm btn-block">Edit Quote</button>
+                    <button disabled={!quote} onClick={pushQuote} type="button" className="btn btn-warning btn-sm btn-block">Push Quote</button>
                 </div>
                 <div className="col-xl-1 col-lg-1 col-sm-1 col-2 px-2">
                     <label>&nbsp;</label>
-                    <button type="button" className="btn btn-primary btn-sm btn-block">Save Quote</button>
+                    <button disabled={!quote} onClick={pushDeal} type="button" className="btn btn-primary btn-sm btn-block">Push Deal</button>
                 </div>
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-9">
                     <SelectFieldComponent className="custom-select" label="Quote Status" name="status">
@@ -27,7 +27,7 @@ export default function ({deal}) {
                 </div>
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
                     <label>&nbsp;</label>
-                    <button type="button" className="btn btn-success btn-sm btn-block">Push Quote Status to Deal
+                    <button disabled={!quote} onClick={pushAll} type="button" className="btn btn-success btn-sm btn-block">Push All
                     </button>
                 </div>
             </div>

@@ -11,3 +11,6 @@
 .form-group {
     margin-bottom: 0;
 }
+.slick-track{
+    width: auto !important;
+}

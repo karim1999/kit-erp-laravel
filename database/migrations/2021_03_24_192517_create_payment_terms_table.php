@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShippingsTable extends Migration
+class CreatePaymentTermsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreateShippingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shippings', function (Blueprint $table) {
+        Schema::create('payment_terms', function (Blueprint $table) {
             $table->id();
 
-            $table->string('contact')->nullable();
-            $table->string('country')->nullable();
-            $table->string('district')->nullable();
-            $table->string('state')->nullable();
-            $table->string('postal')->nullable();
-            $table->string('street')->nullable();
-            $table->string('floor')->nullable();
-            $table->string('building')->nullable();
+            $table->decimal('percent', 15, 2)->default(0);
+            $table->decimal('value', 15, 2)->default(0);
+            $table->string('type')->nullable();
+            $table->string('method')->nullable();
+            $table->integer('days')->default(1);
+            $table->date('end_date')->nullable();
+
 
             $table->unsignedBigInteger('quote_id')->nullable();
             $table->foreign('quote_id')->references('id')->on('quotes')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -38,6 +38,6 @@ class CreateShippingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shippings');
+        Schema::dropIfExists('payment_terms');
     }
 }

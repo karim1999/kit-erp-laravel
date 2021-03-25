@@ -12511,7 +12511,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       remove = _ref2.remove,
       products = _ref2.products;
 
-  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".productId")),
+  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".product_id")),
       _useField4 = _slicedToArray(_useField3, 2),
       productIdField = _useField4[0],
       productIdFieldMeta = _useField4[1];
@@ -12522,7 +12522,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       itemFieldMeta = _useField6[1],
       itemFieldHelpers = _useField6[2];
 
-  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".costPrice")),
+  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".cost_price")),
       _useField8 = _slicedToArray(_useField7, 3),
       costPriceField = _useField8[0],
       costPriceFieldMeta = _useField8[1],
@@ -12566,7 +12566,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
               }
 
               itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItem), {}, {
-                productId: option.value
+                product_id: option.value
               }));
               return _context.abrupt("return");
 
@@ -12602,10 +12602,10 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       return _ref3.apply(this, arguments);
     };
   }(); // const grossValue= () => {
-  //     return precise(itemField.value.quantity * itemField.value.costPrice);
+  //     return precise(itemField.value.quantity * itemField.value.cost_price);
   // }
   // const discount= () => {
-  //     return precise(grossValue()*itemField.value.discountPercent/100);
+  //     return precise(grossValue()*itemField.value.discount_percent/100);
   // }
   // const net= () => {
   //     return precise(grossValue() - discount());
@@ -12630,7 +12630,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_7__.default, {
         onChange: onChange,
         label: "",
-        name: "items.".concat(itemIndex, ".productId"),
+        name: "items.".concat(itemIndex, ".product_id"),
         options: products.map(function (product) {
           return {
             value: product.id,
@@ -12645,13 +12645,13 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, (_jsx2 = {
         type: "text"
-      }, _defineProperty(_jsx2, "type", "text"), _defineProperty(_jsx2, "className", "form-control"), _defineProperty(_jsx2, "name", "items.".concat(itemIndex, ".vendorPartNumber")), _defineProperty(_jsx2, "disabled", true), _jsx2))
+      }, _defineProperty(_jsx2, "type", "text"), _defineProperty(_jsx2, "className", "form-control"), _defineProperty(_jsx2, "name", "items.".concat(itemIndex, ".vendor_part_number")), _defineProperty(_jsx2, "disabled", true), _jsx2))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
-        name: "items.".concat(itemIndex, ".partNumber"),
+        name: "items.".concat(itemIndex, ".part_number"),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -12667,7 +12667,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
-        name: "items.".concat(itemIndex, ".costPrice"),
+        name: "items.".concat(itemIndex, ".cost_price"),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -12675,7 +12675,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
-        name: "items.".concat(itemIndex, ".unitPrice"),
+        name: "items.".concat(itemIndex, ".unit_price"),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -12707,7 +12707,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
         type: "number",
         step: .01,
         className: "form-control",
-        name: "items.".concat(itemIndex, ".discountPercent")
+        name: "items.".concat(itemIndex, ".discount_percent")
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
@@ -12722,7 +12722,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
-        name: "items.".concat(itemIndex, ".marginPercent"),
+        name: "items.".concat(itemIndex, ".margin_percent"),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -12767,8 +12767,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getTotalDiscount": () => (/* binding */ getTotalDiscount),
 /* harmony export */   "getTotalByKey": () => (/* binding */ getTotalByKey),
 /* harmony export */   "getTotalVat": () => (/* binding */ getTotalVat),
-/* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc)
+/* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc),
+/* harmony export */   "mapItems": () => (/* binding */ mapItems),
+/* harmony export */   "mapTerms": () => (/* binding */ mapTerms)
 /* harmony export */ });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var calculateItemDiscount = function calculateItemDiscount(item) {
   if (item.discountType == "%") {
     return precise(item.outRate * item.quantity * (item.discount / 100));
@@ -12790,10 +12798,10 @@ var precise = function precise(x) {
   return Math.round((x + Number.EPSILON) * 100) / 100; // }
 };
 var grossValue = function grossValue(item) {
-  return precise(item.quantity * item.costPrice);
+  return precise(item.quantity * item.cost_price);
 };
 var discount = function discount(item) {
-  return precise(grossValue(item) * item.discountPercent / 100);
+  return precise(grossValue(item) * item.discount_percent / 100);
 };
 var calculateNet = function calculateNet(item) {
   return precise(grossValue(item) - discount(item));
@@ -12809,7 +12817,7 @@ var getTotalDiscount = function getTotalDiscount(items) {
 };
 var getTotalByKey = function getTotalByKey(items, key) {
   return getTotalByFunc(items, function (item) {
-    return item[key];
+    return (item[key] || 0) * 1;
   });
 };
 var getTotalVat = function getTotalVat(items, vat) {
@@ -12820,6 +12828,23 @@ var getTotalByFunc = function getTotalByFunc(items, func) {
   return precise(items.reduce(function (accumulator, currentValue) {
     return accumulator * 1 + func(currentValue);
   }, 0));
+};
+var mapItems = function mapItems(items) {
+  return items.map(function (item) {
+    return _objectSpread(_objectSpread({}, item), {}, {
+      gross: grossValue(item),
+      discount: discount(item),
+      net: calculateNet(item)
+    });
+  });
+};
+var mapTerms = function mapTerms(terms, items) {
+  var total = getTotalNet(items);
+  return terms.map(function (term) {
+    return _objectSpread(_objectSpread({}, term), {}, {
+      value: precise(term.percent / 100 * total)
+    });
+  });
 };
 
 /***/ }),
@@ -12907,42 +12932,42 @@ var Constants = Object.freeze({
     selected: false,
     percent: 0,
     value: 0,
-    type: "",
-    method: "",
+    type: "Advance",
+    method: "Wire Transfer",
     days: 365,
-    date: new Date()
+    end_date: new Date()
   },
   samplePricingItem: {
     selected: false,
-    productId: "",
-    partNumber: "",
-    vendorPartNumber: "",
+    product_id: "",
+    part_number: "",
+    vendor_part_number: "",
     type: "",
     name: "",
     description: "",
     quantity: 1,
     unit: "Month",
-    costPrice: 0,
-    unitPrice: 0,
+    cost_price: 0,
+    unit_price: 0,
     margin: 0,
-    marginPercent: 0,
+    margin_percent: 0,
     discount: 0,
-    discountPercent: 0,
+    discount_percent: 0,
     gross: 0,
     net: 0
   },
   samplePricingItemMap: {
-    productId: "id",
-    partNumber: "Product_Code",
-    vendorPartNumber: "SKU_No",
+    product_id: "id",
+    part_number: "Product_Code",
+    vendor_part_number: "SKU_No",
     type: "Product_Type",
     name: "Product_Name",
     description: "Product_Description",
     unit: "Usage_Unit",
-    costPrice: 0,
-    unitPrice: "Unit_Price",
+    cost_price: 0,
+    unit_price: "Unit_Price",
     margin: "Margin_Value",
-    marginPercent: "Margin" // discount: 0,
+    margin_percent: "Margin" // discount: 0,
     // discountPercent: 0,
     //
     // gross: 0,

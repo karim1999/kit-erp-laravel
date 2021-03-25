@@ -15,7 +15,9 @@
         "inertiajs/inertia-laravel": "^0.4.0",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
-        "zohocrm/php-sdk-archive": "^2.2"
+        "tightenco/ziggy": "^1.0",
+        "zohocrm/php-sdk-archive": "^2.2",
+      "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

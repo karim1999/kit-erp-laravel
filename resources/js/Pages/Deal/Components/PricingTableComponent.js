@@ -63,27 +63,27 @@ export default function ({deal, insert, remove, push, move, products}) {
                     <ul className="button-ul">
                         <li>
                             <a href="" onClick={importItems}>
-                                <img src="assets/images/import.svg" alt="" /> Import Items
+                                <img src="/assets/images/import.svg" alt="" /> Import Items
                             </a>
                         </li>
                         <li>
                             <a href="" onClick={insertItem}>
-                                <img src="assets/images/plus.svg" alt="" /> Add Item
+                                <img src="/assets/images/plus.svg" alt="" /> Add Item
                             </a>
                         </li>
                         <li>
                             <a href="" onClick={moveItemsUp}>
-                                <img src="assets/images/move_up.svg" alt="" /> Move Item Up
+                                <img src="/assets/images/move_up.svg" alt="" /> Move Item Up
                             </a>
                         </li>
                         <li>
                             <a href="" onClick={moveItemsDown}>
-                                <img src="assets/images/move_down.svg" alt="" /> Move Item Down
+                                <img src="/assets/images/move_down.svg" alt="" /> Move Item Down
                             </a>
                         </li>
                         <li>
                             <a href="" onClick={removeItems}>
-                                <img src="assets/images/bin.svg" alt="" /> Delete Item
+                                <img src="/assets/images/bin.svg" alt="" /> Delete Item
                             </a>
                         </li>
                     </ul>

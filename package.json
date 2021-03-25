@@ -33,6 +33,7 @@
         "react-select": "^4.3.0",
         "react-slick": "^0.28.1",
         "react-sortable-hoc": "^2.0.0",
+        "react-toastify": "^7.0.3",
         "slick-carousel": "^1.8.1",
         "yup": "^0.32.9"
     }

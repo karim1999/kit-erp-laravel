@@ -91,7 +91,7 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 <SimpleTextFieldComponent type="number" className="form-control" name={`paymentTerms.${itemIndex}.days`} />
             </td>
             <td className="fit">
-                <SimpleDatePickerFieldComponent className="form-control" name={`paymentTerms.${itemIndex}.date`} popperPlacement="top-end"/>
+                <SimpleDatePickerFieldComponent className="form-control" name={`paymentTerms.${itemIndex}.end_date`} popperPlacement="top-end"/>
             </td>
         </tr>
     )}

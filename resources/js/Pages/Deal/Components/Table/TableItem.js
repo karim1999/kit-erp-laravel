@@ -23,9 +23,9 @@ const SimpleTextFieldComponent= ({ label, ...props }) => {
 
 
 export default SortableElement(({itemIndex, remove, products}) => {
-    const [productIdField, productIdFieldMeta] = useField(`items.${itemIndex}.productId`);
+    const [productIdField, productIdFieldMeta] = useField(`items.${itemIndex}.product_id`);
     const [itemField, itemFieldMeta, itemFieldHelpers] = useField(`items.${itemIndex}`);
-    const [costPriceField, costPriceFieldMeta, costPriceFieldHelpers] = useField(`items.${itemIndex}.costPrice`);
+    const [costPriceField, costPriceFieldMeta, costPriceFieldHelpers] = useField(`items.${itemIndex}.cost_price`);
     const [accountField] = useField('account');
     const [isFetchingPrice, setIsFetchingPrice]= useState(false)
     const product= () => {
@@ -41,7 +41,7 @@ export default SortableElement(({itemIndex, remove, products}) => {
         // console.log(option)
         let product= products.find(product => product.id === option.value)
         if(!product){
-            itemFieldHelpers.setValue({...Constants.samplePricingItem, productId: option.value})
+            itemFieldHelpers.setValue({...Constants.samplePricingItem, product_id: option.value})
             return
         }
         let productUpdateObject= {}
@@ -67,10 +67,10 @@ export default SortableElement(({itemIndex, remove, products}) => {
 
     }
     // const grossValue= () => {
-    //     return precise(itemField.value.quantity * itemField.value.costPrice);
+    //     return precise(itemField.value.quantity * itemField.value.cost_price);
     // }
     // const discount= () => {
-    //     return precise(grossValue()*itemField.value.discountPercent/100);
+    //     return precise(grossValue()*itemField.value.discount_percent/100);
     // }
     // const net= () => {
     //     return precise(grossValue() - discount());
@@ -83,26 +83,26 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 </CheckBoxFieldComponent>
             </td>
             <td className="fit">
-                <ReactSelectFieldComponent onChange={onChange} label="" name={`items.${itemIndex}.productId`} options={products.map(product => ({value: product.id, label: product.Product_Name}))} />
+                <ReactSelectFieldComponent onChange={onChange} label="" name={`items.${itemIndex}.product_id`} options={products.map(product => ({value: product.id, label: product.Product_Name}))} />
                 {/*<h6>Product Name</h6>*/}
                 <p className="table-para">
                     {itemField?.value?.description || ""}
                 </p>
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" type="text" className="form-control" name={`items.${itemIndex}.vendorPartNumber`} disabled />
+                <SimpleTextFieldComponent type="text" type="text" className="form-control" name={`items.${itemIndex}.vendor_part_number`} disabled />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.partNumber`} disabled />
+                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.part_number`} disabled />
             </td>
             <td className="fit">
                 <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.type`} disabled />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.costPrice`} disabled />
+                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.cost_price`} disabled />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.unitPrice`} disabled />
+                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.unit_price`} disabled />
             </td>
             <td className="fit">
                 <SimpleTextFieldComponent type="number" className="form-control" name={`items.${itemIndex}.quantity`} />
@@ -114,13 +114,13 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 <input type="text" className="form-control" value={grossValue(itemField.value)} disabled />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="number" step={.01} className="form-control" name={`items.${itemIndex}.discountPercent`} />
+                <SimpleTextFieldComponent type="number" step={.01} className="form-control" name={`items.${itemIndex}.discount_percent`} />
             </td>
             <td className="fit">
                 <input type="text" className="form-control" value={discount(itemField.value)} disabled />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.marginPercent`} disabled />
+                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.margin_percent`} disabled />
             </td>
             <td className="fit">
                 <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.margin`} disabled />

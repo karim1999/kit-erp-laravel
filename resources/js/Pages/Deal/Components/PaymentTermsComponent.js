@@ -56,12 +56,12 @@ export default function ({deal, insert, remove, push, move}) {
                     <ul className="button-ul">
                         <li>
                             <a href="" onClick={insertTerm}>
-                                <img src="assets/images/plus.svg" alt="" /> Add Term
+                                <img src="/assets/images/plus.svg" alt="" /> Add Term
                             </a>
                         </li>
                         <li>
                             <a href="" onClick={removeTerms}>
-                                <img src="assets/images/bin.svg" alt="" /> Delete Term
+                                <img src="/assets/images/bin.svg" alt="" /> Delete Term
                             </a>
                         </li>
                     </ul>

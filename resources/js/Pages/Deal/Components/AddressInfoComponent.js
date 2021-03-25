@@ -76,7 +76,7 @@ export default function ({deal, contacts}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing ZIP / P.O.Box
                             </th>
                             <td className="text-muted">
-                                <TextFieldComponent type="text" label="" className="form-control" name="billing.zip" />
+                                <TextFieldComponent type="text" label="" className="form-control" name="billing.postal" />
                             </td>
                         </tr>
                         </tbody>
@@ -149,7 +149,7 @@ export default function ({deal, contacts}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping ZIP / P.O.Box
                             </th>
                             <td className="text-muted">
-                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.zip" />
+                                <TextFieldComponent type="text" label="" className="form-control" name="shipping.postal" />
                             </td>
                         </tr>
                         </tbody>

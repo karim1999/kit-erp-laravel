@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 Route::get('deals/{id}', "App\\Http\\Controllers\\Zoho\\DealController@show");
+Route::resource('quotes', "App\\Http\\Controllers\\QuoteController")->only(['store', 'show', 'update', 'destroy']);
+
+Route::post('deals/{id}/push', "App\\Http\\Controllers\\Zoho\\DealController@push");
+Route::post('deals/{id}/push/deal', "App\\Http\\Controllers\\Zoho\\DealController@pushDeal");
+Route::post('deals/{id}/push/quote', "App\\Http\\Controllers\\Zoho\\DealController@pushQuote");
+
 Route::get('search/{module}/{keyword}', "App\\Http\\Controllers\\Zoho\\ModuleController@search");
 Route::get('products/{product}/pricing/{account}', "App\\Http\\Controllers\\Zoho\\ProductController@pricing");

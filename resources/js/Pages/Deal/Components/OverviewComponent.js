@@ -53,7 +53,7 @@ export default function ({deal}) {
                                 Total Cost Price
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "costPrice")} disabled />
+                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "cost_price")} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -77,7 +77,7 @@ export default function ({deal}) {
                                 Total Discount %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "discountPercent")} disabled />
+                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "discount_percent")} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +93,7 @@ export default function ({deal}) {
                                 Total Margin %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "marginPercent")} disabled />
+                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "margin_percent")} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -132,7 +132,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Discount %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(itemsField.value, "discountPercent")} disabled />
+                                <input type="text" className="form-control" value={getTotalByKey(itemsField.value, "discount_percent")} disabled />
                             </td>
                         </tr>
                         {/*<tr>*/}
