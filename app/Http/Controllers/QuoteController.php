@@ -49,6 +49,8 @@ class QuoteController extends Controller
             $quote->billing()->destroy();
             $quote->terms()->delete();
             $quote->items()->delete();
+            $quote->terms()->destroy();
+            $quote->items()->destroy();
         }
 
         $quote->shipping()->create($request->post('shipping'));
