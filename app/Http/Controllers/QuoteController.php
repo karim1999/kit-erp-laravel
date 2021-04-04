@@ -45,20 +45,13 @@ class QuoteController extends Controller
         if($id){
             $quote->shipping()->delete();
             $quote->billing()->delete();
-//            $quote->shipping->update($request->post('shipping'));
-//            $quote->billing->update($request->post('billing'));
-
 
             $quote->terms()->delete();
             $quote->items()->delete();
-//            $quote->terms()->destroy();
-//            $quote->items()->destroy();
-        }else{
-//            $quote->shipping->update($request->post('shipping'));
-//            $quote->billing->update($request->post('billing'));
-
         }
 
+        $quote->shipping()->create(collect($request->post('shipping'))->except(["id"])->toArray());
+        $quote->billing()->create(collect($request->post('billing'))->except(["id"])->toArray());
 
         foreach ($request->post('paymentTerms') as $term){
             $quote->terms()->create(collect($term)->only(["percent", "value", "type", "method", "days", "end_date"])->toArray());
