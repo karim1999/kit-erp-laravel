@@ -6063,3 +6063,4 @@ Trace::#0 C:\projects\web\ICIGAI\erp\kit-erp\vendor\zohocrm\php-sdk-archive\src\
 #53 C:\projects\web\ICIGAI\erp\kit-erp\public\index.php(52): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #54 C:\projects\web\ICIGAI\erp\kit-erp\server.php(21): require_once('C:\\projects\\web...')
 #55 {main}
+2021-04-04 01:27:39 INFO: Access Token has expired. Hence refreshing.
