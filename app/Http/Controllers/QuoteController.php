@@ -45,6 +45,8 @@ class QuoteController extends Controller
         if($id){
             $quote->shipping()->delete();
             $quote->billing()->delete();
+            $quote->shipping()->destroy();
+            $quote->billing()->destroy();
             $quote->terms()->delete();
             $quote->items()->delete();
         }
