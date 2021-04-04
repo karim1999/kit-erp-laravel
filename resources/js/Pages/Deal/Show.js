@@ -49,6 +49,18 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
             toast(flash.msg, {autoClose: 5000, type: flash.type});
         }
     }, [flash])
+    const dealTerms= () => {
+        if(!deal?.Payment_Terms_Details)
+            return []
+
+        return deal.Payment_Terms_Details.map(term => {
+            let termData= {};
+            Object.keys(Constants.pricingTermMap).map(key => {
+                termData[key]= term[Constants.pricingTermMap[key]]
+            })
+            return termData;
+        })
+    }
 
     const initialValues= {
         quote_no: getInitData(quote?.quote_no, ""),
@@ -67,8 +79,8 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         description: getInitData(quote?.description, ""),
         items: getInitArrayData(quote?.items, [], Constants.samplePricingItem),
         notes: getInitData(quote?.notes, ""),
-        paymentTerms: getInitArrayData(quote?.terms, [], Constants.samplePricingTerm),
-        vat: getInitData(quote?.vat, 0),
+        paymentTerms: getInitArrayData(quote?.terms, dealTerms(), Constants.samplePricingTerm),
+        vat: getInitData(quote?.vat, 5),
     }
 
     useEffect(() => {

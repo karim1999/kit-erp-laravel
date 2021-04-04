@@ -70,6 +70,7 @@ class QuoteController extends Controller
                 "unit_price",
                 "margin",
                 "margin_percent",
+                "is_text",
                 "discount",
                 "gross",
                 "net",

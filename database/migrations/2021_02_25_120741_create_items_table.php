@@ -41,7 +41,7 @@ class CreateItemsTable extends Migration
             $table->decimal('net', 15, 2)->default(0);
 
 //            $table->boolean('is_header')->default(false);
-//            $table->boolean('is_text')->default(true);
+            $table->boolean('is_text')->default(false);
 
 
             $table->unsignedBigInteger('quote_id')->nullable();

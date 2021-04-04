@@ -4,7 +4,14 @@ import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
 import CheckBoxFieldComponent from "./Fields/CheckBoxFieldComponent";
 import {useField} from "formik";
-import {getTotalByKey, getTotalDiscount, getTotalGross, getTotalNet, getTotalVat} from "../../../helpers/helpers";
+import {
+    getTotalByKey,
+    getTotalDiscount, getTotalDiscountPercent,
+    getTotalGross, getTotalMargin, getTotalMarginPercent,
+    getTotalNet, getTotalPercentByKey,
+    getTotalVat,
+    getTotalWithVat
+} from "../../../helpers/helpers";
 
 export default function ({deal}) {
     const [type, setType]= useState("");
@@ -77,7 +84,7 @@ export default function ({deal}) {
                                 Total Discount %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "discount_percent")} disabled />
+                                <input type="text" className="form-control" value={getTotalDiscountPercent(currentItems())} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -85,7 +92,7 @@ export default function ({deal}) {
                                 Total Margin Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "margin")} disabled />
+                                <input type="text" className="form-control" value={getTotalMargin(currentItems())} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +100,7 @@ export default function ({deal}) {
                                 Total Margin %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "margin_percent")} disabled />
+                                <input type="text" className="form-control" value={getTotalMarginPercent(currentItems())} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -132,7 +139,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Discount %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(itemsField.value, "discount_percent")} disabled />
+                                <input type="text" className="form-control" value={getTotalDiscountPercent(itemsField.value)} disabled />
                             </td>
                         </tr>
                         {/*<tr>*/}
@@ -184,7 +191,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Net Value Inc. VAT
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalNet(itemsField.value) + (getTotalVat(itemsField.value, vatField.value))} disabled />
+                                <input type="text" className="form-control" value={getTotalWithVat(itemsField.value, vatField.value)} disabled />
                             </td>
                         </tr>
                         </tbody>

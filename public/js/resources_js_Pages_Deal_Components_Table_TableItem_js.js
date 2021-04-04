@@ -12330,6 +12330,72 @@ function ReactSelectFieldComponent(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TextAreaFieldComponent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+
+function TextAreaFieldComponent(_ref) {
+  var label = _ref.label,
+      props = _objectWithoutProperties(_ref, ["label"]);
+
+  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_1__.useField)(props),
+      _useField2 = _slicedToArray(_useField, 2),
+      field = _useField2[0],
+      meta = _useField2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "form-group",
+    children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      children: label
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", _objectSpread(_objectSpread(_objectSpread({}, field), props), {}, {
+      rows: "5"
+    })), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "error",
+      children: meta.error
+    }) : null]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Deal/Components/Table/DragHandlerComponent.js":
 /*!**************************************************************************!*\
   !*** ./resources/js/Pages/Deal/Components/Table/DragHandlerComponent.js ***!
@@ -12376,12 +12442,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_sortable_hoc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-sortable-hoc */ "./node_modules/react-sortable-hoc/dist/react-sortable-hoc.esm.js");
 /* harmony import */ var _DragHandlerComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DragHandlerComponent */ "./resources/js/Pages/Deal/Components/Table/DragHandlerComponent.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
-/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
-/* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
+/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
+/* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
+/* harmony import */ var _Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/TextAreaFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -12425,11 +12491,12 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
+
 var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
   var label = _ref.label,
       props = _objectWithoutProperties(_ref, ["label"]);
 
-  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)(props),
+  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)(props),
       _useField2 = _slicedToArray(_useField, 2),
       field = _useField2[0],
       meta = _useField2[1];
@@ -12443,30 +12510,30 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_sortable_hoc__WEBPACK_IMPORTED_MODULE_2__.SortableElement)(function (_ref2) {
-  var _itemField$value, _jsx2;
+  var _itemField$value;
 
   var itemIndex = _ref2.itemIndex,
       remove = _ref2.remove,
       products = _ref2.products;
 
-  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".product_id")),
+  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex, ".product_id")),
       _useField4 = _slicedToArray(_useField3, 2),
       productIdField = _useField4[0],
       productIdFieldMeta = _useField4[1];
 
-  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex)),
+  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex)),
       _useField6 = _slicedToArray(_useField5, 3),
       itemField = _useField6[0],
       itemFieldMeta = _useField6[1],
       itemFieldHelpers = _useField6[2];
 
-  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".cost_price")),
+  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex, ".cost_price")),
       _useField8 = _slicedToArray(_useField7, 3),
       costPriceField = _useField8[0],
       costPriceFieldMeta = _useField8[1],
       costPriceFieldHelpers = _useField8[2];
 
-  var _useField9 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)('account'),
+  var _useField9 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)('account'),
       _useField10 = _slicedToArray(_useField9, 1),
       accountField = _useField10[0];
 
@@ -12482,8 +12549,11 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
   };
 
   var setItemData = function setItemData(key, value) {
-    console.log(_objectSpread(_objectSpread({}, itemField.value), {}, _defineProperty({}, key, value)));
     itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, itemField.value), {}, _defineProperty({}, key, value)));
+  };
+
+  var isText = function isText() {
+    return itemField.value.is_text;
   };
 
   var onChange = /*#__PURE__*/function () {
@@ -12503,15 +12573,15 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
                 break;
               }
 
-              itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItem), {}, {
+              itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItem), {}, {
                 product_id: option.value
               }));
               return _context.abrupt("return");
 
             case 4:
               productUpdateObject = {};
-              Object.keys(_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap).map(function (key) {
-                if (product[_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap[key]]) productUpdateObject[key] = product[_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap[key]];
+              Object.keys(_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap).map(function (key) {
+                if (product[_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap[key]]) productUpdateObject[key] = product[_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap[key]];
               });
               itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, itemField.value), productUpdateObject));
               Cost_Price = product.Cost_Price || 0; // let Unit_Price= product.Unit_Price || 0
@@ -12553,7 +12623,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_10__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_9__.default, {
         name: "items.".concat(itemIndex, ".selected"),
         className: "form-check-input",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
@@ -12565,7 +12635,12 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
       className: "fit",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_7__.default, {
+      children: [isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+        type: "text",
+        className: "form-control",
+        name: "items.".concat(itemIndex, ".name"),
+        placeholder: "Name"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_6__.default, {
         onChange: onChange,
         label: "",
         name: "items.".concat(itemIndex, ".product_id"),
@@ -12575,22 +12650,31 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
             label: product.Product_Name
           };
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
+      }), isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_10__.default, {
+        label: "",
+        className: "form-control",
+        rows: "5",
+        name: "items.".concat(itemIndex, ".description"),
+        placeholder: "Description"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
         className: "table-para",
         children: (itemField === null || itemField === void 0 ? void 0 : (_itemField$value = itemField.value) === null || _itemField$value === void 0 ? void 0 : _itemField$value.description) || ""
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, (_jsx2 = {
-        type: "text"
-      }, _defineProperty(_jsx2, "type", "text"), _defineProperty(_jsx2, "className", "form-control"), _defineProperty(_jsx2, "name", "items.".concat(itemIndex, ".vendor_part_number")), _defineProperty(_jsx2, "disabled", true), _jsx2))
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+        type: "text",
+        className: "form-control",
+        name: "items.".concat(itemIndex, ".vendor_part_number"),
+        disabled: !isText()
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".part_number"),
-        disabled: true
+        disabled: !isText()
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
@@ -12598,7 +12682,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".type"),
-        disabled: true
+        disabled: !isText()
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
@@ -12606,7 +12690,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".cost_price"),
-        disabled: true
+        disabled: !isText()
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
@@ -12614,11 +12698,12 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".unit_price"),
-        disabled: true
+        disabled: !isText()
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+        min: 0,
         type: "number",
         className: "form-control",
         name: "items.".concat(itemIndex, ".quantity")
@@ -12629,19 +12714,20 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".unit"),
-        disabled: true
+        disabled: !isText()
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.grossValue)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.grossValue)(itemField.value),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+        min: 0,
         type: "number",
         step: .01,
         className: "form-control",
@@ -12652,23 +12738,24 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.discount)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.discount)(itemField.value),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
-        type: "text",
-        className: "form-control",
-        name: "items.".concat(itemIndex, ".margin_percent"),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+        min: 0,
+        type: "number",
+        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value) < 0 && "is-invalid"),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
-        type: "text",
-        className: "form-control",
-        name: "items.".concat(itemIndex, ".margin"),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+        type: "number",
+        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value) < 0 && "is-invalid"),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
@@ -12676,7 +12763,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.calculateNet)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.calculateNet)(itemField.value),
         disabled: true
       })
     })]
@@ -12699,15 +12786,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "precise": () => (/* binding */ precise),
 /* harmony export */   "grossValue": () => (/* binding */ grossValue),
 /* harmony export */   "discount": () => (/* binding */ discount),
+/* harmony export */   "margin": () => (/* binding */ margin),
+/* harmony export */   "marginPercent": () => (/* binding */ marginPercent),
 /* harmony export */   "calculateNet": () => (/* binding */ calculateNet),
 /* harmony export */   "getTotalNet": () => (/* binding */ getTotalNet),
 /* harmony export */   "getTotalGross": () => (/* binding */ getTotalGross),
 /* harmony export */   "getTotalDiscount": () => (/* binding */ getTotalDiscount),
+/* harmony export */   "getTotalMargin": () => (/* binding */ getTotalMargin),
 /* harmony export */   "getTotalByKey": () => (/* binding */ getTotalByKey),
+/* harmony export */   "getTotalPercentByKey": () => (/* binding */ getTotalPercentByKey),
+/* harmony export */   "getTotalDiscountPercent": () => (/* binding */ getTotalDiscountPercent),
+/* harmony export */   "getTotalMarginPercent": () => (/* binding */ getTotalMarginPercent),
 /* harmony export */   "getTotalVat": () => (/* binding */ getTotalVat),
+/* harmony export */   "getTotalWithVat": () => (/* binding */ getTotalWithVat),
 /* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc),
 /* harmony export */   "mapItems": () => (/* binding */ mapItems),
-/* harmony export */   "mapTerms": () => (/* binding */ mapTerms)
+/* harmony export */   "mapTerms": () => (/* binding */ mapTerms),
+/* harmony export */   "isNumeric": () => (/* binding */ isNumeric)
 /* harmony export */ });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -12736,10 +12831,17 @@ var precise = function precise(x) {
   return Math.round((x + Number.EPSILON) * 100) / 100; // }
 };
 var grossValue = function grossValue(item) {
-  return precise(item.quantity * item.cost_price);
+  return precise(item.quantity * item.unit_price);
 };
 var discount = function discount(item) {
   return precise(grossValue(item) * item.discount_percent / 100);
+};
+var margin = function margin(item) {
+  return precise(calculateNet(item) - item.quantity * item.cost_price);
+};
+var marginPercent = function marginPercent(item) {
+  if (!calculateNet(item)) return 0;
+  return precise(margin(item) / (item.quantity * item.cost_price) * 100);
 };
 var calculateNet = function calculateNet(item) {
   return precise(grossValue(item) - discount(item));
@@ -12753,13 +12855,31 @@ var getTotalGross = function getTotalGross(items) {
 var getTotalDiscount = function getTotalDiscount(items) {
   return getTotalByFunc(items, discount);
 };
+var getTotalMargin = function getTotalMargin(items) {
+  return getTotalByFunc(items, margin);
+};
 var getTotalByKey = function getTotalByKey(items, key) {
   return getTotalByFunc(items, function (item) {
     return (item[key] || 0) * 1;
   });
 };
+var getTotalPercentByKey = function getTotalPercentByKey(items, key) {
+  if (!getTotalNet(items)) return 0;
+  return precise(getTotalByKey(items, key) / getTotalGross(items) * 100);
+};
+var getTotalDiscountPercent = function getTotalDiscountPercent(items) {
+  if (!getTotalNet(items)) return 0;
+  return precise(getTotalDiscount(items) / getTotalGross(items) * 100);
+};
+var getTotalMarginPercent = function getTotalMarginPercent(items) {
+  if (!getTotalNet(items)) return 0;
+  return precise(getTotalMargin(items) / getTotalGross(items) * 100);
+};
 var getTotalVat = function getTotalVat(items, vat) {
-  return getTotalNet(items) * vat / 100;
+  return precise(getTotalNet(items) * vat / 100);
+};
+var getTotalWithVat = function getTotalWithVat(items, vat) {
+  return getTotalNet(items) + getTotalVat(items, vat);
 };
 var getTotalByFunc = function getTotalByFunc(items, func) {
   if (items.length <= 0) return 0;
@@ -12772,6 +12892,7 @@ var mapItems = function mapItems(items) {
     return _objectSpread(_objectSpread({}, item), {}, {
       gross: grossValue(item),
       discount: discount(item),
+      margin: margin(item),
       net: calculateNet(item)
     });
   });
@@ -12783,6 +12904,12 @@ var mapTerms = function mapTerms(terms, items) {
       value: precise(term.percent / 100 * total)
     });
   });
+};
+var isNumeric = function isNumeric(str) {
+  if (typeof str != "string") return false; // we only process strings!
+
+  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+  !isNaN(parseFloat(str)); // ...and ensure strings of whitespace fail
 };
 
 /***/ }),
@@ -12866,6 +12993,15 @@ var Constants = Object.freeze({
   }, {
     value: "Bank Direct Debit"
   }],
+  pricingTermMap: {
+    selected: false,
+    percent: "Payment",
+    value: "Payment_Value",
+    type: "Payment_Type",
+    method: "Payment_Method",
+    days: "Credit_Days",
+    end_date: "Payment_Date"
+  },
   samplePricingTerm: {
     selected: false,
     percent: 0,
@@ -12875,6 +13011,7 @@ var Constants = Object.freeze({
     days: 365,
     end_date: new Date()
   },
+  pricingItemImportOrder: ["name", "description", "vendor_part_number", "part_number", "type", "cost_price", "unit_price", "quantity", "unit", "discount_percent"],
   samplePricingItem: {
     selected: false,
     product_id: "",
@@ -12892,7 +13029,8 @@ var Constants = Object.freeze({
     discount: 0,
     discount_percent: 0,
     gross: 0,
-    net: 0
+    net: 0,
+    is_text: false
   },
   samplePricingItemMap: {
     product_id: "id",

@@ -392,7 +392,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "discount_percent"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscountPercent)(currentItems()),
                   disabled: true
                 })
               })]
@@ -405,7 +405,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "margin"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalMargin)(currentItems()),
                   disabled: true
                 })
               })]
@@ -418,7 +418,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "margin_percent"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalMarginPercent)(currentItems()),
                   disabled: true
                 })
               })]
@@ -493,7 +493,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(itemsField.value, "discount_percent"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscountPercent)(itemsField.value),
                   disabled: true
                 })
               })]
@@ -562,7 +562,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalNet)(itemsField.value) + (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, vatField.value),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalWithVat)(itemsField.value, vatField.value),
                   disabled: true
                 })
               })]
@@ -590,15 +590,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "precise": () => (/* binding */ precise),
 /* harmony export */   "grossValue": () => (/* binding */ grossValue),
 /* harmony export */   "discount": () => (/* binding */ discount),
+/* harmony export */   "margin": () => (/* binding */ margin),
+/* harmony export */   "marginPercent": () => (/* binding */ marginPercent),
 /* harmony export */   "calculateNet": () => (/* binding */ calculateNet),
 /* harmony export */   "getTotalNet": () => (/* binding */ getTotalNet),
 /* harmony export */   "getTotalGross": () => (/* binding */ getTotalGross),
 /* harmony export */   "getTotalDiscount": () => (/* binding */ getTotalDiscount),
+/* harmony export */   "getTotalMargin": () => (/* binding */ getTotalMargin),
 /* harmony export */   "getTotalByKey": () => (/* binding */ getTotalByKey),
+/* harmony export */   "getTotalPercentByKey": () => (/* binding */ getTotalPercentByKey),
+/* harmony export */   "getTotalDiscountPercent": () => (/* binding */ getTotalDiscountPercent),
+/* harmony export */   "getTotalMarginPercent": () => (/* binding */ getTotalMarginPercent),
 /* harmony export */   "getTotalVat": () => (/* binding */ getTotalVat),
+/* harmony export */   "getTotalWithVat": () => (/* binding */ getTotalWithVat),
 /* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc),
 /* harmony export */   "mapItems": () => (/* binding */ mapItems),
-/* harmony export */   "mapTerms": () => (/* binding */ mapTerms)
+/* harmony export */   "mapTerms": () => (/* binding */ mapTerms),
+/* harmony export */   "isNumeric": () => (/* binding */ isNumeric)
 /* harmony export */ });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -627,10 +635,17 @@ var precise = function precise(x) {
   return Math.round((x + Number.EPSILON) * 100) / 100; // }
 };
 var grossValue = function grossValue(item) {
-  return precise(item.quantity * item.cost_price);
+  return precise(item.quantity * item.unit_price);
 };
 var discount = function discount(item) {
   return precise(grossValue(item) * item.discount_percent / 100);
+};
+var margin = function margin(item) {
+  return precise(calculateNet(item) - item.quantity * item.cost_price);
+};
+var marginPercent = function marginPercent(item) {
+  if (!calculateNet(item)) return 0;
+  return precise(margin(item) / (item.quantity * item.cost_price) * 100);
 };
 var calculateNet = function calculateNet(item) {
   return precise(grossValue(item) - discount(item));
@@ -644,13 +659,31 @@ var getTotalGross = function getTotalGross(items) {
 var getTotalDiscount = function getTotalDiscount(items) {
   return getTotalByFunc(items, discount);
 };
+var getTotalMargin = function getTotalMargin(items) {
+  return getTotalByFunc(items, margin);
+};
 var getTotalByKey = function getTotalByKey(items, key) {
   return getTotalByFunc(items, function (item) {
     return (item[key] || 0) * 1;
   });
 };
+var getTotalPercentByKey = function getTotalPercentByKey(items, key) {
+  if (!getTotalNet(items)) return 0;
+  return precise(getTotalByKey(items, key) / getTotalGross(items) * 100);
+};
+var getTotalDiscountPercent = function getTotalDiscountPercent(items) {
+  if (!getTotalNet(items)) return 0;
+  return precise(getTotalDiscount(items) / getTotalGross(items) * 100);
+};
+var getTotalMarginPercent = function getTotalMarginPercent(items) {
+  if (!getTotalNet(items)) return 0;
+  return precise(getTotalMargin(items) / getTotalGross(items) * 100);
+};
 var getTotalVat = function getTotalVat(items, vat) {
-  return getTotalNet(items) * vat / 100;
+  return precise(getTotalNet(items) * vat / 100);
+};
+var getTotalWithVat = function getTotalWithVat(items, vat) {
+  return getTotalNet(items) + getTotalVat(items, vat);
 };
 var getTotalByFunc = function getTotalByFunc(items, func) {
   if (items.length <= 0) return 0;
@@ -663,6 +696,7 @@ var mapItems = function mapItems(items) {
     return _objectSpread(_objectSpread({}, item), {}, {
       gross: grossValue(item),
       discount: discount(item),
+      margin: margin(item),
       net: calculateNet(item)
     });
   });
@@ -674,6 +708,12 @@ var mapTerms = function mapTerms(terms, items) {
       value: precise(term.percent / 100 * total)
     });
   });
+};
+var isNumeric = function isNumeric(str) {
+  if (typeof str != "string") return false; // we only process strings!
+
+  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+  !isNaN(parseFloat(str)); // ...and ensure strings of whitespace fail
 };
 
 /***/ }),
@@ -757,6 +797,15 @@ var Constants = Object.freeze({
   }, {
     value: "Bank Direct Debit"
   }],
+  pricingTermMap: {
+    selected: false,
+    percent: "Payment",
+    value: "Payment_Value",
+    type: "Payment_Type",
+    method: "Payment_Method",
+    days: "Credit_Days",
+    end_date: "Payment_Date"
+  },
   samplePricingTerm: {
     selected: false,
     percent: 0,
@@ -766,6 +815,7 @@ var Constants = Object.freeze({
     days: 365,
     end_date: new Date()
   },
+  pricingItemImportOrder: ["name", "description", "vendor_part_number", "part_number", "type", "cost_price", "unit_price", "quantity", "unit", "discount_percent"],
   samplePricingItem: {
     selected: false,
     product_id: "",
@@ -783,7 +833,8 @@ var Constants = Object.freeze({
     discount: 0,
     discount_percent: 0,
     gross: 0,
-    net: 0
+    net: 0,
+    is_text: false
   },
   samplePricingItemMap: {
     product_id: "id",

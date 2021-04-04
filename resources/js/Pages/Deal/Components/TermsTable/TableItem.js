@@ -6,7 +6,7 @@ import {faTimes, faPencilAlt, faSave, faArrowsAlt} from '@fortawesome/free-solid
 import {Field, useField} from "formik";
 import ReactSelectFieldComponent from "../Fields/ReactSelectFieldComponent";
 import Constants from "../../../../helpers/samples";
-import {calculateNet, getTotalNet, precise} from "../../../../helpers/helpers";
+import {calculateNet, getTotalNet, getTotalVat, getTotalWithVat, precise} from "../../../../helpers/helpers";
 import CheckBoxFieldComponent from "../Fields/CheckBoxFieldComponent";
 import DatePicker from "react-datepicker";
 import SelectFieldComponent from "../Fields/SelectFieldComponent";
@@ -54,12 +54,14 @@ const SimpleDatePickerFieldComponent= ({ label, ...props }) => {
 export default SortableElement(({itemIndex, remove, products}) => {
     const [percentField, percentFieldMeta] = useField(`paymentTerms.${itemIndex}.percent`);
     const [itemsField] = useField(`items`);
+    const [vatField] = useField(`vat`);
 
     const termValue= () => {
         if(itemsField.value.length <= 0)
             return 0;
 
-        let total= getTotalNet(itemsField.value)
+        let total= getTotalWithVat(itemsField.value, vatField.value)
+        // let total= getTotalNet(itemsField.value)
 
         return precise(percentField.value/100 * total);
     }

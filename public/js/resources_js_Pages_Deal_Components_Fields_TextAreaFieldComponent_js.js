@@ -53,7 +53,7 @@ function TextAreaFieldComponent(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "form-group",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+    children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       children: label
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", _objectSpread(_objectSpread(_objectSpread({}, field), props), {}, {
       rows: "5"
@@ -145,6 +145,15 @@ var Constants = Object.freeze({
   }, {
     value: "Bank Direct Debit"
   }],
+  pricingTermMap: {
+    selected: false,
+    percent: "Payment",
+    value: "Payment_Value",
+    type: "Payment_Type",
+    method: "Payment_Method",
+    days: "Credit_Days",
+    end_date: "Payment_Date"
+  },
   samplePricingTerm: {
     selected: false,
     percent: 0,
@@ -154,6 +163,7 @@ var Constants = Object.freeze({
     days: 365,
     end_date: new Date()
   },
+  pricingItemImportOrder: ["name", "description", "vendor_part_number", "part_number", "type", "cost_price", "unit_price", "quantity", "unit", "discount_percent"],
   samplePricingItem: {
     selected: false,
     product_id: "",
@@ -171,7 +181,8 @@ var Constants = Object.freeze({
     discount: 0,
     discount_percent: 0,
     gross: 0,
-    net: 0
+    net: 0,
+    is_text: false
   },
   samplePricingItemMap: {
     product_id: "id",

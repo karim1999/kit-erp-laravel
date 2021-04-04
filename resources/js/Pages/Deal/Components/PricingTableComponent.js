@@ -4,6 +4,7 @@ import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
 import TableBody from "./Table/TableBody";
 import {useField} from "formik";
+import {isNumeric, precise} from "../../../helpers/helpers";
 
 export default function ({deal, insert, remove, push, move, products}) {
     const [items, itemsFieldMeta, itemsFieldHelpers] = useField(`items`);
@@ -21,6 +22,11 @@ export default function ({deal, insert, remove, push, move, products}) {
     const insertItem= (e) => {
         e.preventDefault();
         push(Constants.samplePricingItem)
+        return false;
+    }
+    const insertTextItem= (e) => {
+        e.preventDefault();
+        push({...Constants.samplePricingItem, is_text: true})
         return false;
     }
     const importItems= (e) => {
@@ -51,6 +57,35 @@ export default function ({deal, insert, remove, push, move, products}) {
         //         remove(index)
         // })
     }
+    const importFile= (event) => {
+        var reader = new FileReader();
+        var f = event.target.files[0];
+        reader.onload = (e) => {
+            parseResult(e.target.result); //this is where the csv array will be
+        };
+        reader.readAsText(f);
+    };
+    const parseResult =async (result) => {
+        const splitArr= result.split("\n");
+        for (const row of splitArr) {
+
+            let importElArr = row.split(",");
+            if(row !== ""){
+                let importEl = {...Constants.samplePricingItem, is_text: true};
+                importElArr.map((value,index) => {
+                    if(Constants.pricingItemImportOrder.length > index){
+                        console.log(Constants.pricingItemImportOrder[index], value)
+                        importEl[Constants.pricingItemImportOrder[index]]= isNumeric(value) ? parseFloat(value): value
+                    }
+                })
+                push(importEl);
+            }
+        }
+    };
+    const startImporting= (e) => {
+        e.preventDefault();
+        document.getElementById("file").click()
+    }
     return (
         <div className="container my-4">
             <div className="row">
@@ -58,17 +93,23 @@ export default function ({deal, insert, remove, push, move, products}) {
                     <label>Quote Table</label>
                 </div>
             </div>
+            <input onChange={importFile} style={{display: "none"}} type="file" id="file" name="file" />
             <div className="row mt-2">
                 <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
                     <ul className="button-ul">
-                        {/*<li>*/}
-                        {/*    <a href="" onClick={importItems}>*/}
-                        {/*        <img src="/assets/images/import.svg" alt="" /> Import Items*/}
-                        {/*    </a>*/}
-                        {/*</li>*/}
+                        <li>
+                            <a href="" onClick={startImporting}>
+                                <img src="/assets/images/import.svg" alt="" /> Import Items
+                            </a>
+                        </li>
                         <li>
                             <a href="" onClick={insertItem}>
                                 <img src="/assets/images/plus.svg" alt="" /> Add Item
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" onClick={insertTextItem}>
+                                <img src="/assets/images/plus.svg" alt="" /> Add Dell Item
                             </a>
                         </li>
                         <li>
