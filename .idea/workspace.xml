@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2284fbe7-6c19-421a-a1c6-ce5d74747c2d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuoteController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +193,7 @@
       <workItem from="1616767589030" duration="30000" />
       <workItem from="1616767669091" duration="338000" />
       <workItem from="1616768462479" duration="35000" />
-      <workItem from="1617468421199" duration="14654000" />
+      <workItem from="1617468421199" duration="15309000" />
     </task>
     <task id="LOCAL-00001" summary="items">
       <created>1616576980634</created>
@@ -273,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617540362623</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixed all">
+      <created>1617541320072</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617541320072</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,17 +295,18 @@
     <MESSAGE value="Ashwin Changes" />
     <MESSAGE value="prod" />
     <MESSAGE value="fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
+    <MESSAGE value="fixed all" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed all" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616615233922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616615233922" />
-    <state x="585" y="108" key="CommitChangelistDialog2" timestamp="1617540362129">
+    <state x="585" y="108" key="CommitChangelistDialog2" timestamp="1617541319575">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="108" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1617540362129" />
+    <state x="585" y="108" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1617541319575" />
     <state x="838" y="418" key="Github.ShareDialog" timestamp="1616509482095">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -312,10 +319,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616671091305" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617540363855">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617541321128">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617540363855" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617541321128" />
     <state x="560" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1616677078497">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

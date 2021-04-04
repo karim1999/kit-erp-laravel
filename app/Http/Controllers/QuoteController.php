@@ -54,7 +54,7 @@ class QuoteController extends Controller
         $quote->billing()->create(collect($request->post('billing'))->except(["id"])->toArray());
 
         foreach ($request->post('paymentTerms') as $term){
-            $quote->terms()->create(collect($term)->only(["percent", "value", "type", "method", "days", "end_date"])->toArray());
+            $quote->terms()->create(collect($term)->only(["percent", "type", "method", "days", "end_date"])->toArray());
         }
         foreach ($request->post('items') as $item){
             $quote->items()->create(collect($item)->only([
