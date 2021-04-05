@@ -54,6 +54,28 @@ class DealController extends Controller
 //            'current_quotes' => $quotes,
         ]);
     }
+    public function saveProducts($products){
+        $products= array_values($products);
+        $productsIns = ZCRMRestClient::getInstance()->getModuleInstance("Products");
+        $mappedProducts= $this->buildNestedData($products, config("zoho.mapItemsToZohoProducts"));
+        $productsFinal= [];
+//        return $mappedProducts;
+        foreach ($mappedProducts as $current){
+            $product = ZCRMRecord::getInstance("Products", null);
+            foreach ($current as $key => $value){
+                $product->setFieldValue($key, $value);
+            }
+            $productsFinal[]= $product;
+        }
+        $response= $productsIns->upsertRecords($productsFinal);
+        $result= [];
+        foreach ($response->getEntityResponses() as $key => $responseIns) {
+            $details= $responseIns->getDetails();
+            $current= array_merge($products[$key], ["product_id"=> $details["id"]]);
+            $result[]= $current;
+        }
+        return $result;
+    }
     public function saveQuote($id, Request $request){
         $dealsIns = ZCRMRestClient::getInstance()->getModuleInstance("Quotes");
         $deal = ZCRMRecord::getInstance("Quotes", null);
@@ -64,7 +86,12 @@ class DealController extends Controller
         $billingInfo= $request->post('billing');
         $shippingInfo= $request->post('shipping');
 
+        $is_text_arr= $this->saveProducts(array_filter($itemsInfo, function($item){return $item["is_text"]; }));
+        $other_products_arr= array_filter($itemsInfo, function($item){return !$item["is_text"]; });
+        $itemsInfo= array_merge($other_products_arr, $is_text_arr);
+
         $dealRecords= [];
+        $deal->setFieldValue("Deal_Name", $id);
         $this->setRecordValue($this->buildData($dealInfo, config("zoho.mapDealToZohoQuotes")), $deal);
         $this->setRecordValue($this->buildData($billingInfo, config("zoho.mapBillingToZohoQuotes")), $deal);
         $this->setRecordValue($this->buildData($shippingInfo, config("zoho.mapShippingToZohoQuotes")), $deal);
@@ -75,8 +102,9 @@ class DealController extends Controller
 //            return $item["type"] != "Hardware" && $item["type"] != "Service";
 //            }), config("zoho.mapItemsToZohoDeals"));
 
-//        $deal->setFieldValue("Hardware_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["type"] === "Hardware"; }), config("zoho.mapItemsToZohoDeals")));
-//        $deal->setFieldValue("Pro_Service_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["type"] === "Service"; }), config("zoho.mapItemsToZohoDeals")));
+//        $deal->setFieldValue("Hardware_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] === "Hardware"; }), config("zoho.mapItemsToZohoDeals")));
+//        $deal->setFieldValue("Pro_Service_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] === "Services"; }), config("zoho.mapItemsToZohoDeals")));
+//        $deal->setFieldValue("Product_Details", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] !== "Services" && $item["group"] !== "Hardware"; }), config("zoho.mapItemsToZohoDeals")));
 //        $deal->setFieldValue("Quoted_Items", $this->buildNestedData($itemsInfo, config("zoho.mapItemsToZohoQuotes")));
         $deal->setFieldValue("Product_Details", $this->buildNestedData($itemsInfo, config("zoho.mapItemsToZohoQuotesProducts")));
         //$finalData["items"]= $this->buildData($shippingInfo, config("zoho.mapItemsToZohoDeals"));
@@ -134,20 +162,24 @@ class DealController extends Controller
         $billingInfo= $request->post('billing');
         $shippingInfo= $request->post('shipping');
 
+        $is_text_arr= $this->saveProducts(array_filter($itemsInfo, function($item){return $item["is_text"]; }));
+        $other_products_arr= array_filter($itemsInfo, function($item){return !$item["is_text"]; });
+        $itemsInfo= array_merge($other_products_arr, $is_text_arr);
+
         $dealRecords= [];
         $this->setRecordValue($this->buildData($dealInfo, config("zoho.mapDealToZohoDeals")), $deal);
         $this->setRecordValue($this->buildData($billingInfo, config("zoho.mapBillingToZohoDeals")), $deal);
         $this->setRecordValue($this->buildData($shippingInfo, config("zoho.mapShippingToZohoDeals")), $deal);
 
-        $deal->setFieldValue("Payment_Terms_Details", $this->buildNestedData($termsInfo, config("zoho.mapPaymentTermsToZohoDeals")));
+//        $deal->setFieldValue("Payment_Terms_Details", $this->buildNestedData($termsInfo, config("zoho.mapPaymentTermsToZohoDeals")));
 
 //        return $this->buildNestedData(array_filter($itemsInfo, function($item){
 //            return $item["type"] != "Hardware" && $item["type"] != "Service";
 //            }), config("zoho.mapItemsToZohoDeals"));
 
-        $deal->setFieldValue("Hardware_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["type"] === "Hardware"; }), config("zoho.mapItemsToZohoDeals")));
-        $deal->setFieldValue("Pro_Service_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["type"] === "Service"; }), config("zoho.mapItemsToZohoDeals")));
-        $deal->setFieldValue("Quote_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["type"] != "Hardware" && $item["type"] != "Service"; }), config("zoho.mapItemsToZohoDeals")));
+        $deal->setFieldValue("Hardware_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] === "Hardware"; }), config("zoho.mapItemsToZohoDeals")));
+        $deal->setFieldValue("Pro_Service_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] === "Services"; }), config("zoho.mapItemsToZohoDeals")));
+        $deal->setFieldValue("Quote_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] != "Hardware" && $item["group"] != "Services"; }), config("zoho.mapItemsToZohoDeals")));
         //$finalData["items"]= $this->buildData($shippingInfo, config("zoho.mapItemsToZohoDeals"));
 
         array_push($dealRecords, $deal);
@@ -164,5 +196,28 @@ class DealController extends Controller
         $this->saveQuote($id, $request);
 
         return back()->with(["flash" => ["type" => "success", "msg"=> "The quote was pushed successfully."]]);
+    }
+    public function saveTerms($id, Request $request){
+        $termsIns = ZCRMRestClient::getInstance()->getModuleInstance("Payment_Terms1");
+        $termRecord = ZCRMRecord::getInstance("Payment_Terms1", null); // to get the instance of the record
+
+        $termsInfo= $request->post('terms');
+
+        $termRecords= [];
+
+        $termRecord->setFieldValue("Deal_Name", $id);
+        $termRecord->setFieldValue("Payment_Term_Status", "Revision Required");
+        $termRecord->setFieldValue("Approval_For1", "Deal");
+        $termRecord->setFieldValue("Approval_Status_Reason", "Renegotiate Payment Terms");
+        $termRecord->setFieldValue("Payment_Terms_Table", $this->buildNestedData($termsInfo, config("zoho.mapPaymentTermsToZohoDeals")));
+
+        array_push($termRecords, $termRecord);
+        $responseIn= $termsIns->upsertRecords($termRecords);
+        return $responseIn->getResponseJSON();
+    }
+
+    public function pushTerms($id, Request $request){
+        $result= $this->saveTerms($id, $request);
+        return back()->with(["flash" => ["type" => "success", "msg"=> "The terms were requested for approval successfully."]]);
     }
 }

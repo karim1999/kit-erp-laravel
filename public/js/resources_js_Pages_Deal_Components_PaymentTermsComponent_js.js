@@ -12703,7 +12703,7 @@ function SelectFieldComponent(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "form-group",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+    children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: props.id || props.name,
       children: label
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -12839,7 +12839,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       insert = _ref.insert,
       remove = _ref.remove,
       push = _ref.push,
-      move = _ref.move;
+      move = _ref.move,
+      request = _ref.request;
 
   var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("paymentTerms"),
       _useField2 = _slicedToArray(_useField, 3),
@@ -12850,6 +12851,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items"),
       _useField4 = _slicedToArray(_useField3, 1),
       itemsField = _useField4[0];
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isEnabled = _useState2[0],
+      setIsEnabled = _useState2[1];
 
   var totalPercent = function totalPercent() {
     if (terms.value.length <= 0) return 0;
@@ -12897,6 +12903,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }));
   };
 
+  var toggleEnabling = function toggleEnabling(e) {
+    e.preventDefault();
+    setIsEnabled(!isEnabled);
+  };
+
+  var requestApproval = function requestApproval(e) {
+    e.preventDefault();
+    request();
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
     className: "container my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
@@ -12931,6 +12947,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 src: "/assets/images/bin.svg",
                 alt: ""
               }), " Delete Term"]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
+              href: "",
+              onClick: requestApproval,
+              children: "Send for Approval"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
+              href: "",
+              onClick: toggleEnabling,
+              children: isEnabled ? "Disable Editing" : "Enable Editing"
             })
           })]
         })
@@ -13004,6 +13032,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                     newIndex = _ref2.newIndex;
                 return move(oldIndex, newIndex);
               },
+              isEnabled: isEnabled,
               remove: remove
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("thead", {
               className: "table-info",
@@ -13013,7 +13042,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                     type: "text",
                     value: totalPercent(),
-                    className: "form-control",
+                    className: "form-control ".concat(totalPercent() > 100 && "is-invalid"),
                     disabled: true
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("th", {
@@ -13115,7 +13144,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   var items = _ref.items,
       insert = _ref.insert,
       remove = _ref.remove,
-      push = _ref.push;
+      push = _ref.push,
+      isEnabled = _ref.isEnabled;
 
   var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_3__.useField)("paymentTerms"),
       _useField2 = _slicedToArray(_useField, 2),
@@ -13129,6 +13159,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         itemIndex: index,
         item: item,
         insert: insert,
+        isEnabled: isEnabled,
         remove: remove,
         push: push
       }, "item-".concat(index));
@@ -13153,13 +13184,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_sortable_hoc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-sortable-hoc */ "./node_modules/react-sortable-hoc/dist/react-sortable-hoc.esm.js");
 /* harmony import */ var _DragHandlerComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DragHandlerComponent */ "./resources/js/Pages/Deal/Components/TermsTable/DragHandlerComponent.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
-/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
-/* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
+/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
+/* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_13__);
 /* harmony import */ var _Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/SelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js");
 /* harmony import */ var _Fields_DatePickerFieldComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Fields/DatePickerFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/DatePickerFieldComponent.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -13206,7 +13238,7 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
   var label = _ref.label,
       props = _objectWithoutProperties(_ref, ["label"]);
 
-  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useField)(props),
+  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)(props),
       _useField2 = _slicedToArray(_useField, 2),
       field = _useField2[0],
       meta = _useField2[1];
@@ -13223,7 +13255,7 @@ var SimpleSelectFieldComponent = function SimpleSelectFieldComponent(_ref2) {
   var label = _ref2.label,
       props = _objectWithoutProperties(_ref2, ["label"]);
 
-  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useField)(props),
+  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)(props),
       _useField4 = _slicedToArray(_useField3, 2),
       field = _useField4[0],
       meta = _useField4[1];
@@ -13240,14 +13272,14 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
   var label = _ref3.label,
       props = _objectWithoutProperties(_ref3, ["label"]);
 
-  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useField)(props),
+  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)(props),
       _useField6 = _slicedToArray(_useField5, 3),
       field = _useField6[0],
       meta = _useField6[1],
       helpers = _useField6[2];
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_9___default()), _objectSpread(_objectSpread(_objectSpread({}, field), props), {}, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_13___default()), _objectSpread(_objectSpread(_objectSpread({}, field), props), {}, {
       selected: field.value && new Date(field.value) || null,
       onChange: function onChange(dateValue) {
         return helpers.setValue(dateValue);
@@ -13262,38 +13294,41 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_sortable_hoc__WEBPACK_IMPORTED_MODULE_1__.SortableElement)(function (_ref4) {
   var itemIndex = _ref4.itemIndex,
       remove = _ref4.remove,
-      products = _ref4.products;
+      products = _ref4.products,
+      isEnabled = _ref4.isEnabled;
 
-  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useField)("paymentTerms.".concat(itemIndex, ".percent")),
+  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("paymentTerms.".concat(itemIndex, ".percent")),
       _useField8 = _slicedToArray(_useField7, 2),
       percentField = _useField8[0],
       percentFieldMeta = _useField8[1];
 
-  var _useField9 = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useField)("items"),
+  var _useField9 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items"),
       _useField10 = _slicedToArray(_useField9, 1),
       itemsField = _useField10[0];
 
-  var _useField11 = (0,formik__WEBPACK_IMPORTED_MODULE_4__.useField)("vat"),
+  var _useField11 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("vat"),
       _useField12 = _slicedToArray(_useField11, 1),
       vatField = _useField12[0];
 
   var termValue = function termValue() {
     if (itemsField.value.length <= 0) return 0;
-    var total = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_7__.getTotalWithVat)(itemsField.value, vatField.value); // let total= getTotalNet(itemsField.value)
+    var total = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.getTotalWithVat)(itemsField.value, vatField.value); // let total= getTotalNet(itemsField.value)
 
-    return (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_7__.precise)(percentField.value / 100 * total);
+    return (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.precise)(percentField.value / 100 * total);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_8__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_9__.default, {
         name: "paymentTerms.".concat(itemIndex, ".selected"),
         className: "form-check-input",
+        disabled: !isEnabled,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
           type: "text",
           className: "form-control",
-          name: "paymentTerms.".concat(itemIndex, ".percent")
+          name: "paymentTerms.".concat(itemIndex, ".percent"),
+          disabled: !isEnabled
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
@@ -13309,7 +13344,8 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleSelectFieldComponent, {
         className: "custom-select",
         name: "paymentTerms.".concat(itemIndex, ".type"),
-        children: _helpers_samples__WEBPACK_IMPORTED_MODULE_6__.default.paymentTermsTypes.map(function (status) {
+        disabled: !isEnabled,
+        children: _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.paymentTermsTypes.map(function (status) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
             value: status.value,
             children: status.value
@@ -13321,7 +13357,8 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleSelectFieldComponent, {
         className: "custom-select",
         name: "paymentTerms.".concat(itemIndex, ".method"),
-        children: _helpers_samples__WEBPACK_IMPORTED_MODULE_6__.default.paymentTermsMethods.map(function (status) {
+        disabled: !isEnabled,
+        children: _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.paymentTermsMethods.map(function (status) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
             value: status.value,
             children: status.value
@@ -13333,14 +13370,16 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "number",
         className: "form-control",
-        name: "paymentTerms.".concat(itemIndex, ".days")
+        name: "paymentTerms.".concat(itemIndex, ".days"),
+        disabled: !isEnabled
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleDatePickerFieldComponent, {
         className: "form-control",
         name: "paymentTerms.".concat(itemIndex, ".end_date"),
-        popperPlacement: "top-end"
+        popperPlacement: "top-end",
+        disabled: !isEnabled
       })
     })]
   });
@@ -13455,7 +13494,7 @@ var getTotalVat = function getTotalVat(items, vat) {
   return precise(getTotalNet(items) * vat / 100);
 };
 var getTotalWithVat = function getTotalWithVat(items, vat) {
-  return getTotalNet(items) + getTotalVat(items, vat);
+  return precise(getTotalNet(items) + getTotalVat(items, vat));
 };
 var getTotalByFunc = function getTotalByFunc(items, func) {
   if (items.length <= 0) return 0;
@@ -13463,13 +13502,17 @@ var getTotalByFunc = function getTotalByFunc(items, func) {
     return accumulator * 1 + func(currentValue);
   }, 0));
 };
-var mapItems = function mapItems(items) {
+var mapItems = function mapItems(items, products) {
   return items.map(function (item) {
+    var product = products.find(function (product) {
+      return product.id === item.product_id;
+    });
     return _objectSpread(_objectSpread({}, item), {}, {
       gross: grossValue(item),
       discount: discount(item),
       margin: margin(item),
-      net: calculateNet(item)
+      net: calculateNet(item),
+      group: (product === null || product === void 0 ? void 0 : product.Product_Quote_Group) || ""
     });
   });
 };
@@ -13505,6 +13548,46 @@ var Constants = Object.freeze({
   header: {
     name: ""
   },
+  productTypes: [{
+    key: "Accessories",
+    value: "Accessories"
+  }, {
+    key: "AMC - Hardware",
+    value: "AMC - Hardware"
+  }, {
+    key: "AMC - Software",
+    value: "AMC - Software"
+  }, {
+    key: "Application",
+    value: "Application"
+  }, {
+    key: "Cloud",
+    value: "Cloud"
+  }, {
+    key: "Deployment and Field Service",
+    value: "Deployment and Field Service"
+  }, {
+    key: "Development",
+    value: "Development"
+  }, {
+    key: "Hardware",
+    value: "Hardware"
+  }, {
+    key: "Managed Services",
+    value: "Managed Services"
+  }, {
+    key: "Professionals Services",
+    value: "Professionals Services"
+  }, {
+    key: "Software",
+    value: "Software"
+  }, {
+    key: "Spare Parts",
+    value: "Spare Parts"
+  }, {
+    key: "Warranty",
+    value: "Warranty"
+  }],
   sampleShipping: {
     contact: "",
     country: "",
@@ -13580,7 +13663,7 @@ var Constants = Object.freeze({
   },
   samplePricingTerm: {
     selected: false,
-    percent: 0,
+    percent: 1,
     value: 0,
     type: "Advance",
     method: "Wire Transfer",
@@ -13593,7 +13676,7 @@ var Constants = Object.freeze({
     product_id: "",
     part_number: "",
     vendor_part_number: "",
-    type: "",
+    type: "Accessories",
     name: "",
     description: "",
     quantity: 1,

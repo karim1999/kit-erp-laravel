@@ -12330,6 +12330,71 @@ function ReactSelectFieldComponent(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SelectFieldComponent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+
+function SelectFieldComponent(_ref) {
+  var label = _ref.label,
+      props = _objectWithoutProperties(_ref, ["label"]);
+
+  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_1__.useField)(props),
+      _useField2 = _slicedToArray(_useField, 2),
+      field = _useField2[0],
+      meta = _useField2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "form-group",
+    children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      htmlFor: props.id || props.name,
+      children: label
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "error",
+      children: meta.error
+    }) : null]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js":
 /*!*****************************************************************************!*\
   !*** ./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js ***!
@@ -12442,13 +12507,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_sortable_hoc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-sortable-hoc */ "./node_modules/react-sortable-hoc/dist/react-sortable-hoc.esm.js");
 /* harmony import */ var _DragHandlerComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DragHandlerComponent */ "./resources/js/Pages/Deal/Components/Table/DragHandlerComponent.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
-/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
-/* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
-/* harmony import */ var _Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/TextAreaFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
+/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
+/* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
+/* harmony import */ var _Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Fields/TextAreaFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js");
+/* harmony import */ var _Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Fields/SelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -12492,17 +12559,18 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 
 
+
 var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
   var label = _ref.label,
       props = _objectWithoutProperties(_ref, ["label"]);
 
-  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)(props),
+  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)(props),
       _useField2 = _slicedToArray(_useField, 2),
       field = _useField2[0],
       meta = _useField2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
       className: "error",
       children: meta.error
     }) : null]
@@ -12516,24 +12584,24 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       remove = _ref2.remove,
       products = _ref2.products;
 
-  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex, ".product_id")),
+  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".product_id")),
       _useField4 = _slicedToArray(_useField3, 2),
       productIdField = _useField4[0],
       productIdFieldMeta = _useField4[1];
 
-  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex)),
+  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex)),
       _useField6 = _slicedToArray(_useField5, 3),
       itemField = _useField6[0],
       itemFieldMeta = _useField6[1],
       itemFieldHelpers = _useField6[2];
 
-  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex, ".cost_price")),
+  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".cost_price")),
       _useField8 = _slicedToArray(_useField7, 3),
       costPriceField = _useField8[0],
       costPriceFieldMeta = _useField8[1],
       costPriceFieldHelpers = _useField8[2];
 
-  var _useField9 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)('account'),
+  var _useField9 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)('account'),
       _useField10 = _slicedToArray(_useField9, 1),
       accountField = _useField10[0];
 
@@ -12573,15 +12641,15 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
                 break;
               }
 
-              itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItem), {}, {
+              itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItem), {}, {
                 product_id: option.value
               }));
               return _context.abrupt("return");
 
             case 4:
               productUpdateObject = {};
-              Object.keys(_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap).map(function (key) {
-                if (product[_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap[key]]) productUpdateObject[key] = product[_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap[key]];
+              Object.keys(_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap).map(function (key) {
+                if (product[_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap[key]]) productUpdateObject[key] = product[_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap[key]];
               });
               itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, itemField.value), productUpdateObject));
               Cost_Price = product.Cost_Price || 0; // let Unit_Price= product.Unit_Price || 0
@@ -12620,27 +12688,27 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
   // }
 
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_9__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_10__.default, {
         name: "items.".concat(itemIndex, ".selected"),
         className: "form-check-input",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
           type: "text",
           className: "form-control",
           value: itemIndex + 1,
           disabled: true
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("td", {
       className: "fit",
-      children: [isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: [isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".name"),
         placeholder: "Name"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_6__.default, {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_7__.default, {
         onChange: onChange,
         label: "",
         name: "items.".concat(itemIndex, ".product_id"),
@@ -12650,120 +12718,129 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
             label: product.Product_Name
           };
         })
-      }), isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_10__.default, {
+      }), isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_11__.default, {
         label: "",
         className: "form-control",
         rows: "5",
         name: "items.".concat(itemIndex, ".description"),
         placeholder: "Description"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("p", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("p", {
         className: "table-para",
         children: (itemField === null || itemField === void 0 ? void 0 : (_itemField$value = itemField.value) === null || _itemField$value === void 0 ? void 0 : _itemField$value.description) || ""
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".vendor_part_number"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".part_number"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_12__.default, {
+        className: "custom-select",
+        name: "items.".concat(itemIndex, ".type"),
+        children: _helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.productTypes.map(function (status) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+            value: status.key,
+            children: status.value
+          }, status.key);
+        })
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".type"),
-        disabled: !isText()
+        disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".cost_price"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".unit_price"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         min: 0,
         type: "number",
         className: "form-control",
         name: "items.".concat(itemIndex, ".quantity")
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".unit"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.grossValue)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.grossValue)(itemField.value),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         min: 0,
         type: "number",
         step: .01,
         className: "form-control",
         name: "items.".concat(itemIndex, ".discount_percent")
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.discount)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.discount)(itemField.value),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         min: 0,
         type: "number",
-        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value) < 0 && "is-invalid"),
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value),
+        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.marginPercent)(itemField.value) < 0 && "is-invalid"),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.marginPercent)(itemField.value),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "number",
-        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value) < 0 && "is-invalid"),
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value),
+        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.margin)(itemField.value) < 0 && "is-invalid"),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.margin)(itemField.value),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.calculateNet)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.calculateNet)(itemField.value),
         disabled: true
       })
     })]
@@ -12879,7 +12956,7 @@ var getTotalVat = function getTotalVat(items, vat) {
   return precise(getTotalNet(items) * vat / 100);
 };
 var getTotalWithVat = function getTotalWithVat(items, vat) {
-  return getTotalNet(items) + getTotalVat(items, vat);
+  return precise(getTotalNet(items) + getTotalVat(items, vat));
 };
 var getTotalByFunc = function getTotalByFunc(items, func) {
   if (items.length <= 0) return 0;
@@ -12887,13 +12964,17 @@ var getTotalByFunc = function getTotalByFunc(items, func) {
     return accumulator * 1 + func(currentValue);
   }, 0));
 };
-var mapItems = function mapItems(items) {
+var mapItems = function mapItems(items, products) {
   return items.map(function (item) {
+    var product = products.find(function (product) {
+      return product.id === item.product_id;
+    });
     return _objectSpread(_objectSpread({}, item), {}, {
       gross: grossValue(item),
       discount: discount(item),
       margin: margin(item),
-      net: calculateNet(item)
+      net: calculateNet(item),
+      group: (product === null || product === void 0 ? void 0 : product.Product_Quote_Group) || ""
     });
   });
 };
@@ -12929,6 +13010,46 @@ var Constants = Object.freeze({
   header: {
     name: ""
   },
+  productTypes: [{
+    key: "Accessories",
+    value: "Accessories"
+  }, {
+    key: "AMC - Hardware",
+    value: "AMC - Hardware"
+  }, {
+    key: "AMC - Software",
+    value: "AMC - Software"
+  }, {
+    key: "Application",
+    value: "Application"
+  }, {
+    key: "Cloud",
+    value: "Cloud"
+  }, {
+    key: "Deployment and Field Service",
+    value: "Deployment and Field Service"
+  }, {
+    key: "Development",
+    value: "Development"
+  }, {
+    key: "Hardware",
+    value: "Hardware"
+  }, {
+    key: "Managed Services",
+    value: "Managed Services"
+  }, {
+    key: "Professionals Services",
+    value: "Professionals Services"
+  }, {
+    key: "Software",
+    value: "Software"
+  }, {
+    key: "Spare Parts",
+    value: "Spare Parts"
+  }, {
+    key: "Warranty",
+    value: "Warranty"
+  }],
   sampleShipping: {
     contact: "",
     country: "",
@@ -13004,7 +13125,7 @@ var Constants = Object.freeze({
   },
   samplePricingTerm: {
     selected: false,
-    percent: 0,
+    percent: 1,
     value: 0,
     type: "Advance",
     method: "Wire Transfer",
@@ -13017,7 +13138,7 @@ var Constants = Object.freeze({
     product_id: "",
     part_number: "",
     vendor_part_number: "",
-    type: "",
+    type: "Accessories",
     name: "",
     description: "",
     quantity: 1,

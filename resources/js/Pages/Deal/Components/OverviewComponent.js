@@ -38,20 +38,9 @@ export default function ({deal}) {
                             <td className="text-muted">
                                 <select className="custom-select" value={type} onChange={event => setType(event.target.value)}>
                                     <option>Product Type</option>
-                                    <option value="Accessories">Accessories</option>
-                                    <option value="AMC - Hardware">AMC - Hardware</option>
-                                    <option value="AMC - Software">AMC - Software</option>
-                                    <option value="Application">Application</option>
-                                    <option value="Cloud">Cloud</option>
-                                    <option value="Consultancy">Consultancy</option>
-                                    <option value="Deployment and Field Service">Deployment and Field Service</option>
-                                    <option value="Development">Development</option>
-                                    <option value="Hardware">Hardware</option>
-                                    <option value="Managed Services">Managed Services</option>
-                                    <option value="Professionals Services">Professionals Services</option>
-                                    <option value="Software">Software</option>
-                                    <option value="Spare Parts">Spare Parts</option>
-                                    <option value="Warranty">Warranty</option>
+                                    {
+                                        Constants.productTypes.map(type => <option key={type.key} value={type.key}>{type.value}</option>)
+                                    }
                                 </select>
                             </td>
                         </tr>

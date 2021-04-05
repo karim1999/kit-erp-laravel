@@ -2,6 +2,60 @@ let Constants = Object.freeze({
 	header: {
 		name: ""
 	},
+    productTypes: [
+        {
+            key: "Accessories",
+            value: "Accessories",
+        },
+        {
+            key: "AMC - Hardware",
+            value: "AMC - Hardware",
+        },
+        {
+            key: "AMC - Software",
+            value: "AMC - Software",
+        },
+        {
+            key: "Application",
+            value: "Application",
+        },
+        {
+            key: "Cloud",
+            value: "Cloud",
+        },
+        {
+            key: "Deployment and Field Service",
+            value: "Deployment and Field Service",
+        },
+        {
+            key: "Development",
+            value: "Development",
+        },
+        {
+            key: "Hardware",
+            value: "Hardware",
+        },
+        {
+            key: "Managed Services",
+            value: "Managed Services",
+        },
+        {
+            key: "Professionals Services",
+            value: "Professionals Services",
+        },
+        {
+            key: "Software",
+            value: "Software",
+        },
+        {
+            key: "Spare Parts",
+            value: "Spare Parts",
+        },
+        {
+            key: "Warranty",
+            value: "Warranty",
+        },
+    ],
     sampleShipping: {
         contact: "",
         country: "",
@@ -100,7 +154,7 @@ let Constants = Object.freeze({
     },
     samplePricingTerm: {
         selected: false,
-        percent: 0,
+        percent: 1,
         value: 0,
         type: "Advance",
         method: "Wire Transfer",
@@ -124,7 +178,7 @@ let Constants = Object.freeze({
 		product_id: "",
         part_number: "",
         vendor_part_number: "",
-        type: "",
+        type: "Accessories",
 		name: "",
 		description: "",
 

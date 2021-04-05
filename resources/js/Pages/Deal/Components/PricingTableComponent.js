@@ -90,7 +90,7 @@ export default function ({deal, insert, remove, push, move, products}) {
         <div className="container my-4">
             <div className="row">
                 <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
-                    <label>Quote Table</label>
+                    <label>Quote Table <span className="error">*</span></label>
                 </div>
             </div>
             <input onChange={importFile} style={{display: "none"}} type="file" id="file" name="file" />

@@ -4,11 +4,12 @@ import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
 import TableBody from "./TermsTable/TableBody";
 import {useField} from "formik";
-import {calculateNet, getTotalNet, precise} from "../../../helpers/helpers";
+import {calculateNet, getTotalNet, marginPercent, precise} from "../../../helpers/helpers";
 
-export default function ({deal, insert, remove, push, move}) {
+export default function ({deal, insert, remove, push, move, request}) {
     const [terms, termsFieldMeta, termsFieldHelpers] = useField(`paymentTerms`);
     const [itemsField] = useField(`items`);
+    const [isEnabled, setIsEnabled]= useState(false);
 
     const totalPercent= () => {
         if(terms.value.length <= 0)
@@ -44,6 +45,15 @@ export default function ({deal, insert, remove, push, move}) {
         let tempTerms= [...terms.value]
         termsFieldHelpers.setValue(tempTerms.filter(term => !term.selected))
     }
+    const toggleEnabling= (e) => {
+        e.preventDefault();
+        setIsEnabled(!isEnabled)
+    }
+    const requestApproval= (e) => {
+        e.preventDefault();
+        request()
+    }
+
     return (
         <div className="container my-4">
             <div className="row">
@@ -62,6 +72,16 @@ export default function ({deal, insert, remove, push, move}) {
                         <li>
                             <a href="" onClick={removeTerms}>
                                 <img src="/assets/images/bin.svg" alt="" /> Delete Term
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" onClick={requestApproval}>
+                                Send for Approval
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" onClick={toggleEnabling}>
+                                {isEnabled ? "Disable Editing" : "Enable Editing"}
                             </a>
                         </li>
                     </ul>
@@ -100,11 +120,11 @@ export default function ({deal, insert, remove, push, move}) {
                                     </th>
                                 </tr>
                                 </thead>
-                                <TableBody useDragHandle onSortEnd={({oldIndex, newIndex}) => move(oldIndex, newIndex)} remove={remove}/>
+                                <TableBody useDragHandle onSortEnd={({oldIndex, newIndex}) => move(oldIndex, newIndex)} isEnabled={isEnabled} remove={remove}/>
                                 <thead className="table-info">
                                 <tr>
                                     <th className="fit">
-                                        <input type="text" value={totalPercent()} className="form-control" disabled />
+                                        <input type="text" value={totalPercent()}  className={`form-control ${totalPercent() > 100 && "is-invalid"}`} disabled />
                                     </th>
                                     <th className="fit">
                                         <label htmlFor="">Total %</label>

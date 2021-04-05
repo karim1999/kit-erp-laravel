@@ -36,6 +36,7 @@ class CreateItemsTable extends Migration
             $table->decimal('unit_price', 15, 2)->default(0);
 
             $table->string('unit')->nullable();
+            $table->string('group')->nullable();
 
             $table->decimal('gross', 15, 2)->default(0);
             $table->decimal('net', 15, 2)->default(0);

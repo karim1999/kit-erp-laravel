@@ -2195,7 +2195,7 @@ function SelectFieldComponent(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "form-group",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+    children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: props.id || props.name,
       children: label
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -2338,6 +2338,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
             className: "form-group",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_5__.default, {
+              isDisabled: true,
               label: "Salesperson Name",
               name: "sales_person",
               options: users.map(function (user) {
@@ -2468,6 +2469,46 @@ var Constants = Object.freeze({
   header: {
     name: ""
   },
+  productTypes: [{
+    key: "Accessories",
+    value: "Accessories"
+  }, {
+    key: "AMC - Hardware",
+    value: "AMC - Hardware"
+  }, {
+    key: "AMC - Software",
+    value: "AMC - Software"
+  }, {
+    key: "Application",
+    value: "Application"
+  }, {
+    key: "Cloud",
+    value: "Cloud"
+  }, {
+    key: "Deployment and Field Service",
+    value: "Deployment and Field Service"
+  }, {
+    key: "Development",
+    value: "Development"
+  }, {
+    key: "Hardware",
+    value: "Hardware"
+  }, {
+    key: "Managed Services",
+    value: "Managed Services"
+  }, {
+    key: "Professionals Services",
+    value: "Professionals Services"
+  }, {
+    key: "Software",
+    value: "Software"
+  }, {
+    key: "Spare Parts",
+    value: "Spare Parts"
+  }, {
+    key: "Warranty",
+    value: "Warranty"
+  }],
   sampleShipping: {
     contact: "",
     country: "",
@@ -2543,7 +2584,7 @@ var Constants = Object.freeze({
   },
   samplePricingTerm: {
     selected: false,
-    percent: 0,
+    percent: 1,
     value: 0,
     type: "Advance",
     method: "Wire Transfer",
@@ -2556,7 +2597,7 @@ var Constants = Object.freeze({
     product_id: "",
     part_number: "",
     vendor_part_number: "",
-    type: "",
+    type: "Accessories",
     name: "",
     description: "",
     quantity: 1,

@@ -13,7 +13,7 @@ export default function ({deal, contacts}) {
             <div className="container my-4">
                 <div className="row">
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
-                        <ReactSelectFieldComponent label="Contact ID No." name="contact" options={contacts.map(contact => ({value: contact.id, label: contact.Contact_Auto_No}))} />
+                        <ReactSelectFieldComponent isDisabled label="Contact ID No." name="contact" options={contacts.map(contact => ({value: contact.id, label: contact.Contact_Auto_No}))} />
                     </div>
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
                         <div className="form-group">

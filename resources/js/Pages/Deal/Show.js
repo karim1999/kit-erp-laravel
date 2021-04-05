@@ -5,7 +5,20 @@ import { Formik, Form, useField, FieldArray } from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
 import Constants from "../../helpers/samples";
-import {precise, calculateItemDiscount, calculateItemMargin, mapTerms, mapItems} from "../../helpers/helpers";
+import {
+    precise,
+    calculateItemDiscount,
+    calculateItemMargin,
+    mapTerms,
+    mapItems,
+    getTotalByKey,
+    getTotalDiscountPercent,
+    getTotalDiscount,
+    getTotalGross,
+    getTotalMarginPercent,
+    getTotalMargin,
+    getTotalWithVat, getTotalVat
+} from "../../helpers/helpers";
 import HeaderComponent from "./Components/HeaderComponent";
 import QuoteBasicInfoComponent from "./Components/QuoteBasicInfoComponent";
 import SalesPersonInfoComponent from "./Components/SalesPersonInfoComponent";
@@ -30,6 +43,18 @@ const getInitArrayData= (quoteData, value, template) => {
     console.log({tempItems})
     return tempItems;
 }
+const termsSchema= Yup.array().of(Yup.object().shape({
+    percent: Yup.number().typeError('Must be a Number').required('Required').positive('Must be Positive'),
+    value: Yup.number().nullable().typeError('Must be a Number'),
+    type: Yup.string().typeError('Must be a String')
+        .required('Required')
+        .oneOf(Constants.paymentTermsTypes.map(type => type.value)),
+    method: Yup.string().typeError('Must be a String')
+        .required('Required')
+        .oneOf(Constants.paymentTermsMethods.map(type => type.value)),
+    days: Yup.number().typeError('Must be a Number').required('Required').integer('Must be Positive').min(0, 'Must be greater than 0'),
+    end_date: Yup.date().typeError('Must be a valid Date'),
+}))
 export default function Show({ quote, current_deal_id, current_deal= Constants.sampleOpportunity, quotes= [], contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
     const [deal, setDeal]= useState({...current_deal.data[0]});
     const [users, setUsers]= useState(usersObj.users);
@@ -64,6 +89,8 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
 
     const initialValues= {
         quote_no: getInitData(quote?.quote_no, ""),
+        subject: getInitData(quote?.quote_no, ""),
+        quote_stage: getInitData(quote?.Stage, ""),
         status:  getInitData(quote?.status, Constants.statusTypes[0].value),
         approval_status: getInitData(quote?.approval_status, Constants.approvalStatusTypes[0].value),
         sales_person: getInitData(quote?.sales_person, users.find(user => user.id === deal.Owner.id)?.id),
@@ -90,12 +117,46 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
     }, [quote])
 
     const validationSchema= Yup.object({
-        status: Yup.string()
+        status: Yup.string().typeError('Must be a String')
             .required('Required')
             .oneOf(Constants.statusTypes.map(status => status.value)),
-        approvalStatus: Yup.string()
+        approval_status: Yup.string().typeError('Must be a String')
             .required('Required')
             .oneOf(Constants.approvalStatusTypes.map(status => status.value)),
+        vat: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+        items: Yup.array().min(1).of(Yup.object().shape({
+            is_text: Yup.boolean(),
+            product_id: Yup.string().typeError('Must be a String').nullable()
+                .when("is_text", {
+                    is: 0 || false,
+                    then: Yup.string().typeError('Must be a String').required('Required')
+                }),
+            description: Yup.string().typeError('Must be a String').nullable()
+                .when("is_text", {
+                    is: 1 || true,
+                    then: Yup.string().typeError('Must be a String').required('Required')
+                }),
+            name: Yup.string().typeError('Must be a String').nullable()
+                .when("is_text", {
+                    is: true,
+                    then: Yup.string().typeError('Must be a String').required('Required')
+                }),
+
+            quantity: Yup.number().typeError('Must be a Number').required('Required').min(0, 'Must be greater than 0').integer('Must be Positive'),
+
+            cost_price: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+            unit_price: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+
+            margin: Yup.number().nullable().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+            margin_percent: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+
+            discount: Yup.number().nullable().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+            discount_percent:  Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+
+            gross:  Yup.number().nullable().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+            net:  Yup.number().nullable().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+        })),
+        paymentTerms: termsSchema
     })
 
     const onSubmit= (values, { setSubmitting }) => {
@@ -108,51 +169,98 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         // })
         alert(JSON.stringify(values, null, 2));
     }
-    const prepareDataBeforeSend= (data) => {
+    const prepareDataBeforeSend= async (data) => {
+        console.log(data)
+        let validationResult= await validate()
+        if(Object.keys(validationResult).length > 0){
+            console.log({validationResult})
+            console.log(Object.values(validationResult).flat(2))
+            if(!Array.isArray(Object.values(validationResult).flat(2)[0])){
+                toast.error(Object.values(validationResult).flat(2)[0], {autoClose: 5000});
+            }else if(validationResult.items && Array.isArray(validationResult.items)){
+                toast.error("Please check the inserted items", {autoClose: 5000});
+            }else if(validationResult.paymentTerms && Array.isArray(validationResult.paymentTerms)){
+                toast.error("Please check the inserted payment terms", {autoClose: 5000});
+            }else{
+                toast.error("Please check your input", {autoClose: 5000});
+            }
+            return false;
+        }
         let paymentTermsTemp= mapTerms([...data.paymentTerms], data.items)
-        let itemsTemp= mapItems([...data.items])
+        let itemsTemp= mapItems([...data.items], products)
         return {
             ...data,
             terms: paymentTermsTemp,
             items: itemsTemp,
-            zoho_id: current_deal_id
+            zoho_id: current_deal_id,
+            "Total_Cost_Price": getTotalByKey(data.items, "cost_price"),
+            "Total_Discount": getTotalDiscountPercent(data.items),
+            "Total_Discount_Value": getTotalDiscount(data.items),
+            "Total_Gross_Value": getTotalGross(data.items),
+            "Total_Margin": getTotalMarginPercent(data.items),
+            "Total_Margin_Value": getTotalMargin(data.items),
+            "Total_Net_Value_Including_VAT": getTotalWithVat(data.items, data.vat),
+            "VAT_Value": getTotalVat(data.items, data.vat),
         }
     }
-    const generateQuote= () => {
-        let data= prepareDataBeforeSend(formRef.current.values)
-        Inertia.post('/quotes', data)
+    const validate= async () => {
+        return await formRef.current.validateForm()
     }
-    const updateQuote= () => {
+    const generateQuote= async () => {
+        let data= await prepareDataBeforeSend(formRef.current.values)
+        if(data){
+            Inertia.post('/quotes', data)
+        }
+    }
+    const updateQuote= async () => {
         if(quote?.id){
-            let data= prepareDataBeforeSend(formRef.current.values)
-            Inertia.put('/quotes/'+quote?.id, data)
+            let data= await prepareDataBeforeSend(formRef.current.values)
+            if(data){
+                Inertia.put('/quotes/'+quote?.id, data)
+            }
         }else{
             toast.error("Please Save the quote first.", {autoClose: 5000});
         }
     }
-    const pushQuote= () => {
+    const pushQuote= async () => {
         if(quote?.id){
-            let data= prepareDataBeforeSend(formRef.current.values)
-            Inertia.post('/deals/'+deal?.id+'/push/quote', data)
+            let data= await prepareDataBeforeSend(formRef.current.values)
+            if(data){
+                Inertia.post('/deals/'+deal?.id+'/push/quote', data)
+            }
         }else{
             toast.error("Please Save the quote first.", {autoClose: 5000});
         }
     }
-    const pushDeal= () => {
+    const pushDeal= async () => {
         if(quote?.id){
-            let data= prepareDataBeforeSend(formRef.current.values)
-            Inertia.post('/deals/'+deal?.id+'/push/deal', data)
+            let data= await prepareDataBeforeSend(formRef.current.values)
+            if(data){
+                Inertia.post('/deals/'+deal?.id+'/push/deal', data)
+            }
         }else{
             toast.error("Please Save the quote first.", {autoClose: 5000});
         }
     }
-    const pushAll= () => {
+    const pushAll= async () => {
         if(quote?.id){
-            let data= prepareDataBeforeSend(formRef.current.values)
-            Inertia.post('/deals/'+deal?.id+'/push', data)
+            let data= await prepareDataBeforeSend(formRef.current.values)
+            if(data){
+                Inertia.post('/deals/'+deal?.id+'/push', data)
+            }
         }else{
             toast.error("Please Save the quote first.", {autoClose: 5000});
         }
+    }
+    const request= async () => {
+        termsSchema.isValid(formRef.current.values.paymentTerms).then((valid) => {
+            if(valid){
+                let terms= mapTerms([...formRef.current.values.paymentTerms], formRef.current.values.items)
+                Inertia.post('/deals/'+deal?.id+'/push/terms', {terms})
+            }
+        }).catch(err => {
+            toast.error("Please check your input.", {autoClose: 5000});
+        })
     }
     return (
         <>
@@ -178,7 +286,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
                     <OverviewComponent deal={deal} />
                     <FieldArray name="paymentTerms">
                         {(actions) => (
-                            <PaymentTermsComponent deal={deal} {...actions} />
+                            <PaymentTermsComponent request={request} deal={deal} {...actions} />
                         )}
                     </FieldArray>
                     <NotesComponent deal={deal}/>

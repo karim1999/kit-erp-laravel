@@ -9,6 +9,7 @@ import Constants from "../../../../helpers/samples";
 import {calculateNet, discount, grossValue, margin, marginPercent, precise} from "../../../../helpers/helpers";
 import CheckBoxFieldComponent from "../Fields/CheckBoxFieldComponent";
 import TextAreaFieldComponent from "../Fields/TextAreaFieldComponent";
+import SelectFieldComponent from "../Fields/SelectFieldComponent";
 
 const SimpleTextFieldComponent= ({ label, ...props }) => {
     const [field, meta] = useField(props);
@@ -108,7 +109,17 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.part_number`} disabled={!isText()} />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.type`} disabled={!isText()} />
+                {
+                    isText() ?
+                        <SelectFieldComponent className="custom-select" name={`items.${itemIndex}.type`}>
+                            {
+                                Constants.productTypes.map(status => <option key={status.key} value={status.key}>{status.value}</option>)
+                            }
+                        </SelectFieldComponent>
+                        :
+                        <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.type`}
+                                                  disabled/>
+                }
             </td>
             <td className="fit">
                 <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.cost_price`} disabled={!isText()} />

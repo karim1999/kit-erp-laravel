@@ -51,7 +51,7 @@ const SimpleDatePickerFieldComponent= ({ label, ...props }) => {
     );
 }
 
-export default SortableElement(({itemIndex, remove, products}) => {
+export default SortableElement(({itemIndex, remove, products, isEnabled}) => {
     const [percentField, percentFieldMeta] = useField(`paymentTerms.${itemIndex}.percent`);
     const [itemsField] = useField(`items`);
     const [vatField] = useField(`vat`);
@@ -68,32 +68,32 @@ export default SortableElement(({itemIndex, remove, products}) => {
     return (
         <tr>
             <td className="fit">
-                <CheckBoxFieldComponent name={`paymentTerms.${itemIndex}.selected`} className="form-check-input" >
-                    <SimpleTextFieldComponent type="text" className="form-control" name={`paymentTerms.${itemIndex}.percent`} />
+                <CheckBoxFieldComponent name={`paymentTerms.${itemIndex}.selected`} className="form-check-input" disabled={!isEnabled} >
+                    <SimpleTextFieldComponent type="text" className="form-control" name={`paymentTerms.${itemIndex}.percent`} disabled={!isEnabled} />
                 </CheckBoxFieldComponent>
             </td>
             <td className="fit">
                 <input type="text" className="form-control" value={termValue()} disabled />
             </td>
             <td className="fit">
-                <SimpleSelectFieldComponent className="custom-select" name={`paymentTerms.${itemIndex}.type`} >
+                <SimpleSelectFieldComponent className="custom-select" name={`paymentTerms.${itemIndex}.type`} disabled={!isEnabled}>
                     {
                         Constants.paymentTermsTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
                     }
                 </SimpleSelectFieldComponent>
             </td>
             <td className="fit">
-                <SimpleSelectFieldComponent className="custom-select" name={`paymentTerms.${itemIndex}.method`} >
+                <SimpleSelectFieldComponent className="custom-select" name={`paymentTerms.${itemIndex}.method`} disabled={!isEnabled}>
                     {
                         Constants.paymentTermsMethods.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
                     }
                 </SimpleSelectFieldComponent>
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="number" className="form-control" name={`paymentTerms.${itemIndex}.days`} />
+                <SimpleTextFieldComponent type="number" className="form-control" name={`paymentTerms.${itemIndex}.days`} disabled={!isEnabled} />
             </td>
             <td className="fit">
-                <SimpleDatePickerFieldComponent className="form-control" name={`paymentTerms.${itemIndex}.end_date`} popperPlacement="top-end"/>
+                <SimpleDatePickerFieldComponent className="form-control" name={`paymentTerms.${itemIndex}.end_date`} popperPlacement="top-end" disabled={!isEnabled}/>
             </td>
         </tr>
     )}

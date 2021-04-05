@@ -2092,7 +2092,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(_ref) {
-  var _account, _account2, _account3, _account4;
+  var _account, _account2, _account3, _account4, _account5, _account5$Associated_;
 
   var deal = _ref.deal,
       accounts = _ref.accounts;
@@ -2116,6 +2116,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "col-xl-2 col-lg-2 col-sm-2 col-3",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__.default, {
+            isDisabled: true,
             label: "Account ID No.",
             name: "account",
             options: accounts.map(function (account) {
@@ -2190,6 +2191,23 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               className: "form-control",
               placeholder: "",
               value: ((_account4 = account()) === null || _account4 === void 0 ? void 0 : _account4.Account_Fax_No) || "",
+              disabled: true
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "col-xl-2 col-lg-2 col-sm-2 col-3",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: "assets/images/eye_icon.svg",
+                alt: ""
+              }), "Associated Price Book"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "text",
+              className: "form-control",
+              placeholder: "",
+              value: ((_account5 = account()) === null || _account5 === void 0 ? void 0 : (_account5$Associated_ = _account5.Associated_Price_Book) === null || _account5$Associated_ === void 0 ? void 0 : _account5$Associated_.name) || "",
               disabled: true
             })]
           })
@@ -2300,6 +2318,46 @@ var Constants = Object.freeze({
   header: {
     name: ""
   },
+  productTypes: [{
+    key: "Accessories",
+    value: "Accessories"
+  }, {
+    key: "AMC - Hardware",
+    value: "AMC - Hardware"
+  }, {
+    key: "AMC - Software",
+    value: "AMC - Software"
+  }, {
+    key: "Application",
+    value: "Application"
+  }, {
+    key: "Cloud",
+    value: "Cloud"
+  }, {
+    key: "Deployment and Field Service",
+    value: "Deployment and Field Service"
+  }, {
+    key: "Development",
+    value: "Development"
+  }, {
+    key: "Hardware",
+    value: "Hardware"
+  }, {
+    key: "Managed Services",
+    value: "Managed Services"
+  }, {
+    key: "Professionals Services",
+    value: "Professionals Services"
+  }, {
+    key: "Software",
+    value: "Software"
+  }, {
+    key: "Spare Parts",
+    value: "Spare Parts"
+  }, {
+    key: "Warranty",
+    value: "Warranty"
+  }],
   sampleShipping: {
     contact: "",
     country: "",
@@ -2375,7 +2433,7 @@ var Constants = Object.freeze({
   },
   samplePricingTerm: {
     selected: false,
-    percent: 0,
+    percent: 1,
     value: 0,
     type: "Advance",
     method: "Wire Transfer",
@@ -2388,7 +2446,7 @@ var Constants = Object.freeze({
     product_id: "",
     part_number: "",
     vendor_part_number: "",
-    type: "",
+    type: "Accessories",
     name: "",
     description: "",
     quantity: 1,

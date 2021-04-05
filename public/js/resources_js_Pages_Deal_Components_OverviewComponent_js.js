@@ -129,7 +129,7 @@ function SelectFieldComponent(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "form-group",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+    children: [label && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
       htmlFor: props.id || props.name,
       children: label
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("select", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -299,48 +299,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   },
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
                     children: "Product Type"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Accessories",
-                    children: "Accessories"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "AMC - Hardware",
-                    children: "AMC - Hardware"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "AMC - Software",
-                    children: "AMC - Software"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Application",
-                    children: "Application"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Cloud",
-                    children: "Cloud"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Consultancy",
-                    children: "Consultancy"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Deployment and Field Service",
-                    children: "Deployment and Field Service"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Development",
-                    children: "Development"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Hardware",
-                    children: "Hardware"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Managed Services",
-                    children: "Managed Services"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Professionals Services",
-                    children: "Professionals Services"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Software",
-                    children: "Software"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Spare Parts",
-                    children: "Spare Parts"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
-                    value: "Warranty",
-                    children: "Warranty"
+                  }), _helpers_samples__WEBPACK_IMPORTED_MODULE_1__.default.productTypes.map(function (type) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("option", {
+                      value: type.key,
+                      children: type.value
+                    }, type.key);
                   })]
                 })
               })]
@@ -683,7 +646,7 @@ var getTotalVat = function getTotalVat(items, vat) {
   return precise(getTotalNet(items) * vat / 100);
 };
 var getTotalWithVat = function getTotalWithVat(items, vat) {
-  return getTotalNet(items) + getTotalVat(items, vat);
+  return precise(getTotalNet(items) + getTotalVat(items, vat));
 };
 var getTotalByFunc = function getTotalByFunc(items, func) {
   if (items.length <= 0) return 0;
@@ -691,13 +654,17 @@ var getTotalByFunc = function getTotalByFunc(items, func) {
     return accumulator * 1 + func(currentValue);
   }, 0));
 };
-var mapItems = function mapItems(items) {
+var mapItems = function mapItems(items, products) {
   return items.map(function (item) {
+    var product = products.find(function (product) {
+      return product.id === item.product_id;
+    });
     return _objectSpread(_objectSpread({}, item), {}, {
       gross: grossValue(item),
       discount: discount(item),
       margin: margin(item),
-      net: calculateNet(item)
+      net: calculateNet(item),
+      group: (product === null || product === void 0 ? void 0 : product.Product_Quote_Group) || ""
     });
   });
 };
@@ -733,6 +700,46 @@ var Constants = Object.freeze({
   header: {
     name: ""
   },
+  productTypes: [{
+    key: "Accessories",
+    value: "Accessories"
+  }, {
+    key: "AMC - Hardware",
+    value: "AMC - Hardware"
+  }, {
+    key: "AMC - Software",
+    value: "AMC - Software"
+  }, {
+    key: "Application",
+    value: "Application"
+  }, {
+    key: "Cloud",
+    value: "Cloud"
+  }, {
+    key: "Deployment and Field Service",
+    value: "Deployment and Field Service"
+  }, {
+    key: "Development",
+    value: "Development"
+  }, {
+    key: "Hardware",
+    value: "Hardware"
+  }, {
+    key: "Managed Services",
+    value: "Managed Services"
+  }, {
+    key: "Professionals Services",
+    value: "Professionals Services"
+  }, {
+    key: "Software",
+    value: "Software"
+  }, {
+    key: "Spare Parts",
+    value: "Spare Parts"
+  }, {
+    key: "Warranty",
+    value: "Warranty"
+  }],
   sampleShipping: {
     contact: "",
     country: "",
@@ -808,7 +815,7 @@ var Constants = Object.freeze({
   },
   samplePricingTerm: {
     selected: false,
-    percent: 0,
+    percent: 1,
     value: 0,
     type: "Advance",
     method: "Wire Transfer",
@@ -821,7 +828,7 @@ var Constants = Object.freeze({
     product_id: "",
     part_number: "",
     vendor_part_number: "",
-    type: "",
+    type: "Accessories",
     name: "",
     description: "",
     quantity: 1,

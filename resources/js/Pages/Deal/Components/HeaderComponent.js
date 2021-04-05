@@ -75,7 +75,7 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote}){
                                 </div>
                             </div>
                             <div className="col-xl-2 col-lg-2 col-sm-2 col-2">
-                                <SelectFieldComponent className="custom-select" label="Quote Approval Status" name="approval_status">
+                                <SelectFieldComponent className="custom-select" label="Quote Approval Status" disabled name="approval_status">
                                     {
                                         Constants.approvalStatusTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
                                     }

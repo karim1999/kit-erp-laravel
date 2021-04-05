@@ -75,7 +75,7 @@ export const getTotalVat= (items, vat) => {
     return precise(getTotalNet(items) * vat/100)
 }
 export const getTotalWithVat= (items, vat) => {
-    return getTotalNet(items) + (getTotalVat(items, vat))
+    return precise(getTotalNet(items) + (getTotalVat(items, vat)))
 }
 export const getTotalByFunc= (items, func) => {
     if (items.length <= 0)
@@ -83,14 +83,19 @@ export const getTotalByFunc= (items, func) => {
     return precise(items.reduce((accumulator, currentValue) => accumulator*1 + func(currentValue), 0))
 }
 
-export const mapItems= (items) => {
-    return items.map(item => ({
-        ...item,
-        gross: grossValue(item),
-        discount: discount(item),
-        margin: margin(item),
-        net: calculateNet(item),
-    }))
+export const mapItems= (items, products) => {
+    return items.map(item => {
+        let product= products.find(product => product.id === item.product_id)
+
+        return {
+            ...item,
+            gross: grossValue(item),
+            discount: discount(item),
+            margin: margin(item),
+            net: calculateNet(item),
+            group: product?.Product_Quote_Group || "",
+        }
+    })
 }
 export const mapTerms= (terms, items) => {
     let total= getTotalNet(items)

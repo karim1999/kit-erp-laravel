@@ -14,3 +14,9 @@
 .slick-track{
     width: auto !important;
 }
+.table-info thead th, .table-info th{
+    border-color: #dee2e6;
+}
+.error {
+    color: red;
+}
