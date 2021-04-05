@@ -108,6 +108,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         notes: getInitData(quote?.notes, ""),
         paymentTerms: getInitArrayData(quote?.terms, dealTerms(), Constants.samplePricingTerm),
         vat: getInitData(quote?.vat, 5),
+        customs: getInitData(quote?.customs, 0),
     }
 
     useEffect(() => {
@@ -124,6 +125,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
             .required('Required')
             .oneOf(Constants.approvalStatusTypes.map(status => status.value)),
         vat: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
+        customs: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
         items: Yup.array().min(1).of(Yup.object().shape({
             is_text: Yup.boolean(),
             product_id: Yup.string().typeError('Must be a String').nullable()
@@ -201,6 +203,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
             "Total_Margin_Value": getTotalMargin(data.items),
             "Total_Net_Value_Including_VAT": getTotalWithVat(data.items, data.vat),
             "VAT_Value": getTotalVat(data.items, data.vat),
+            "customs_value": getTotalWithVat(data.items, data.customs),
         }
     }
     const validate= async () => {
@@ -256,7 +259,12 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         termsSchema.isValid(formRef.current.values.paymentTerms).then((valid) => {
             if(valid){
                 let terms= mapTerms([...formRef.current.values.paymentTerms], formRef.current.values.items)
-                Inertia.post('/deals/'+deal?.id+'/push/terms', {terms})
+                Inertia.post('/deals/'+deal?.id+'/push/terms', {
+                    terms,
+                    contact: formRef.current.values.contact,
+                    account: formRef.current.values.account,
+                    deal_name: formRef.current.values.deal_name,
+                })
             }
         }).catch(err => {
             toast.error("Please check your input.", {autoClose: 5000});

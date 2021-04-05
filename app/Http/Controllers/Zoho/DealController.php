@@ -205,8 +205,15 @@ class DealController extends Controller
         $termRecord = ZCRMRecord::getInstance("Payment_Terms1", null); // to get the instance of the record
 
         $termsInfo= $request->post('terms');
+        $account= $request->post('account');
+        $contact= $request->post('contact');
+        $deal_name= $request->post('deal_name');
 
         $termRecords= [];
+
+        $termRecord->setFieldValue("Related_Account_Name", $account);
+        $termRecord->setFieldValue("Related_Contact_Name", $contact);
+        $termRecord->setFieldValue("Quote_Name", $deal_name);
 
         $termRecord->setFieldValue("Deal_Name", $id);
         $termRecord->setFieldValue("Payment_Term_Status", "Revision Required");

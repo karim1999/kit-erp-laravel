@@ -23,6 +23,13 @@ const SimpleTextFieldComponent= ({ label, ...props }) => {
     );
 }
 
+const createPartLabel= (name, code)=>{
+    if(code){
+        return `${name} (${code})`;
+    }else{
+        return name;
+    }
+}
 
 export default SortableElement(({itemIndex, remove, products}) => {
     const [productIdField, productIdFieldMeta] = useField(`items.${itemIndex}.product_id`);
@@ -91,7 +98,7 @@ export default SortableElement(({itemIndex, remove, products}) => {
                     isText() ?
                         <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.name`} placeholder="Name" />
                         :
-                        <ReactSelectFieldComponent onChange={onChange} label="" name={`items.${itemIndex}.product_id`} options={products.map(product => ({value: product.id, label: product.Product_Name}))} />
+                        <ReactSelectFieldComponent onChange={onChange} label="" name={`items.${itemIndex}.product_id`} options={products.map(product => ({value: product.id, label: createPartLabel(product.Product_Name, product.Product_Code)}))} />
                 }
                 {
                     isText() ?

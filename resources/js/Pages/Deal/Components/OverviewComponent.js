@@ -17,6 +17,7 @@ export default function ({deal}) {
     const [type, setType]= useState("");
     const [itemsField] = useField(`items`);
     const [vatField] = useField(`vat`);
+    const [customsField] = useField(`customs`);
 
     const currentItems= () => {
         if(type === "")
@@ -157,6 +158,22 @@ export default function ({deal}) {
                             </th>
                             <td className="text-muted">
                                 <input type="text" className="form-control" value={getTotalNet(itemsField.value)} disabled />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th className="table-info">
+                                <img src="assets/images/eye_icon.svg" alt="" className="mr-2" />Freight and Customs %
+                            </th>
+                            <td className="text-muted">
+                                <TextFieldComponent type="text" label="" className="form-control" name="customs" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th className="table-info">
+                                <img src="assets/images/eye_icon.svg" alt="" className="mr-2" />Freight and Customs Value
+                            </th>
+                            <td className="text-muted">
+                                <input type="number" step={.1} className="form-control" value={getTotalVat(itemsField.value, customsField.value)} disabled />
                             </td>
                         </tr>
                         <tr>

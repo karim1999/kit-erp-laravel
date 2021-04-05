@@ -36,6 +36,7 @@ class CreateQuotesTable extends Migration
             $table->date('valid_to')->nullable();
 
             $table->decimal('vat', 15, 2)->default(0);
+            $table->decimal('customs', 15, 2)->default(0);
 
             $table->longText('description')->nullable();
             $table->longText('notes')->nullable();

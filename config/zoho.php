@@ -27,8 +27,12 @@ return [
         "vat"=> "VAT",
         "description"=> "Opportunity_Brief_Description",
         "notes"=> "Proposal_Quote_Notes",
+        "customs"=> "Freight_and_Customs",
+        "customs_value" => "Freight_and_Customs_Value",
     ],
     "mapDealToZohoQuotes" => [
+        "customs"=> "Freight_and_Customs",
+        "customs_value" => "Freight_and_Customs_Value",
         "status"=> "Quote_Status",
         "Total_Cost_Price"=> "Total_Cost_Price",
         "Total_Discount"=> "Total_Discount",

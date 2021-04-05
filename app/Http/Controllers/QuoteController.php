@@ -26,6 +26,7 @@ class QuoteController extends Controller
             "valid_from"=> $request->post('valid_from'),
             "valid_to"=> $request->post('valid_to'),
             "vat"=> $request->post('vat'),
+            "customs"=> $request->post('customs'),
             "description"=> $request->post('description'),
             "notes"=> $request->post('notes'),
         ];

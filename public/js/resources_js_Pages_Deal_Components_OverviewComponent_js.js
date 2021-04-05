@@ -262,6 +262,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       _useField4 = _slicedToArray(_useField3, 1),
       vatField = _useField4[0];
 
+  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("customs"),
+      _useField6 = _slicedToArray(_useField5, 1),
+      customsField = _useField6[0];
+
   var currentItems = function currentItems() {
     if (type === "") return itemsField.value;
     return itemsField.value.filter(function (item) {
@@ -474,6 +478,41 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   type: "text",
                   className: "form-control",
                   value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalNet)(itemsField.value),
+                  disabled: true
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("tr", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("th", {
+                className: "table-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                  src: "assets/images/eye_icon.svg",
+                  alt: "",
+                  className: "mr-2"
+                }), "Freight and Customs %"]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                className: "text-muted",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Fields_TextFieldComponent__WEBPACK_IMPORTED_MODULE_3__.default, {
+                  type: "text",
+                  label: "",
+                  className: "form-control",
+                  name: "customs"
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("tr", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("th", {
+                className: "table-info",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                  src: "assets/images/eye_icon.svg",
+                  alt: "",
+                  className: "mr-2"
+                }), "Freight and Customs Value"]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
+                className: "text-muted",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                  type: "number",
+                  step: .1,
+                  className: "form-control",
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, customsField.value),
                   disabled: true
                 })
               })]
