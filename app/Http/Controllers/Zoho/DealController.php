@@ -55,6 +55,9 @@ class DealController extends Controller
         ]);
     }
     public function saveProducts($products){
+        if(count($products) === 0){
+            return [];
+        }
         $products= array_values($products);
         $productsIns = ZCRMRestClient::getInstance()->getModuleInstance("Products");
         $mappedProducts= $this->buildNestedData($products, config("zoho.mapItemsToZohoProducts"));
