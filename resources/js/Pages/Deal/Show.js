@@ -53,7 +53,7 @@ const termsSchema= Yup.array().of(Yup.object().shape({
         .required('Required')
         .oneOf(Constants.paymentTermsMethods.map(type => type.value)),
     days: Yup.number().typeError('Must be a Number').required('Required').integer('Must be Positive').min(0, 'Must be greater than 0'),
-    end_date: Yup.date().typeError('Must be a valid Date'),
+    end_date: Yup.date().typeError('Must be a valid Date').nullable(),
 }))
 export default function Show({ quote, current_deal_id, current_deal= Constants.sampleOpportunity, quotes= [], contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
     const [deal, setDeal]= useState({...current_deal.data[0]});
