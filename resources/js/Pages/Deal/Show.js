@@ -57,7 +57,7 @@ const termsSchema= Yup.array().of(Yup.object().shape({
 }))
 export default function Show({ quote, current_deal_id, current_deal= Constants.sampleOpportunity, quotes= [], contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
     const [deal, setDeal]= useState({...current_deal.data[0]});
-    const [users, setUsers]= useState(usersObj.users);
+    const [users, setUsers]= useState([current_deal.data[0].Owner]);
     const [contacts, setContacts]= useState(contactsObj.data);
     const [accounts, setAccounts]= useState(accountsObj.data);
     const [products, setProducts]= useState(productsObj.data);
@@ -67,6 +67,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
     console.log({deal});
     console.log({contacts});
     console.log({accounts});
+    console.log({users});
 
     useEffect(() => {
         if (flash){

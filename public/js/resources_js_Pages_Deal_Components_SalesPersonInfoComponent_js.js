@@ -2344,7 +2344,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               options: users.map(function (user) {
                 return {
                   value: user.id,
-                  label: user.full_name
+                  label: user.name
                 };
               })
             })

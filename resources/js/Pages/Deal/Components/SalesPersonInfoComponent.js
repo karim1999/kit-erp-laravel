@@ -17,7 +17,7 @@ export default function ({deal, users}) {
                 <div className="row">
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
                         <div className="form-group">
-                            <ReactSelectFieldComponent isDisabled label="Salesperson Name" name="sales_person" options={users.map(user => ({value: user.id, label: user.full_name}))} />
+                            <ReactSelectFieldComponent isDisabled label="Salesperson Name" name="sales_person" options={users.map(user => ({value: user.id, label: user.name}))} />
                         </div>
                     </div>
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-9">

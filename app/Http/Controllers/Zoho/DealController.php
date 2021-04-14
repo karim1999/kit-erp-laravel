@@ -27,8 +27,8 @@ class DealController extends Controller
         $accounts_instance = ZCRMRestClient::getInstance()->getModuleInstance("Accounts");
         $products_instance = ZCRMRestClient::getInstance()->getModuleInstance("Products");
 
+        $users= [];
         try {
-            $users= $orgIns->getAllUsers();
             $deal = $deals_instance->getRecord($id);
             $contacts = $contacts_instance->getRecords();
             $accounts = $accounts_instance->getRecords();
@@ -46,7 +46,7 @@ class DealController extends Controller
         return Inertia::render('Deal/Show', [
             'quotes' => $quotes,
             'productsObj' => $products->getResponseJSON(),
-            'usersObj' => $users->getResponseJSON(),
+            'usersObj' => $users,
             'contactsObj' => $contacts->getResponseJSON(),
             'accountsObj' => $accounts->getResponseJSON(),
             'current_deal_id' => $id,

@@ -115,7 +115,8 @@ class QuoteController extends Controller
         $products_instance = ZCRMRestClient::getInstance()->getModuleInstance("Products");
 
         try {
-            $users= $orgIns->getAllUsers();
+            $users= [];
+//            $users= $orgIns->getAllUsers();
             $deal = $deals_instance->getRecord($zoho_id);
             $contacts = $contacts_instance->getRecords();
             $accounts = $accounts_instance->getRecords();
@@ -133,7 +134,7 @@ class QuoteController extends Controller
             'quotes' => $quotes,
             'quote' => $quote,
             'productsObj' => $products->getResponseJSON(),
-            'usersObj' => $users->getResponseJSON(),
+            'usersObj' => $users,
             'contactsObj' => $contacts->getResponseJSON(),
             'accountsObj' => $accounts->getResponseJSON(),
             'current_deal_id' => $zoho_id,

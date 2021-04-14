@@ -15175,7 +15175,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               options: users.map(function (user) {
                 return {
                   value: user.id,
-                  label: user.full_name
+                  label: user.name
                 };
               })
             })
@@ -15853,11 +15853,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
 /* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
 /* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
-/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Fields/SelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js");
-/* harmony import */ var _Fields_DatePickerFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/DatePickerFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/DatePickerFieldComponent.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-datepicker */ "./node_modules/react-datepicker/dist/react-datepicker.min.js");
+/* harmony import */ var react_datepicker__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_datepicker__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/SelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js");
+/* harmony import */ var _Fields_DatePickerFieldComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Fields/DatePickerFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/DatePickerFieldComponent.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -15906,8 +15906,8 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
       field = _useField2[0],
       meta = _useField2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       className: "error",
       children: meta.error
     }) : null]
@@ -15923,8 +15923,8 @@ var SimpleSelectFieldComponent = function SimpleSelectFieldComponent(_ref2) {
       field = _useField4[0],
       meta = _useField4[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("select", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("select", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       className: "error",
       children: meta.error
     }) : null]
@@ -15941,13 +15941,13 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
       meta = _useField6[1],
       helpers = _useField6[2];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_12___default()), _objectSpread(_objectSpread(_objectSpread({}, field), props), {}, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_9___default()), _objectSpread(_objectSpread(_objectSpread({}, field), props), {}, {
       selected: field.value && new Date(field.value) || null,
       onChange: function onChange(dateValue) {
         return helpers.setValue(dateValue);
       }
-    })), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+    })), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       className: "error",
       children: meta.error
     }) : null]
@@ -15980,65 +15980,65 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
     return (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_7__.precise)(percentField.value / 100 * total);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("tr", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_8__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_8__.default, {
         name: "paymentTerms.".concat(itemIndex, ".selected"),
         className: "form-check-input",
         disabled: !isEnabled,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
           type: "text",
           className: "form-control",
           name: "paymentTerms.".concat(itemIndex, ".percent"),
           disabled: !isEnabled
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
         type: "text",
         className: "form-control",
         value: termValue(),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleSelectFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleSelectFieldComponent, {
         className: "custom-select",
         name: "paymentTerms.".concat(itemIndex, ".type"),
         disabled: !isEnabled,
         children: _helpers_samples__WEBPACK_IMPORTED_MODULE_6__.default.paymentTermsTypes.map(function (status) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
             value: status.value,
             children: status.value
           }, status.value);
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleSelectFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleSelectFieldComponent, {
         className: "custom-select",
         name: "paymentTerms.".concat(itemIndex, ".method"),
         disabled: !isEnabled,
         children: _helpers_samples__WEBPACK_IMPORTED_MODULE_6__.default.paymentTermsMethods.map(function (status) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
             value: status.value,
             children: status.value
           }, status.value);
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "number",
         className: "form-control",
         name: "paymentTerms.".concat(itemIndex, ".days"),
         disabled: !isEnabled
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(SimpleDatePickerFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleDatePickerFieldComponent, {
         className: "form-control",
         name: "paymentTerms.".concat(itemIndex, ".end_date"),
         popperPlacement: "top-end",
@@ -16191,7 +16191,7 @@ function Show(_ref) {
       deal = _useState2[0],
       setDeal = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(usersObj.users),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([current_deal.data[0].Owner]),
       _useState4 = _slicedToArray(_useState3, 2),
       users = _useState4[0],
       setUsers = _useState4[1];
@@ -16221,6 +16221,9 @@ function Show(_ref) {
   });
   console.log({
     accounts: accounts
+  });
+  console.log({
+    users: users
   });
   (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
     if (flash) {
