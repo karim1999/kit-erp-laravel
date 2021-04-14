@@ -1,1 +1,23 @@
-.react-datepicker-wrapper{width:100%}.scrollBox{height:auto;max-height:70vh}.form-control{min-width:70px}.form-group{margin-bottom:0}.slick-track{width:auto!important}.table-info th,.table-info thead th{border-color:#dee2e6}.error{color:red}
+.react-datepicker-wrapper{
+    width: 100%;
+}
+.scrollBox{
+    height: auto;
+    max-height: 70vh;
+}
+.form-control {
+    min-width: 70px;
+}
+.form-group {
+    margin-bottom: 0;
+}
+.slick-track{
+    width: auto !important;
+}
+.table-info thead th, .table-info th{
+    border-color: #dee2e6;
+}
+.error {
+    color: red;
+}
+
