@@ -34,7 +34,7 @@ class DealController extends Controller
             $accounts = $accounts_instance->getRecords();
             $products = $products_instance->getRecords();
         }catch (\Exception $e){
-            abort($e->getCode());
+            abort(404);
         }
         $quotes= Quote::where('zoho_id', $id)->get();
 
