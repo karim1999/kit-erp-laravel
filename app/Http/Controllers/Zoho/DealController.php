@@ -28,11 +28,11 @@ class DealController extends Controller
         $products_instance = ZCRMRestClient::getInstance()->getModuleInstance("Products");
 
         $users= [];
-        $deal = $deals_instance->getRecord($id);
-        $contacts = $contacts_instance->getRecords();
-        $accounts = $accounts_instance->getRecords();
-        $products = $products_instance->getRecords();
         try {
+            $deal = $deals_instance->getRecord($id);
+            $contacts = $contacts_instance->getRecords();
+            $accounts = $accounts_instance->getRecords();
+            $products = $products_instance->getRecords();
         }catch (\Exception $e){
             abort(404);
         }
