@@ -6,14 +6,17 @@ use App\Models\Quote;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use zcrmsdk\crm\setup\org\ZCRMOrganization;
 use zcrmsdk\crm\setup\restclient\ZCRMRestClient;
+use zcrmsdk\oauth\ZohoOAuth;
 
 class QuoteController extends Controller
 {
     public function saveQuote(Request $request, $id= false) {
         $data= [
+            "quote_id"=> $request->post('quote_id'),
             "zoho_id"=> $request->post('zoho_id'),
             "status"=> $request->post('status'),
             "approval_status"=> $request->post('approval_status'),
@@ -33,10 +36,39 @@ class QuoteController extends Controller
         if(!$id){
             $version= 1;
             $final= Quote::where('zoho_id', $request->post('zoho_id'))->orderBy('created_at', 'desc')->first();
-            if($final)
-                $version+= $final->version;
-            $data["quote_no"]= "QT-V".$version."-".Carbon::now()->isoFormat("DDMMYY");
-            $data["version"]= $version;
+            if($data['quote_id']){
+                $copying_from_quote= Quote::findOrFail($data['quote_id']);
+                $copying_from_quote_last_child= $copying_from_quote->quotes()->latest()->first();
+                $current_version_num_arr= [];
+                if($copying_from_quote_last_child){
+                    $data["version"]= $copying_from_quote_last_child->version;
+                    $data["nested"]= $copying_from_quote_last_child->nested;
+                    $current_version_num_arr= explode("-",$copying_from_quote_last_child->quote_no);
+                    $current_version_num_arr[2]= "V".(str_replace("V","",$current_version_num_arr[2])+($version/($data["nested"]*10)));
+                }else{
+                    $data["version"]= 1;
+                    $data["nested"]= $copying_from_quote->nested+1;
+                    $current_version_num_arr= explode("-",$copying_from_quote->quote_no);
+                    $current_version_num_arr[2]= "V".str_replace("V","",$current_version_num_arr[2]).".1";
+                }
+                $current_version_num_arr[3]= Carbon::now()->isoFormat("DDMMYY");
+                $data["quote_no"]= implode("-", $current_version_num_arr);
+            }else{
+                $deals_instance = ZCRMRestClient::getInstance()->getModuleInstance("Deals");
+                $deal = $deals_instance->getRecord($data["zoho_id"]);
+                $Opportunity_Auto_No= $deal->getData()->getData()['Opportunity_Auto_No'];
+                $Opportunity_Auto_No_Arr= explode("-",$Opportunity_Auto_No);
+                $deal_num= "None";
+                if($Opportunity_Auto_No_Arr && count($Opportunity_Auto_No_Arr) > 1){
+                    $deal_num= $Opportunity_Auto_No_Arr[1];
+                }
+                if($final)
+                    $version+= $final->version;
+
+                $data["quote_no"]= "QT-".$deal_num."-V".$version."-".Carbon::now()->isoFormat("DDMMYY");
+                $data["version"]= $version;
+            }
+
             $quote= Quote::create($data);
         }else{
             $quote= Quote::firstOrCreate(["id" => $id], $data);
@@ -113,13 +145,26 @@ class QuoteController extends Controller
         $contacts_instance = ZCRMRestClient::getInstance()->getModuleInstance("Contacts");
         $accounts_instance = ZCRMRestClient::getInstance()->getModuleInstance("Accounts");
         $products_instance = ZCRMRestClient::getInstance()->getModuleInstance("Products");
+        $oAuthClient = ZohoOAuth::getClientInstance();
+        $access_token= $oAuthClient->getAccessToken(env('ZOHO_CURRENT_USER_EMAIL'));
 
+        $account= null;
+        $contact= null;
+        $user= null;
         try {
-            $users= [];
-//            $users= $orgIns->getAllUsers();
             $deal = $deals_instance->getRecord($zoho_id);
+            $dealData= $deal->getData();
+            $owner = $dealData->getOwner();
+            $user_request = Http::withHeaders([
+                'Authorization' => 'Zoho-oauthtoken '.$access_token,
+            ])->get('https://www.zohoapis.com/crm/v2/users/'.$owner->getId());
+
+            $user= $user_request->json()['users'][0];
             $contacts = $contacts_instance->getRecords();
-            $accounts = $accounts_instance->getRecords();
+            $account_field= $dealData->getFieldValue("Account_Name");
+            if ($account_field) {
+                $account = $accounts_instance->getRecord($account_field->getEntityId());
+            }
             $products = $products_instance->getRecords();
         }catch (\Exception $e){
             abort($e->getCode());
@@ -134,9 +179,11 @@ class QuoteController extends Controller
             'quotes' => $quotes,
             'quote' => $quote,
             'productsObj' => $products->getResponseJSON(),
-            'usersObj' => $users,
+            'usersObj' => [
+                "data"=> [$user]
+            ],
             'contactsObj' => $contacts->getResponseJSON(),
-            'accountsObj' => $accounts->getResponseJSON(),
+            'accountsObj' => $account->getResponseJSON(),
             'current_deal_id' => $zoho_id,
             'current_deal' => $deal->getResponseJSON(),
         ]);

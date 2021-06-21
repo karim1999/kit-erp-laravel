@@ -6,10 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Quote;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use zcrmsdk\crm\crud\ZCRMRecord;
 use zcrmsdk\crm\setup\org\ZCRMOrganization;
 use zcrmsdk\crm\setup\restclient\ZCRMRestClient;
+use zcrmsdk\oauth\ZohoOAuth;
+
 class DealController extends Controller
 {
     /**
@@ -26,12 +29,31 @@ class DealController extends Controller
         $contacts_instance = ZCRMRestClient::getInstance()->getModuleInstance("Contacts");
         $accounts_instance = ZCRMRestClient::getInstance()->getModuleInstance("Accounts");
         $products_instance = ZCRMRestClient::getInstance()->getModuleInstance("Products");
+        $oAuthClient = ZohoOAuth::getClientInstance();
+        $access_token= $oAuthClient->getAccessToken(env('ZOHO_CURRENT_USER_EMAIL'));
 
-        $users= [];
+        $account= null;
+        $contact= null;
+        $user= null;
         try {
             $deal = $deals_instance->getRecord($id);
+            $dealData= $deal->getData();
+            $owner = $dealData->getOwner();
+            $user_request = Http::withHeaders([
+                'Authorization' => 'Zoho-oauthtoken '.$access_token,
+            ])->get('https://www.zohoapis.com/crm/v2/users/'.$owner->getId());
+
+            $user= $user_request->json()['users'][0];
+
+            $account_field= $dealData->getFieldValue("Account_Name");
+            if ($account_field) {
+                $account = $accounts_instance->getRecord($account_field->getEntityId());
+            }
+//            $contact_field= $dealData->getFieldValue("Contact_Name");
+//            if ($contact_field) {
+//                $contact = $contacts_instance->getRecord($contact_field->getEntityId());
+//            }
             $contacts = $contacts_instance->getRecords();
-            $accounts = $accounts_instance->getRecords();
             $products = $products_instance->getRecords();
         }catch (\Exception $e){
             abort(404);
@@ -46,9 +68,11 @@ class DealController extends Controller
         return Inertia::render('Deal/Show', [
             'quotes' => $quotes,
             'productsObj' => $products->getResponseJSON(),
-            'usersObj' => $users,
+            'usersObj' => [
+                "data"=> [$user]
+            ],
             'contactsObj' => $contacts->getResponseJSON(),
-            'accountsObj' => $accounts->getResponseJSON(),
+            'accountsObj' => $account->getResponseJSON(),
             'current_deal_id' => $id,
             'current_deal' => $deal->getResponseJSON(),
 //            'current_quotes' => $quotes,
@@ -80,6 +104,9 @@ class DealController extends Controller
         return $result;
     }
     public function saveQuote($id, Request $request){
+        $oAuthClient = ZohoOAuth::getClientInstance();
+        $access_token= $oAuthClient->getAccessToken(env('ZOHO_CURRENT_USER_EMAIL'));
+
         $dealsIns = ZCRMRestClient::getInstance()->getModuleInstance("Quotes");
         $deal = ZCRMRecord::getInstance("Quotes", null);
 
@@ -108,12 +135,25 @@ class DealController extends Controller
 //        $deal->setFieldValue("Hardware_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] === "Hardware"; }), config("zoho.mapItemsToZohoDeals")));
 //        $deal->setFieldValue("Pro_Service_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] === "Services"; }), config("zoho.mapItemsToZohoDeals")));
 //        $deal->setFieldValue("Product_Details", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] !== "Services" && $item["group"] !== "Hardware"; }), config("zoho.mapItemsToZohoDeals")));
-//        $deal->setFieldValue("Quoted_Items", $this->buildNestedData($itemsInfo, config("zoho.mapItemsToZohoQuotes")));
         $deal->setFieldValue("Product_Details", $this->buildNestedData($itemsInfo, config("zoho.mapItemsToZohoQuotesProducts")));
+//        $deal->setFieldValue("Quoted_Items", $this->buildNestedData($itemsInfo, config("zoho.mapItemsToZohoQuotes")));
         //$finalData["items"]= $this->buildData($shippingInfo, config("zoho.mapItemsToZohoDeals"));
 
         array_push($dealRecords, $deal);
         $responseIn= $dealsIns->upsertRecords($dealRecords);
+        $new_id= $responseIn->getResponseJSON()['data'][0]['details']['id'];
+        $quote_request = Http::withHeaders([
+            'Authorization' => 'Zoho-oauthtoken '.$access_token,
+        ])->put('https://www.zohoapis.com/crm/v2.1/Quotes', [
+            "data" => [
+                [
+                    "id"=> $new_id,
+                    "Quoted_Items" => $this->buildNestedData($itemsInfo, config("zoho.mapItemsToZohoQuotes")),
+                ]
+            ],
+        ]);
+
+//        dd($quote_request->json());
         return $responseIn->getResponseJSON();
     }
     public function pushQuote($id, Request $request){

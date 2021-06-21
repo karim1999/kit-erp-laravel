@@ -20,7 +20,7 @@ export default function ({deal, contacts}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing Contact Name
                             </th>
                             <td className="text-muted">
-                                <ReactSelectFieldComponent label="" name="billing.contact" options={contacts.map(contact => ({value: contact.id, label: contact.Contact_Auto_No}))} />
+                                <ReactSelectFieldComponent label="" name="billing.contact" options={contacts.map(contact => ({value: contact.id, label: contact.Full_Name}))} />
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +93,7 @@ export default function ({deal, contacts}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping Contact Name
                             </th>
                             <td className="text-muted">
-                                <ReactSelectFieldComponent label="" name="shipping.contact" options={contacts.map(contact => ({value: contact.id, label: contact.Contact_Auto_No}))} />
+                                <ReactSelectFieldComponent label="" name="shipping.contact" options={contacts.map(contact => ({value: contact.id, label: contact.Full_Name}))} />
                             </td>
                         </tr>
                         <tr>

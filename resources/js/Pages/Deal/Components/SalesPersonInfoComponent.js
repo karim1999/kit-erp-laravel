@@ -17,7 +17,7 @@ export default function ({deal, users}) {
                 <div className="row">
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
                         <div className="form-group">
-                            <ReactSelectFieldComponent isDisabled label="Salesperson Name" name="sales_person" options={users.map(user => ({value: user.id, label: user.name}))} />
+                            <ReactSelectFieldComponent isDisabled label="Salesperson Name" name="sales_person" options={users.map(user => ({value: user.id, label: user.full_name}))} />
                         </div>
                     </div>
                     <div className="col-xl-2 col-lg-2 col-sm-2 col-9">
@@ -51,7 +51,7 @@ export default function ({deal, users}) {
                             <img src="assets/images/eye_icon.svg" alt="" />
                             Salesperson Mobile No.
                         </label>
-                        <input type="text" className="form-control" value={salesPerson()?.mobile || ""} disabled />
+                        <input type="text" className="form-control" value={salesPerson()?.Primary_Mobile_No1 || ""} disabled />
                     </div>
                 </div>
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
@@ -60,7 +60,7 @@ export default function ({deal, users}) {
                             <img src="assets/images/eye_icon.svg" alt="" />
                             Salesperson Landline No.
                         </label>
-                        <input type="text" className="form-control" value={salesPerson()?.phone || ""} disabled />
+                        <input type="text" className="form-control" value={salesPerson()?.Landline_No1 || ""} disabled />
                     </div>
                 </div>
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
@@ -69,7 +69,7 @@ export default function ({deal, users}) {
                             <img src="assets/images/eye_icon.svg" alt="" />
                             Salesperson Extension No.
                         </label>
-                        <input type="text" className="form-control" value={salesPerson()?.fax || ""} disabled />
+                        <input type="text" className="form-control" value={salesPerson()?.Extension_No || ""} disabled />
                     </div>
                 </div>
             </div>

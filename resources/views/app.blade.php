@@ -15,7 +15,14 @@
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
-</head>
+    <style>
+        a:disabled,               /* This doesn't do anything, but hopefully one day ... */
+        a[disabled]               /* This activates when the disabled attribute is added. */
+        {
+            cursor: not-allowed;  /* Indicate that the link is not to be click! */
+            background-color: #eeeeee;
+        }
+    </style></head>
 <body>
 @inertia
 <script src="{{asset('assets/js/jquery-3.1.1.min.js')}}"></script>

@@ -31,6 +31,7 @@ import OverviewComponent from "./Components/OverviewComponent";
 import PaymentTermsComponent from "./Components/PaymentTermsComponent";
 import NotesComponent from "./Components/NotesComponent";
 import {toast, ToastContainer} from "react-toastify";
+import moment from "moment";
 
 const getInitData= (quoteData, value) => {
     return quoteData || value
@@ -43,21 +44,34 @@ const getInitArrayData= (quoteData, value, template) => {
     console.log({tempItems})
     return tempItems;
 }
-const termsSchema= Yup.array().of(Yup.object().shape({
+const termsSchema= Yup.array().test(
+    'is-more-than-100',
+    'Total percentage should be less than 100',
+    (value, context) => {
+        if(value.length <= 0)
+            return true;
+
+        let total= value.reduce((accumulator, currentValue) => accumulator*1 + currentValue.percent*1, 0);
+        if(total > 100)
+            return false
+
+        return true
+    },
+).of(Yup.object().shape({
     percent: Yup.number().typeError('Must be a Number').required('Required').positive('Must be Positive'),
     value: Yup.number().nullable().typeError('Must be a Number'),
-    type: Yup.string().typeError('Must be a String')
-        .required('Required')
-        .oneOf(Constants.paymentTermsTypes.map(type => type.value)),
-    method: Yup.string().typeError('Must be a String')
-        .required('Required')
-        .oneOf(Constants.paymentTermsMethods.map(type => type.value)),
-    days: Yup.number().typeError('Must be a Number').required('Required').integer('Must be Positive').min(0, 'Must be greater than 0'),
+    // type: Yup.string().typeError('Must be a String')
+    //     .required('Required')
+    //     .oneOf(Constants.paymentTermsTypes.map(type => type.value)),
+    // method: Yup.string().typeError('Must be a String')
+    //     .required('Required')
+    //     .oneOf(Constants.paymentTermsMethods.map(type => type.value)),
+    days: Yup.number().typeError('Must be a Number').nullable().integer('Must be Positive').min(0, 'Must be greater than 0'),
     end_date: Yup.date().typeError('Must be a valid Date').nullable(),
 }))
 export default function Show({ quote, current_deal_id, current_deal= Constants.sampleOpportunity, quotes= [], contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
     const [deal, setDeal]= useState({...current_deal.data[0]});
-    const [users, setUsers]= useState([current_deal.data[0].Owner]);
+    const [users, setUsers]= useState([usersObj.data[0]]);
     const [contacts, setContacts]= useState(contactsObj.data);
     const [accounts, setAccounts]= useState(accountsObj.data);
     const [products, setProducts]= useState(productsObj.data);
@@ -89,6 +103,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
     }
 
     const initialValues= {
+        quote_id: getInitData(quote?.id, ""),
         quote_no: getInitData(quote?.quote_no, ""),
         subject: getInitData(quote?.quote_no, ""),
         quote_stage: getInitData(quote?.Stage, ""),
@@ -102,12 +117,17 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         shipping: getInitData(quote?.shipping, Constants.sampleShipping),
         billing: getInitData(quote?.billing, Constants.sampleBilling),
         deal_name: getInitData(quote?.deal_name, deal.Deal_Name),
-        valid_from: getInitData(quote?.valid_from, new Date()),
-        valid_to: getInitData(quote?.valid_to, new Date()),
+        valid_from: getInitData(quote?.valid_from ? moment(quote?.valid_from).format("MM/DD/YYYY") : null, moment().format("MM/DD/YYYY")),
+        valid_to: getInitData(quote?.valid_to ? moment(quote?.quote).format("MM/DD/YYYY") : null, moment().format("MM/DD/YYYY")),
         description: getInitData(quote?.description, ""),
         items: getInitArrayData(quote?.items, [], Constants.samplePricingItem),
         notes: getInitData(quote?.notes, ""),
-        paymentTerms: getInitArrayData(quote?.terms, dealTerms(), Constants.samplePricingTerm),
+        paymentTerms: getInitArrayData(quote?.terms?.map(term => {
+            return {
+                ...term,
+                end_date: term.end_date ? moment(term?.end_date).format("MM/DD/YYYY") : ""
+            };
+        }), dealTerms(), Constants.samplePricingTerm),
         vat: getInitData(quote?.vat, 5),
         customs: getInitData(quote?.customs, 0),
     }
@@ -159,7 +179,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
             gross:  Yup.number().nullable().typeError('Must be a Number').min(0, 'Must be greater than 0'),
             net:  Yup.number().nullable().typeError('Must be a Number').min(0, 'Must be greater than 0'),
         })),
-        paymentTerms: termsSchema
+        paymentTerms: termsSchema,
     })
 
     const onSubmit= (values, { setSubmitting }) => {

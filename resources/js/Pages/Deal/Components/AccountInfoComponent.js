@@ -57,7 +57,7 @@ export default function ({deal, accounts}) {
                                 <img src="assets/images/eye_icon.svg" alt="" />
                                 Associated Price Book
                             </label>
-                            <input type="text" className="form-control" placeholder="" value={account()?.Associated_Price_Book?.name || ""} disabled />
+                            <input type="text" className="form-control" placeholder="" value={account()?.Price_Book_Price_List || ""} disabled />
                         </div>
                     </div>
                 </div>

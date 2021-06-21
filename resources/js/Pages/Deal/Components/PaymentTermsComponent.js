@@ -4,12 +4,20 @@ import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
 import TableBody from "./TermsTable/TableBody";
 import {useField} from "formik";
-import {calculateNet, displayNumber, getTotalNet, marginPercent, precise} from "../../../helpers/helpers";
+import {
+    calculateNet,
+    displayNumber,
+    getTotalNet,
+    getTotalWithVat,
+    marginPercent,
+    precise
+} from "../../../helpers/helpers";
 
 export default function ({deal, insert, remove, push, move, request}) {
     const [terms, termsFieldMeta, termsFieldHelpers] = useField(`paymentTerms`);
     const [itemsField] = useField(`items`);
-    const [isEnabled, setIsEnabled]= useState(false);
+    const [isEnabled, setIsEnabled]= useState(true);
+    const [vatField] = useField(`vat`);
 
     const totalPercent= () => {
         if(terms.value.length <= 0)
@@ -21,7 +29,7 @@ export default function ({deal, insert, remove, push, move, request}) {
         if(terms.value.length <= 0)
             return 0;
 
-        let total= getTotalNet(itemsField.value)
+        let total= getTotalWithVat(itemsField.value, vatField.value)
         return precise(totalPercent()/100 * total)
     }
     const selectAllToggle= (event) => {
@@ -53,6 +61,9 @@ export default function ({deal, insert, remove, push, move, request}) {
         e.preventDefault();
         request()
     }
+    const someItemIsSelected= () => {
+        return terms.value.some(term => term.selected)
+    }
 
     return (
         <div className="container my-4">
@@ -70,7 +81,7 @@ export default function ({deal, insert, remove, push, move, request}) {
                             </a>
                         </li>
                         <li>
-                            <a href="" onClick={removeTerms}>
+                            <a href="" onClick={removeTerms} disabled={!someItemIsSelected()}>
                                 <img src="/assets/images/bin.svg" alt="" /> Delete Term
                             </a>
                         </li>
@@ -97,8 +108,8 @@ export default function ({deal, insert, remove, push, move, request}) {
                                 <tr>
                                     <th className="fit">
                                         <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input" id="custom-check-21" checked={isSelectAll()} onChange={selectAllToggle} />
-                                            <label className="custom-control-label" htmlFor="custom-check-21">
+                                            <input type="checkbox" className="custom-control-input" id="custom-check-22" name="checkboxterms" checked={isSelectAll()} onChange={selectAllToggle} />
+                                            <label className="custom-control-label" htmlFor="custom-check-22">
                                                 <img src="assets/images/eye_icon.svg" alt="" /> Payment %
                                             </label>
                                         </div>

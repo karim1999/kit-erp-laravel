@@ -86,6 +86,9 @@ export default function ({deal, insert, remove, push, move, products}) {
         e.preventDefault();
         document.getElementById("file").click()
     }
+    const someItemIsSelected= () => {
+        return items.value.some(item => item.selected)
+    }
     return (
         <div className="container my-4">
             <div className="row">
@@ -109,21 +112,21 @@ export default function ({deal, insert, remove, push, move, products}) {
                         </li>
                         <li>
                             <a href="" onClick={insertTextItem}>
-                                <img src="/assets/images/plus.svg" alt="" /> Add Dell Item
+                                <img src="/assets/images/plus.svg" alt="" /> Add New Item
                             </a>
                         </li>
                         <li>
-                            <a href="" onClick={moveItemsUp}>
+                            <a href="" onClick={moveItemsUp} disabled={!someItemIsSelected()}>
                                 <img src="/assets/images/move_up.svg" alt="" /> Move Item Up
                             </a>
                         </li>
                         <li>
-                            <a href="" onClick={moveItemsDown}>
-                                <img src="/assets/images/move_down.svg" alt="" /> Move Item Down
+                            <a href="" onClick={moveItemsDown} disabled={!someItemIsSelected()}>
+                                <img src="/assets/images/move_down.svg" alt=""/> Move Item Down
                             </a>
                         </li>
                         <li>
-                            <a href="" onClick={removeItems}>
+                            <a href="" onClick={removeItems} disabled={!someItemIsSelected()}>
                                 <img src="/assets/images/bin.svg" alt="" /> Delete Item
                             </a>
                         </li>

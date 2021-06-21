@@ -27,4 +27,7 @@ class Quote extends Model
     public function billing(){
         return $this->hasOne(Billing::class);
     }
+    public function quotes(){
+        return $this->hasMany(Quote::class);
+    }
 }

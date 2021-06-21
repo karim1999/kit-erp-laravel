@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Constants from "../../../helpers/samples";
 import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
+import moment from "moment";
 
 export default function ({deal, pushDeal, pushQuote, pushAll, quote}) {
     return (
@@ -10,14 +11,14 @@ export default function ({deal, pushDeal, pushQuote, pushAll, quote}) {
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-8">
                     <TextFieldComponent type="text" label="Quote ID No." placeholder="Will be generated automatically" className="form-control" name="quote_no" disabled />
                 </div>
-                <div className="col-xl-1 col-lg-1 col-sm-1 col-2">
-                    <label>&nbsp;</label>
-                    <button disabled={!quote} onClick={pushQuote} type="button" className="btn btn-warning btn-sm btn-block">Push Quote</button>
-                </div>
-                <div className="col-xl-1 col-lg-1 col-sm-1 col-2 px-2">
-                    <label>&nbsp;</label>
-                    <button disabled={!quote} onClick={pushDeal} type="button" className="btn btn-primary btn-sm btn-block">Push Deal</button>
-                </div>
+                {/*<div className="col-xl-1 col-lg-1 col-sm-1 col-2">*/}
+                {/*    <label>&nbsp;</label>*/}
+                {/*    <button disabled={!quote} onClick={pushQuote} type="button" className="btn btn-warning btn-sm btn-block">Push Quote</button>*/}
+                {/*</div>*/}
+                {/*<div className="col-xl-1 col-lg-1 col-sm-1 col-2 px-2">*/}
+                {/*    <label>&nbsp;</label>*/}
+                {/*    <button disabled={!quote} onClick={pushDeal} type="button" className="btn btn-primary btn-sm btn-block">Push Deal</button>*/}
+                {/*</div>*/}
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-9">
                     <SelectFieldComponent className="custom-select" label="Quote Status" name="status" disabled>
                         {
@@ -41,7 +42,7 @@ export default function ({deal, pushDeal, pushQuote, pushAll, quote}) {
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
                     <div className="form-group">
                         <label>Generated Date / Time</label>
-                        <input type="text" className="form-control datetime-picker" value={deal?.Created_Time} disabled/>
+                        <input type="text" className="form-control datetime-picker" value={moment(deal?.Created_Time).format("llll")} disabled/>
                     </div>
                 </div>
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
@@ -53,7 +54,7 @@ export default function ({deal, pushDeal, pushQuote, pushAll, quote}) {
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
                     <div className="form-group">
                         <label>Modified Date / Time</label>
-                        <input type="text" className="form-control datetime-picker" placeholder="DD/MM/YYYY   11:59 PM" value={deal?.Modified_Time} disabled/>
+                        <input type="text" className="form-control datetime-picker" placeholder="DD/MM/YYYY   11:59 PM" value={moment(deal?.Modified_Time).format("llll")} disabled/>
                     </div>
                 </div>
             </div>

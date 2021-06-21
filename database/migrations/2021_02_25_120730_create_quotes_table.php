@@ -17,6 +17,10 @@ class CreateQuotesTable extends Migration
             $table->id();
             $table->string('zoho_id');
             $table->integer('version')->default(1);
+            $table->integer('nested')->default(0);
+
+            $table->foreignId('quote_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+
             $table->string('books_id')->nullable();
 
             $table->string('quote_no');

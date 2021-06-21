@@ -1,3 +1,5 @@
+import moment from "moment";
+
 let Constants = Object.freeze({
 	header: {
 		name: ""
@@ -159,7 +161,7 @@ let Constants = Object.freeze({
         type: "Advance",
         method: "Wire Transfer",
         days: 365,
-        end_date: new Date(),
+        end_date: moment().format("MM/DD/YYYY"),
     },
     pricingItemImportOrder: [
         "name",
