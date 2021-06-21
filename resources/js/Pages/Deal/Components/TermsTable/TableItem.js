@@ -6,7 +6,14 @@ import {faTimes, faPencilAlt, faSave, faArrowsAlt} from '@fortawesome/free-solid
 import {Field, useField} from "formik";
 import ReactSelectFieldComponent from "../Fields/ReactSelectFieldComponent";
 import Constants from "../../../../helpers/samples";
-import {calculateNet, getTotalNet, getTotalVat, getTotalWithVat, precise} from "../../../../helpers/helpers";
+import {
+    calculateNet,
+    displayNumber,
+    getTotalNet,
+    getTotalVat,
+    getTotalWithVat,
+    precise
+} from "../../../../helpers/helpers";
 import CheckBoxFieldComponent from "../Fields/CheckBoxFieldComponent";
 import DatePicker from "react-datepicker";
 import SelectFieldComponent from "../Fields/SelectFieldComponent";
@@ -73,7 +80,7 @@ export default SortableElement(({itemIndex, remove, products, isEnabled}) => {
                 </CheckBoxFieldComponent>
             </td>
             <td className="fit">
-                <input type="text" className="form-control" value={termValue()} disabled />
+                <input type="text" className="form-control" value={displayNumber(termValue())} disabled />
             </td>
             <td className="fit">
                 <SimpleSelectFieldComponent className="custom-select" name={`paymentTerms.${itemIndex}.type`} disabled={!isEnabled}>
@@ -90,7 +97,7 @@ export default SortableElement(({itemIndex, remove, products, isEnabled}) => {
                 </SimpleSelectFieldComponent>
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="number" className="form-control" name={`paymentTerms.${itemIndex}.days`} disabled={!isEnabled} />
+                <SimpleTextFieldComponent type="text" className="form-control" name={`paymentTerms.${itemIndex}.days`} disabled={!isEnabled} />
             </td>
             <td className="fit">
                 <SimpleDatePickerFieldComponent className="form-control" name={`paymentTerms.${itemIndex}.end_date`} popperPlacement="top-end" disabled={!isEnabled}/>

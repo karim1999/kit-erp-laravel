@@ -4,7 +4,7 @@ import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
 import TableBody from "./TermsTable/TableBody";
 import {useField} from "formik";
-import {calculateNet, getTotalNet, marginPercent, precise} from "../../../helpers/helpers";
+import {calculateNet, displayNumber, getTotalNet, marginPercent, precise} from "../../../helpers/helpers";
 
 export default function ({deal, insert, remove, push, move, request}) {
     const [terms, termsFieldMeta, termsFieldHelpers] = useField(`paymentTerms`);
@@ -124,13 +124,13 @@ export default function ({deal, insert, remove, push, move, request}) {
                                 <thead className="table-info">
                                 <tr>
                                     <th className="fit">
-                                        <input type="text" value={totalPercent()}  className={`form-control ${totalPercent() > 100 && "is-invalid"}`} disabled />
+                                        <input type="text" value={displayNumber(totalPercent())}  className={`form-control ${totalPercent() > 100 && "is-invalid"}`} disabled />
                                     </th>
                                     <th className="fit">
                                         <label htmlFor="">Total %</label>
                                     </th>
                                     <th className="fit">
-                                        <input type="text" value={total()} className="form-control" disabled />
+                                        <input type="text" value={displayNumber(total())} className="form-control" disabled />
                                     </th>
                                     <th className="fit" colSpan="3">
                                         <label htmlFor="">Total Net Value</label>

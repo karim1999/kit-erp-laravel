@@ -13888,7 +13888,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "cost_price"),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalByKey)(currentItems(), "cost_price")),
                   disabled: true
                 })
               })]
@@ -13901,7 +13901,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalGross)(currentItems()),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalGross)(currentItems())),
                   disabled: true
                 })
               })]
@@ -13914,7 +13914,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscount)(currentItems()),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscount)(currentItems())),
                   disabled: true
                 })
               })]
@@ -13927,7 +13927,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscountPercent)(currentItems()),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscountPercent)(currentItems())),
                   disabled: true
                 })
               })]
@@ -13940,7 +13940,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalMargin)(currentItems()),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalMargin)(currentItems())),
                   disabled: true
                 })
               })]
@@ -13953,7 +13953,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalMarginPercent)(currentItems()),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalMarginPercent)(currentItems())),
                   disabled: true
                 })
               })]
@@ -13966,7 +13966,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalNet)(currentItems()),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalNet)(currentItems())),
                   disabled: true
                 })
               })]
@@ -13994,7 +13994,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalGross)(itemsField.value),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalGross)(itemsField.value)),
                   disabled: true
                 })
               })]
@@ -14011,7 +14011,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscount)(itemsField.value),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscount)(itemsField.value)),
                   disabled: true
                 })
               })]
@@ -14028,7 +14028,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscountPercent)(itemsField.value),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalDiscountPercent)(itemsField.value)),
                   disabled: true
                 })
               })]
@@ -14045,7 +14045,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalNet)(itemsField.value),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalNet)(itemsField.value)),
                   disabled: true
                 })
               })]
@@ -14077,10 +14077,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                 className: "text-muted",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                  type: "number",
+                  type: "text",
                   step: .1,
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, customsField.value),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, customsField.value)),
                   disabled: true
                 })
               })]
@@ -14112,10 +14112,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("td", {
                 className: "text-muted",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                  type: "number",
+                  type: "text",
                   step: .1,
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, vatField.value),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, vatField.value)),
                   disabled: true
                 })
               })]
@@ -14132,7 +14132,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalWithVat)(itemsField.value, vatField.value),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalWithVat)(itemsField.value, vatField.value)),
                   disabled: true
                 })
               })]
@@ -14407,7 +14407,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   className: "fit",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                     type: "text",
-                    value: totalPercent(),
+                    value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)(totalPercent()),
                     className: "form-control ".concat(totalPercent() > 100 && "is-invalid"),
                     disabled: true
                   })
@@ -14421,7 +14421,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   className: "fit",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                     type: "text",
-                    value: total(),
+                    value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)(total()),
                     className: "form-control",
                     disabled: true
                   })
@@ -15675,7 +15675,7 @@ var createPartLabel = function createPartLabel(name, code) {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         min: 0,
-        type: "number",
+        type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".quantity")
       })
@@ -15692,14 +15692,14 @@ var createPartLabel = function createPartLabel(name, code) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.grossValue)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.grossValue)(itemField.value)),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
         min: 0,
-        type: "number",
+        type: "text",
         step: .01,
         className: "form-control",
         name: "items.".concat(itemIndex, ".discount_percent")
@@ -15709,24 +15709,24 @@ var createPartLabel = function createPartLabel(name, code) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.discount)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.discount)(itemField.value)),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         min: 0,
-        type: "number",
+        type: "text",
         className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.marginPercent)(itemField.value) < 0 && "is-invalid"),
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.marginPercent)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.marginPercent)(itemField.value)),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
-        type: "number",
+        type: "text",
         className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.margin)(itemField.value) < 0 && "is-invalid"),
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.margin)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.margin)(itemField.value)),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
@@ -15734,7 +15734,7 @@ var createPartLabel = function createPartLabel(name, code) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.calculateNet)(itemField.value),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.calculateNet)(itemField.value)),
         disabled: true
       })
     })]
@@ -16001,7 +16001,7 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: termValue(),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)(termValue()),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
@@ -16033,7 +16033,7 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
-        type: "number",
+        type: "text",
         className: "form-control",
         name: "paymentTerms.".concat(itemIndex, ".days"),
         disabled: !isEnabled
@@ -16085,8 +16085,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_OverviewComponent__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Components/OverviewComponent */ "./resources/js/Pages/Deal/Components/OverviewComponent.js");
 /* harmony import */ var _Components_PaymentTermsComponent__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Components/PaymentTermsComponent */ "./resources/js/Pages/Deal/Components/PaymentTermsComponent.js");
 /* harmony import */ var _Components_NotesComponent__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Components/NotesComponent */ "./resources/js/Pages/Deal/Components/NotesComponent.js");
-/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -16232,7 +16232,7 @@ function Show(_ref) {
       console.log({
         flash: flash
       });
-      (0,react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast)(flash.msg, {
+      (0,react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast)(flash.msg, {
         autoClose: 5000,
         type: flash.type
       });
@@ -16361,19 +16361,19 @@ function Show(_ref) {
               console.log(Object.values(validationResult).flat(2));
 
               if (!Array.isArray(Object.values(validationResult).flat(2)[0])) {
-                react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error(Object.values(validationResult).flat(2)[0], {
+                react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error(Object.values(validationResult).flat(2)[0], {
                   autoClose: 5000
                 });
               } else if (validationResult.items && Array.isArray(validationResult.items)) {
-                react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error("Please check the inserted items", {
+                react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error("Please check the inserted items", {
                   autoClose: 5000
                 });
               } else if (validationResult.paymentTerms && Array.isArray(validationResult.paymentTerms)) {
-                react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error("Please check the inserted payment terms", {
+                react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error("Please check the inserted payment terms", {
                   autoClose: 5000
                 });
               } else {
-                react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error("Please check your input", {
+                react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error("Please check your input", {
                   autoClose: 5000
                 });
               }
@@ -16492,7 +16492,7 @@ function Show(_ref) {
               break;
 
             case 7:
-              react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error("Please Save the quote first.", {
+              react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error("Please Save the quote first.", {
                 autoClose: 5000
               });
 
@@ -16535,7 +16535,7 @@ function Show(_ref) {
               break;
 
             case 7:
-              react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error("Please Save the quote first.", {
+              react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error("Please Save the quote first.", {
                 autoClose: 5000
               });
 
@@ -16578,7 +16578,7 @@ function Show(_ref) {
               break;
 
             case 7:
-              react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error("Please Save the quote first.", {
+              react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error("Please Save the quote first.", {
                 autoClose: 5000
               });
 
@@ -16621,7 +16621,7 @@ function Show(_ref) {
               break;
 
             case 7:
-              react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error("Please Save the quote first.", {
+              react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error("Please Save the quote first.", {
                 autoClose: 5000
               });
 
@@ -16655,7 +16655,7 @@ function Show(_ref) {
                   });
                 }
               })["catch"](function (err) {
-                react_toastify__WEBPACK_IMPORTED_MODULE_21__.toast.error("Please check your input.", {
+                react_toastify__WEBPACK_IMPORTED_MODULE_20__.toast.error("Please check your input.", {
                   autoClose: 5000
                 });
               });
@@ -16673,58 +16673,58 @@ function Show(_ref) {
     };
   }();
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_21__.ToastContainer, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.Formik, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(react_toastify__WEBPACK_IMPORTED_MODULE_20__.ToastContainer, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.Formik, {
       initialValues: initialValues,
       validationSchema: validationSchema,
       innerRef: formRef,
       onSubmit: onSubmit,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsxs)(formik__WEBPACK_IMPORTED_MODULE_4__.Form, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_HeaderComponent__WEBPACK_IMPORTED_MODULE_9__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsxs)(formik__WEBPACK_IMPORTED_MODULE_4__.Form, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_HeaderComponent__WEBPACK_IMPORTED_MODULE_9__.default, {
           updateQuote: updateQuote,
           quote: quote,
           quotes: quotes,
           generateQuote: generateQuote,
           deal: deal
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_QuoteBasicInfoComponent__WEBPACK_IMPORTED_MODULE_10__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_QuoteBasicInfoComponent__WEBPACK_IMPORTED_MODULE_10__.default, {
           quote: quote,
           pushDeal: pushDeal,
           pushQuote: pushQuote,
           pushAll: pushAll,
           deal: deal
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_SalesPersonInfoComponent__WEBPACK_IMPORTED_MODULE_11__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_SalesPersonInfoComponent__WEBPACK_IMPORTED_MODULE_11__.default, {
           users: users,
           deal: deal
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_ContactInfoComponent__WEBPACK_IMPORTED_MODULE_12__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_ContactInfoComponent__WEBPACK_IMPORTED_MODULE_12__.default, {
           contacts: contacts,
           deal: deal
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_AccountInfoComponent__WEBPACK_IMPORTED_MODULE_13__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_AccountInfoComponent__WEBPACK_IMPORTED_MODULE_13__.default, {
           accounts: accounts,
           deal: deal
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_AddressInfoComponent__WEBPACK_IMPORTED_MODULE_14__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_AddressInfoComponent__WEBPACK_IMPORTED_MODULE_14__.default, {
           contacts: contacts,
           deal: deal
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_QuoteOtherInfoComponent__WEBPACK_IMPORTED_MODULE_16__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_QuoteOtherInfoComponent__WEBPACK_IMPORTED_MODULE_16__.default, {
           deal: deal
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.FieldArray, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.FieldArray, {
           name: "items",
           children: function children(actions) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_PricingTableComponent__WEBPACK_IMPORTED_MODULE_15__.default, _objectSpread({
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_PricingTableComponent__WEBPACK_IMPORTED_MODULE_15__.default, _objectSpread({
               products: products,
               deal: deal
             }, actions));
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_OverviewComponent__WEBPACK_IMPORTED_MODULE_17__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_OverviewComponent__WEBPACK_IMPORTED_MODULE_17__.default, {
           deal: deal
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.FieldArray, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(formik__WEBPACK_IMPORTED_MODULE_4__.FieldArray, {
           name: "paymentTerms",
           children: function children(actions) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_PaymentTermsComponent__WEBPACK_IMPORTED_MODULE_18__.default, _objectSpread({
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_PaymentTermsComponent__WEBPACK_IMPORTED_MODULE_18__.default, _objectSpread({
               request: request,
               deal: deal
             }, actions));
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_20__.jsx)(_Components_NotesComponent__WEBPACK_IMPORTED_MODULE_19__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(_Components_NotesComponent__WEBPACK_IMPORTED_MODULE_19__.default, {
           deal: deal
         })]
       })
@@ -16764,7 +16764,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc),
 /* harmony export */   "mapItems": () => (/* binding */ mapItems),
 /* harmony export */   "mapTerms": () => (/* binding */ mapTerms),
-/* harmony export */   "isNumeric": () => (/* binding */ isNumeric)
+/* harmony export */   "isNumeric": () => (/* binding */ isNumeric),
+/* harmony export */   "displayNumber": () => (/* binding */ displayNumber)
 /* harmony export */ });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -16876,6 +16877,11 @@ var isNumeric = function isNumeric(str) {
 
   return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
   !isNaN(parseFloat(str)); // ...and ensure strings of whitespace fail
+};
+var displayNumber = function displayNumber(num) {
+  return num.toLocaleString(undefined, {
+    maximumFractionDigits: 2
+  });
 };
 
 /***/ }),

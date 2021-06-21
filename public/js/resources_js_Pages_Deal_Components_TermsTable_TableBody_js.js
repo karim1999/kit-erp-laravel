@@ -12973,7 +12973,7 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: termValue(),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)(termValue()),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
@@ -13005,7 +13005,7 @@ var SimpleDatePickerFieldComponent = function SimpleDatePickerFieldComponent(_re
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
-        type: "number",
+        type: "text",
         className: "form-control",
         name: "paymentTerms.".concat(itemIndex, ".days"),
         disabled: !isEnabled
@@ -13054,7 +13054,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc),
 /* harmony export */   "mapItems": () => (/* binding */ mapItems),
 /* harmony export */   "mapTerms": () => (/* binding */ mapTerms),
-/* harmony export */   "isNumeric": () => (/* binding */ isNumeric)
+/* harmony export */   "isNumeric": () => (/* binding */ isNumeric),
+/* harmony export */   "displayNumber": () => (/* binding */ displayNumber)
 /* harmony export */ });
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -13166,6 +13167,11 @@ var isNumeric = function isNumeric(str) {
 
   return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
   !isNaN(parseFloat(str)); // ...and ensure strings of whitespace fail
+};
+var displayNumber = function displayNumber(num) {
+  return num.toLocaleString(undefined, {
+    maximumFractionDigits: 2
+  });
 };
 
 /***/ }),

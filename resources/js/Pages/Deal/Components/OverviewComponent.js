@@ -5,6 +5,7 @@ import TextFieldComponent from "./Fields/TextFieldComponent";
 import CheckBoxFieldComponent from "./Fields/CheckBoxFieldComponent";
 import {useField} from "formik";
 import {
+    displayNumber,
     getTotalByKey,
     getTotalDiscount, getTotalDiscountPercent,
     getTotalGross, getTotalMargin, getTotalMarginPercent,
@@ -50,7 +51,7 @@ export default function ({deal}) {
                                 Total Cost Price
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalByKey(currentItems(), "cost_price")} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalByKey(currentItems(), "cost_price"))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -58,7 +59,7 @@ export default function ({deal}) {
                                 Total Gross Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalGross(currentItems())} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalGross(currentItems()))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -66,7 +67,7 @@ export default function ({deal}) {
                                 Total Discount Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalDiscount(currentItems())} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalDiscount(currentItems()))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -74,7 +75,7 @@ export default function ({deal}) {
                                 Total Discount %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalDiscountPercent(currentItems())} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalDiscountPercent(currentItems()))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -82,7 +83,7 @@ export default function ({deal}) {
                                 Total Margin Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalMargin(currentItems())} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalMargin(currentItems()))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -90,7 +91,7 @@ export default function ({deal}) {
                                 Total Margin %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalMarginPercent(currentItems())} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalMarginPercent(currentItems()))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -98,7 +99,7 @@ export default function ({deal}) {
                                 Total Net Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalNet(currentItems())} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalNet(currentItems()))} disabled />
                             </td>
                         </tr>
                         </tbody>
@@ -113,7 +114,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Gross Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalGross(itemsField.value)} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalGross(itemsField.value))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -121,7 +122,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Discount Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalDiscount(itemsField.value)} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalDiscount(itemsField.value))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -129,7 +130,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Discount %
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalDiscountPercent(itemsField.value)} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalDiscountPercent(itemsField.value))} disabled />
                             </td>
                         </tr>
                         {/*<tr>*/}
@@ -157,7 +158,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Net Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalNet(itemsField.value)} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalNet(itemsField.value))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -173,7 +174,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" />Freight and Customs Value
                             </th>
                             <td className="text-muted">
-                                <input type="number" step={.1} className="form-control" value={getTotalVat(itemsField.value, customsField.value)} disabled />
+                                <input type="text" step={.1} className="form-control" value={displayNumber(getTotalVat(itemsField.value, customsField.value))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -189,7 +190,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> VAT Value
                             </th>
                             <td className="text-muted">
-                                <input type="number" step={.1} className="form-control" value={getTotalVat(itemsField.value, vatField.value)} disabled />
+                                <input type="text" step={.1} className="form-control" value={displayNumber(getTotalVat(itemsField.value, vatField.value))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -197,7 +198,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Net Value Inc. VAT
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={getTotalWithVat(itemsField.value, vatField.value)} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalWithVat(itemsField.value, vatField.value))} disabled />
                             </td>
                         </tr>
                         </tbody>

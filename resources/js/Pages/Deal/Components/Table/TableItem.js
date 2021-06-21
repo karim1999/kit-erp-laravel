@@ -6,7 +6,15 @@ import {faTimes, faPencilAlt, faSave, faArrowsAlt} from '@fortawesome/free-solid
 import {Field, useField} from "formik";
 import ReactSelectFieldComponent from "../Fields/ReactSelectFieldComponent";
 import Constants from "../../../../helpers/samples";
-import {calculateNet, discount, grossValue, margin, marginPercent, precise} from "../../../../helpers/helpers";
+import {
+    calculateNet,
+    discount,
+    displayNumber, getTotalGross,
+    grossValue,
+    margin,
+    marginPercent,
+    precise
+} from "../../../../helpers/helpers";
 import CheckBoxFieldComponent from "../Fields/CheckBoxFieldComponent";
 import TextAreaFieldComponent from "../Fields/TextAreaFieldComponent";
 import SelectFieldComponent from "../Fields/SelectFieldComponent";
@@ -135,28 +143,28 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.unit_price`} disabled={!isText()} />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent min={0} type="number" className="form-control" name={`items.${itemIndex}.quantity`} />
+                <SimpleTextFieldComponent min={0} type="text" className="form-control" name={`items.${itemIndex}.quantity`} />
             </td>
             <td className="fit">
                 <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.unit`} disabled={!isText()} />
             </td>
             <td className="fit">
-                <input type="text" className="form-control" value={grossValue(itemField.value)} disabled />
+                <input type="text" className="form-control" value={displayNumber(grossValue(itemField.value))} disabled />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent min={0} type="number" step={.01} className="form-control" name={`items.${itemIndex}.discount_percent`} />
+                <SimpleTextFieldComponent min={0} type="text" step={.01} className="form-control" name={`items.${itemIndex}.discount_percent`} />
             </td>
             <td className="fit">
-                <input type="text" className="form-control" value={discount(itemField.value)} disabled />
+                <input type="text" className="form-control" value={displayNumber(discount(itemField.value))} disabled />
             </td>
             <td className="fit">
-                <input min={0} type="number" className={`form-control ${marginPercent(itemField.value) < 0 && "is-invalid"}`} value={marginPercent(itemField.value)} disabled />
+                <input min={0} type="text" className={`form-control ${marginPercent(itemField.value) < 0 && "is-invalid"}`} value={displayNumber(marginPercent(itemField.value))} disabled />
             </td>
             <td className="fit">
-                <input type="number" className={`form-control ${margin(itemField.value) < 0 && "is-invalid"}`} value={margin(itemField.value)} disabled />
+                <input type="text" className={`form-control ${margin(itemField.value) < 0 && "is-invalid"}`} value={displayNumber(margin(itemField.value))} disabled />
             </td>
             <td className="fit">
-                <input type="text" className="form-control" value={calculateNet(itemField.value)} disabled />
+                <input type="text" className="form-control" value={displayNumber(calculateNet(itemField.value))} disabled />
             </td>
         </tr>
     )}
