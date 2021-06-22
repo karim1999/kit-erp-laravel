@@ -151,5 +151,19 @@ return [
         "margin"=> "margin_percentage",
         "part_number"=> "Product_Code",
     ],
-
+    "mapGroupToCategory"=> [
+        "Accessories" => "hardware",
+        "AMC - Hardware" => "service",
+        "AMC - Software" => "service",
+        "Application" => "software",
+        "Cloud" => "software",
+        "Deployment and Field Service" => "service",
+        "Development" => "service",
+        "Hardware" => "hardware",
+        "Managed Services" => "service",
+        "Professionals Services" => "service",
+        "Software" => "software",
+        "Spare Parts" => "hardware",
+        "Warranty" => "service",
+    ]
 ];

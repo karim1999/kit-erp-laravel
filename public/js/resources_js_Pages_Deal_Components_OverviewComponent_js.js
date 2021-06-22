@@ -512,7 +512,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   type: "text",
                   step: .1,
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, customsField.value)),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalFright)(itemsField.value, customsField.value)),
                   disabled: true
                 })
               })]
@@ -547,7 +547,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   type: "text",
                   step: .1,
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, vatField.value)),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalVat)(itemsField.value, vatField.value, customsField.value)),
                   disabled: true
                 })
               })]
@@ -564,7 +564,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
                   type: "text",
                   className: "form-control",
-                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalWithVat)(itemsField.value, vatField.value)),
+                  value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_6__.getTotalWithVat)(itemsField.value, vatField.value, customsField.value)),
                   disabled: true
                 })
               })]
@@ -604,6 +604,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getTotalDiscountPercent": () => (/* binding */ getTotalDiscountPercent),
 /* harmony export */   "getTotalMarginPercent": () => (/* binding */ getTotalMarginPercent),
 /* harmony export */   "getTotalVat": () => (/* binding */ getTotalVat),
+/* harmony export */   "getTotalFright": () => (/* binding */ getTotalFright),
 /* harmony export */   "getTotalWithVat": () => (/* binding */ getTotalWithVat),
 /* harmony export */   "getTotalByFunc": () => (/* binding */ getTotalByFunc),
 /* harmony export */   "mapItems": () => (/* binding */ mapItems),
@@ -611,11 +612,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "isNumeric": () => (/* binding */ isNumeric),
 /* harmony export */   "displayNumber": () => (/* binding */ displayNumber)
 /* harmony export */ });
+/* harmony import */ var _samples__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./samples */ "./resources/js/helpers/samples.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 var calculateItemDiscount = function calculateItemDiscount(item) {
   if (item.discountType == "%") {
@@ -648,7 +651,7 @@ var margin = function margin(item) {
 };
 var marginPercent = function marginPercent(item) {
   if (!calculateNet(item)) return 0;
-  return precise(margin(item) / (item.quantity * item.cost_price) * 100);
+  return precise(margin(item) / (item.quantity * item.unit_price) * 100);
 };
 var calculateNet = function calculateNet(item) {
   return precise(grossValue(item) - discount(item));
@@ -683,10 +686,17 @@ var getTotalMarginPercent = function getTotalMarginPercent(items) {
   return precise(getTotalMargin(items) / getTotalGross(items) * 100);
 };
 var getTotalVat = function getTotalVat(items, vat) {
-  return precise(getTotalNet(items) * vat / 100);
+  var fright = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+  return precise((getTotalNet(items) + getTotalFright(items, fright)) * vat / 100);
+};
+var getTotalFright = function getTotalFright(items, vat) {
+  return precise(getTotalNet(items.filter(function (item) {
+    return _samples__WEBPACK_IMPORTED_MODULE_0__.default.productTypesToGroup[item.type] === "hardware";
+  })) * vat / 100);
 };
 var getTotalWithVat = function getTotalWithVat(items, vat) {
-  return precise(getTotalNet(items) + getTotalVat(items, vat));
+  var fright = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+  return precise(getTotalNet(items) + getTotalVat(items, vat, fright) + getTotalFright(items, fright));
 };
 var getTotalByFunc = function getTotalByFunc(items, func) {
   if (items.length <= 0) return 0;
@@ -788,6 +798,21 @@ var Constants = Object.freeze({
     key: "Warranty",
     value: "Warranty"
   }],
+  productTypesToGroup: {
+    "Accessories": "hardware",
+    "AMC - Hardware": "service",
+    "AMC - Software": "service",
+    "Application": "software",
+    "Cloud": "software",
+    "Deployment and Field Service": "service",
+    "Development": "service",
+    "Hardware": "hardware",
+    "Managed Services": "service",
+    "Professionals Services": "service",
+    "Software": "software",
+    "Spare Parts": "hardware",
+    "Warranty": "service"
+  },
   sampleShipping: {
     contact: "",
     country: "",

@@ -7,7 +7,7 @@ import {useField} from "formik";
 import {
     displayNumber,
     getTotalByKey,
-    getTotalDiscount, getTotalDiscountPercent,
+    getTotalDiscount, getTotalDiscountPercent, getTotalFright,
     getTotalGross, getTotalMargin, getTotalMarginPercent,
     getTotalNet, getTotalPercentByKey,
     getTotalVat,
@@ -174,7 +174,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" />Freight and Customs Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" step={.1} className="form-control" value={displayNumber(getTotalVat(itemsField.value, customsField.value))} disabled />
+                                <input type="text" step={.1} className="form-control" value={displayNumber(getTotalFright(itemsField.value, customsField.value))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -190,7 +190,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> VAT Value
                             </th>
                             <td className="text-muted">
-                                <input type="text" step={.1} className="form-control" value={displayNumber(getTotalVat(itemsField.value, vatField.value))} disabled />
+                                <input type="text" step={.1} className="form-control" value={displayNumber(getTotalVat(itemsField.value, vatField.value, customsField.value))} disabled />
                             </td>
                         </tr>
                         <tr>
@@ -198,7 +198,7 @@ export default function ({deal}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Total Net Value Inc. VAT
                             </th>
                             <td className="text-muted">
-                                <input type="text" className="form-control" value={displayNumber(getTotalWithVat(itemsField.value, vatField.value))} disabled />
+                                <input type="text" className="form-control" value={displayNumber(getTotalWithVat(itemsField.value, vatField.value, customsField.value))} disabled />
                             </td>
                         </tr>
                         </tbody>

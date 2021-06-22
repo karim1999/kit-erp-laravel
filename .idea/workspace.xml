@@ -4,8 +4,36 @@
     <list default="true" id="2284fbe7-6c19-421a-a1c6-ce5d74747c2d" name="Default Changelist" comment="fixed all">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ZCRMClientLibrary.log" beforeDir="false" afterPath="$PROJECT_DIR$/ZCRMClientLibrary.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Zoho/DealController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Zoho/DealController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Zoho/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Zoho/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/zoho.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/zoho.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_AccountInfoComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_AccountInfoComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_AddressInfoComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_AddressInfoComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_ContactInfoComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_ContactInfoComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_AsyncReactSelectFieldComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_AsyncReactSelectFieldComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_CheckBoxFieldComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_CheckBoxFieldComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_DatePickerFieldComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_DatePickerFieldComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_ReactSelectFieldComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_ReactSelectFieldComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_SelectFieldComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_SelectFieldComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_TextAreaFieldComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_TextAreaFieldComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_TextFieldComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Fields_TextFieldComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_HeaderComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_HeaderComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_NotesComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_NotesComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_OverviewComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_OverviewComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PaymentTermsComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PaymentTermsComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PricingTableComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PricingTableComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_QuoteBasicInfoComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_QuoteBasicInfoComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_QuoteOtherInfoComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_QuoteOtherInfoComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_SalesPersonInfoComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_SalesPersonInfoComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_TableBody_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_TableBody_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_TableItem_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_TableItem_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_TermsTable_TableBody_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_TermsTable_TableBody_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_TermsTable_TableItem_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_TermsTable_TableItem_js.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Show_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Show_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/OverviewComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/OverviewComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Deal/Show.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Show.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/helpers/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/helpers/helpers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/helpers/samples.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/helpers/samples.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zcrm_oauthtokens.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zcrm_oauthtokens.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -208,7 +236,8 @@
       <workItem from="1623604586895" duration="620000" />
       <workItem from="1623606216468" duration="598000" />
       <workItem from="1623696595699" duration="484000" />
-      <workItem from="1624289221831" duration="29140000" />
+      <workItem from="1624289221831" duration="29775000" />
+      <workItem from="1624377722988" duration="8287000" />
     </task>
     <task id="LOCAL-00001" summary="items">
       <created>1616576980634</created>
@@ -427,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624359627918</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="margin">
+      <created>1624363596423</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1624363596423</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,17 +489,18 @@
     <MESSAGE value="num seperator" />
     <MESSAGE value="fixed all" />
     <MESSAGE value="fixed contacts" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed contacts" />
+    <MESSAGE value="margin" />
+    <option name="LAST_COMMIT_MESSAGE" value="margin" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624305847311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624305847311" />
-    <state x="719" y="125" key="CommitChangelistDialog2" timestamp="1624359626774">
+    <state x="719" y="125" key="CommitChangelistDialog2" timestamp="1624363595640">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="719" y="125" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1624359626774" />
+    <state x="719" y="125" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1624363595640" />
     <state x="838" y="418" key="Github.ShareDialog" timestamp="1616509482095">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -476,10 +513,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616671091305" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1624359629109">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1624363598098">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1624359629109" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1624363598098" />
     <state x="560" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1624303220233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -488,9 +525,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617499707826" />
-    <state x="667" y="253" width="585" height="592" key="find.popup" timestamp="1624299919368">
+    <state x="667" y="253" width="585" height="592" key="find.popup" timestamp="1624401193891">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="253" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1624299919368" />
+    <state x="667" y="253" width="585" height="592" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1624401193891" />
   </component>
 </project>

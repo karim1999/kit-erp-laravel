@@ -2512,6 +2512,21 @@ var Constants = Object.freeze({
     key: "Warranty",
     value: "Warranty"
   }],
+  productTypesToGroup: {
+    "Accessories": "hardware",
+    "AMC - Hardware": "service",
+    "AMC - Software": "service",
+    "Application": "software",
+    "Cloud": "software",
+    "Deployment and Field Service": "service",
+    "Development": "service",
+    "Hardware": "hardware",
+    "Managed Services": "service",
+    "Professionals Services": "service",
+    "Software": "software",
+    "Spare Parts": "hardware",
+    "Warranty": "service"
+  },
   sampleShipping: {
     contact: "",
     country: "",

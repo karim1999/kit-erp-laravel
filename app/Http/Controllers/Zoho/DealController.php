@@ -220,9 +220,31 @@ class DealController extends Controller
 //            return $item["type"] != "Hardware" && $item["type"] != "Service";
 //            }), config("zoho.mapItemsToZohoDeals"));
 
-        $deal->setFieldValue("Hardware_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] === "Hardware"; }), config("zoho.mapItemsToZohoDeals")));
-        $deal->setFieldValue("Pro_Service_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] === "Services"; }), config("zoho.mapItemsToZohoDeals")));
-        $deal->setFieldValue("Quote_Table", $this->buildNestedData(array_filter($itemsInfo, function($item){return $item["group"] != "Hardware" && $item["group"] != "Services"; }), config("zoho.mapItemsToZohoDeals")));
+        $mapGroupToCategory=config("zoho.mapGroupToCategory");
+        $hardware_items= array_filter($itemsInfo, function($item) use ($mapGroupToCategory){
+            $type= $item["type"];
+            if ($type && key_exists($type, $mapGroupToCategory)) {
+                return config("zoho.mapGroupToCategory")[$type] === "hardware";
+            }
+            return false;
+        });
+        $software_items= array_filter($itemsInfo, function($item) use ($mapGroupToCategory){
+            $type= $item["type"];
+            if ($type && key_exists($type, $mapGroupToCategory)) {
+                return config("zoho.mapGroupToCategory")[$type] === "software";
+            }
+            return false;
+        });
+        $service_items= array_filter($itemsInfo, function($item) use ($mapGroupToCategory){
+            $type= $item["type"];
+            if ($type && key_exists($type, $mapGroupToCategory)) {
+                return config("zoho.mapGroupToCategory")[$type] === "service";
+            }
+            return true;
+        });
+        $deal->setFieldValue("Hardware_Table", $this->buildNestedData($hardware_items, config("zoho.mapItemsToZohoDeals")));
+        $deal->setFieldValue("Pro_Service_Table", $this->buildNestedData($service_items, config("zoho.mapItemsToZohoDeals")));
+        $deal->setFieldValue("Quote_Table", $this->buildNestedData($software_items, config("zoho.mapItemsToZohoDeals")));
         //$finalData["items"]= $this->buildData($shippingInfo, config("zoho.mapItemsToZohoDeals"));
 
         array_push($dealRecords, $deal);

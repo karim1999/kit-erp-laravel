@@ -17,7 +17,7 @@ import {
     getTotalGross,
     getTotalMarginPercent,
     getTotalMargin,
-    getTotalWithVat, getTotalVat, margin
+    getTotalWithVat, getTotalVat, margin, getTotalFright
 } from "../../helpers/helpers";
 import HeaderComponent from "./Components/HeaderComponent";
 import QuoteBasicInfoComponent from "./Components/QuoteBasicInfoComponent";
@@ -95,6 +95,18 @@ const getBillingDetailsFromDeal= (deal) => {
         building: deal.Billing_Building_Name,
     }
 }
+
+const dateOrNull= (date, returnDate= true, format= "MM/DD/YYYY") => {
+    if(date){
+        try {
+            return moment(date).format(format)
+        }catch (e){
+            return returnDate ? moment().format(format) : null
+        }
+    }
+    return returnDate ? moment().format(format) : null
+}
+
 export default function Show({ quote, current_deal_id, current_deal= Constants.sampleOpportunity, quotes= [], contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
     const [deal, setDeal]= useState({...current_deal.data[0]});
     const [users, setUsers]= useState([usersObj.data[0]]);
@@ -143,9 +155,9 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         shipping: getInitData(quote?.shipping, getShippingDetailsFromDeal(deal)),
         billing: getInitData(quote?.billing, getBillingDetailsFromDeal(deal)),
         deal_name: getInitData(quote?.deal_name, deal.Deal_Name),
-        valid_from: getInitData(quote?.valid_from ? moment(quote?.valid_from).format("MM/DD/YYYY") : null, moment().format("MM/DD/YYYY")),
-        valid_to: getInitData(quote?.valid_to ? moment(quote?.quote).format("MM/DD/YYYY") : null, moment().format("MM/DD/YYYY")),
-        description: getInitData(quote?.description, ""),
+        valid_from: getInitData(dateOrNull(quote?.valid_from, false), getInitData(dateOrNull(deal.Deal_Registration_Expiry))),
+        valid_to: getInitData(dateOrNull(quote?.valid_to, false), getInitData(dateOrNull(deal.Deal_Reg_Valid_To))),
+        description: getInitData(quote?.description, deal.Description),
         items: getInitArrayData(quote?.items, [], Constants.samplePricingItem),
         notes: getInitData(quote?.notes, ""),
         paymentTerms: getInitArrayData(quote?.terms?.map(term => {
@@ -263,9 +275,9 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
             "Total_Gross_Value": getTotalGross(data.items),
             "Total_Margin": getTotalMarginPercent(data.items),
             "Total_Margin_Value": getTotalMargin(data.items),
-            "Total_Net_Value_Including_VAT": getTotalWithVat(data.items, data.vat),
-            "VAT_Value": getTotalVat(data.items, data.vat),
-            "customs_value": getTotalWithVat(data.items, data.customs),
+            "Total_Net_Value_Including_VAT": getTotalWithVat(data.items, data.vat, data.customs),
+            "VAT_Value": getTotalVat(data.items, data.vat, data.customs),
+            "customs_value": getTotalFright(data.items, data.customs),
         }
     }
     const validate= async () => {

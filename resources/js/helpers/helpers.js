@@ -1,3 +1,5 @@
+import Constants from "./samples";
+
 export const calculateItemDiscount= (item) => {
     if(item.discountType == "%"){
         return precise((item.outRate*item.quantity) * (item.discount/100))
@@ -34,7 +36,7 @@ export const margin= (item) => {
 export const marginPercent= (item) => {
     if(!calculateNet(item))
         return 0;
-    return precise(margin(item)/ (item.quantity * item.cost_price) *100);
+    return precise(margin(item)/ (item.quantity * item.unit_price) *100);
 }
 export const calculateNet= (item) => {
     return precise(grossValue(item) - discount(item));
@@ -71,11 +73,14 @@ export const getTotalMarginPercent= (items) => {
     return precise(getTotalMargin(items) / getTotalGross(items) * 100)
 }
 
-export const getTotalVat= (items, vat) => {
-    return precise(getTotalNet(items) * vat/100)
+export const getTotalVat= (items, vat, fright = 0) => {
+    return precise((getTotalNet(items)+getTotalFright(items, fright)) * vat/100)
 }
-export const getTotalWithVat= (items, vat) => {
-    return precise(getTotalNet(items) + (getTotalVat(items, vat)))
+export const getTotalFright= (items, vat) => {
+    return precise(getTotalNet(items.filter(item => Constants.productTypesToGroup[item.type] === "hardware")) * vat/100)
+}
+export const getTotalWithVat= (items, vat, fright = 0) => {
+    return precise(getTotalNet(items) + (getTotalVat(items, vat, fright)) + (getTotalFright(items, fright)))
 }
 export const getTotalByFunc= (items, func) => {
     if (items.length <= 0)
