@@ -40,7 +40,7 @@ class QuoteController extends Controller
                 $copying_from_quote= Quote::findOrFail($data['quote_id']);
                 $copying_from_quote_last_child= $copying_from_quote->quotes()->latest()->first();
                 $current_version_num_arr= [];
-                dd($copying_from_quote_last_child);
+//                dd($copying_from_quote_last_child);
                 if($copying_from_quote_last_child){
                     $data["version"]= $copying_from_quote_last_child->version;
                     $data["nested"]= $copying_from_quote_last_child->nested | 1;
