@@ -17,7 +17,7 @@ import {
     getTotalGross,
     getTotalMarginPercent,
     getTotalMargin,
-    getTotalWithVat, getTotalVat
+    getTotalWithVat, getTotalVat, margin
 } from "../../helpers/helpers";
 import HeaderComponent from "./Components/HeaderComponent";
 import QuoteBasicInfoComponent from "./Components/QuoteBasicInfoComponent";
@@ -173,7 +173,22 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
             .oneOf(Constants.approvalStatusTypes.map(status => status.value)),
         vat: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
         customs: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
-        items: Yup.array().min(1).of(Yup.object().shape({
+        items: Yup.array().min(1).test(
+            'is-less-than-100',
+            'The margin should be more than 0',
+            (value, context) => {
+                if(value.length <= 0)
+                    return true;
+
+                let check= value.some(item => {
+                    return margin(item) < 0;
+                });
+                if(check)
+                    return false
+
+                return true
+            },
+        ).of(Yup.object().shape({
             is_text: Yup.boolean(),
             product_id: Yup.string().typeError('Must be a String').nullable()
                 .when("is_text", {

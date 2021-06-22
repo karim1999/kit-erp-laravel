@@ -16337,7 +16337,14 @@ function Show(_ref) {
     })),
     vat: yup__WEBPACK_IMPORTED_MODULE_5__.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
     customs: yup__WEBPACK_IMPORTED_MODULE_5__.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
-    items: yup__WEBPACK_IMPORTED_MODULE_5__.array().min(1).of(yup__WEBPACK_IMPORTED_MODULE_5__.object().shape({
+    items: yup__WEBPACK_IMPORTED_MODULE_5__.array().min(1).test('is-less-than-100', 'The margin should be more than 0', function (value, context) {
+      if (value.length <= 0) return true;
+      var check = value.some(function (item) {
+        return (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(item) < 0;
+      });
+      if (check) return false;
+      return true;
+    }).of(yup__WEBPACK_IMPORTED_MODULE_5__.object().shape({
       is_text: yup__WEBPACK_IMPORTED_MODULE_5__.boolean(),
       product_id: yup__WEBPACK_IMPORTED_MODULE_5__.string().typeError('Must be a String').nullable().when("is_text", {
         is:  false || false,
