@@ -40,9 +40,10 @@ class QuoteController extends Controller
                 $copying_from_quote= Quote::findOrFail($data['quote_id']);
                 $copying_from_quote_last_child= $copying_from_quote->quotes()->latest()->first();
                 $current_version_num_arr= [];
+                dd($copying_from_quote_last_child);
                 if($copying_from_quote_last_child){
                     $data["version"]= $copying_from_quote_last_child->version;
-                    $data["nested"]= $copying_from_quote_last_child->nested;
+                    $data["nested"]= $copying_from_quote_last_child->nested | 1;
                     $current_version_num_arr= explode("-",$copying_from_quote_last_child->quote_no);
                     $current_version_num_arr[2]= "V".(str_replace("V","",$current_version_num_arr[2])+($version/($data["nested"]*10)));
                 }else{
