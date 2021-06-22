@@ -69,6 +69,32 @@ const termsSchema= Yup.array().test(
     days: Yup.number().typeError('Must be a Number').nullable().integer('Must be Positive').min(0, 'Must be greater than 0'),
     end_date: Yup.date().typeError('Must be a valid Date').nullable(),
 }))
+const getShippingDetailsFromDeal= (deal) => {
+    return {
+        ...Constants.sampleShipping,
+        contact: deal.Shipping_Contact_Name?.id,
+        country: deal.Shipping_Country,
+        district: deal.Shipping_District,
+        state: deal.Shipping_State_City,
+        postal: deal.Shipping_ZIP_P_O_Box,
+        street: deal.Shipping_Street,
+        floor: deal.Shipping_Unit_Floor_No,
+        building: deal.Shipping_Building_Name,
+    }
+}
+const getBillingDetailsFromDeal= (deal) => {
+    return {
+        ...Constants.sampleShipping,
+        contact: deal.Billing_Contact_Name?.id,
+        country: deal.Billing_Country,
+        district: deal.Billing_District,
+        state: deal.Billing_State_City,
+        postal: deal.Billing_ZIP_P_O_Box,
+        street: deal.Billing_Street,
+        floor: deal.Billing_Unit_Floor_No,
+        building: deal.Billing_Building_Name,
+    }
+}
 export default function Show({ quote, current_deal_id, current_deal= Constants.sampleOpportunity, quotes= [], contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
     const [deal, setDeal]= useState({...current_deal.data[0]});
     const [users, setUsers]= useState([usersObj.data[0]]);
@@ -114,8 +140,8 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         account: getInitData(quote?.account, accounts.find(account => account.id === deal.Account_Name?.id)?.id),
         include_shipping: getInitData(quote?.include_shipping, false),
         include_billing: getInitData(quote?.include_billing, true),
-        shipping: getInitData(quote?.shipping, Constants.sampleShipping),
-        billing: getInitData(quote?.billing, Constants.sampleBilling),
+        shipping: getInitData(quote?.shipping, getShippingDetailsFromDeal(deal)),
+        billing: getInitData(quote?.billing, getBillingDetailsFromDeal(deal)),
         deal_name: getInitData(quote?.deal_name, deal.Deal_Name),
         valid_from: getInitData(quote?.valid_from ? moment(quote?.valid_from).format("MM/DD/YYYY") : null, moment().format("MM/DD/YYYY")),
         valid_to: getInitData(quote?.valid_to ? moment(quote?.quote).format("MM/DD/YYYY") : null, moment().format("MM/DD/YYYY")),

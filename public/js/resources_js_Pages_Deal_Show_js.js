@@ -12617,13 +12617,9 @@ __webpack_require__.r(__webpack_exports__);
     className: "container my-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "col-xl-5 col-lg-5 col-sm-5 col-12",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_4__.default, {
-          name: "include_billing",
-          className: "form-check-input",
-          children: "Include Billing Address"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("table", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("table", {
           className: "table table-bordered mt-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tbody", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
@@ -12768,14 +12764,10 @@ __webpack_require__.r(__webpack_exports__);
               })]
             })]
           })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "col-xl-5 col-lg-5 col-sm-5 col-12",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_4__.default, {
-          name: "include_shipping",
-          className: "form-check-input",
-          children: "Include Shipping Address"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("table", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("table", {
           className: "table table-bordered mt-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tbody", {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("tr", {
@@ -12920,7 +12912,7 @@ __webpack_require__.r(__webpack_exports__);
               })]
             })]
           })
-        })]
+        })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("hr", {})]
   });
@@ -16182,6 +16174,37 @@ var termsSchema = yup__WEBPACK_IMPORTED_MODULE_5__.array().test('is-more-than-10
   days: yup__WEBPACK_IMPORTED_MODULE_5__.number().typeError('Must be a Number').nullable().integer('Must be Positive').min(0, 'Must be greater than 0'),
   end_date: yup__WEBPACK_IMPORTED_MODULE_5__.date().typeError('Must be a valid Date').nullable()
 }));
+
+var getShippingDetailsFromDeal = function getShippingDetailsFromDeal(deal) {
+  var _deal$Shipping_Contac;
+
+  return _objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.sampleShipping), {}, {
+    contact: (_deal$Shipping_Contac = deal.Shipping_Contact_Name) === null || _deal$Shipping_Contac === void 0 ? void 0 : _deal$Shipping_Contac.id,
+    country: deal.Shipping_Country,
+    district: deal.Shipping_District,
+    state: deal.Shipping_State_City,
+    postal: deal.Shipping_ZIP_P_O_Box,
+    street: deal.Shipping_Street,
+    floor: deal.Shipping_Unit_Floor_No,
+    building: deal.Shipping_Building_Name
+  });
+};
+
+var getBillingDetailsFromDeal = function getBillingDetailsFromDeal(deal) {
+  var _deal$Billing_Contact;
+
+  return _objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.sampleShipping), {}, {
+    contact: (_deal$Billing_Contact = deal.Billing_Contact_Name) === null || _deal$Billing_Contact === void 0 ? void 0 : _deal$Billing_Contact.id,
+    country: deal.Billing_Country,
+    district: deal.Billing_District,
+    state: deal.Billing_State_City,
+    postal: deal.Billing_ZIP_P_O_Box,
+    street: deal.Billing_Street,
+    floor: deal.Billing_Unit_Floor_No,
+    building: deal.Billing_Building_Name
+  });
+};
+
 function Show(_ref) {
   var _users$find, _contacts$find, _accounts$find, _quote$terms;
 
@@ -16284,8 +16307,8 @@ function Show(_ref) {
     })) === null || _accounts$find === void 0 ? void 0 : _accounts$find.id),
     include_shipping: getInitData(quote === null || quote === void 0 ? void 0 : quote.include_shipping, false),
     include_billing: getInitData(quote === null || quote === void 0 ? void 0 : quote.include_billing, true),
-    shipping: getInitData(quote === null || quote === void 0 ? void 0 : quote.shipping, _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.sampleShipping),
-    billing: getInitData(quote === null || quote === void 0 ? void 0 : quote.billing, _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.sampleBilling),
+    shipping: getInitData(quote === null || quote === void 0 ? void 0 : quote.shipping, getShippingDetailsFromDeal(deal)),
+    billing: getInitData(quote === null || quote === void 0 ? void 0 : quote.billing, getBillingDetailsFromDeal(deal)),
     deal_name: getInitData(quote === null || quote === void 0 ? void 0 : quote.deal_name, deal.Deal_Name),
     valid_from: getInitData(quote !== null && quote !== void 0 && quote.valid_from ? moment__WEBPACK_IMPORTED_MODULE_20___default()(quote === null || quote === void 0 ? void 0 : quote.valid_from).format("MM/DD/YYYY") : null, moment__WEBPACK_IMPORTED_MODULE_20___default()().format("MM/DD/YYYY")),
     valid_to: getInitData(quote !== null && quote !== void 0 && quote.valid_to ? moment__WEBPACK_IMPORTED_MODULE_20___default()(quote === null || quote === void 0 ? void 0 : quote.quote).format("MM/DD/YYYY") : null, moment__WEBPACK_IMPORTED_MODULE_20___default()().format("MM/DD/YYYY")),

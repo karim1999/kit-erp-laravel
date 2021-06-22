@@ -10,9 +10,9 @@ export default function ({deal, contacts}) {
         <div className="container my-4">
             <div className="row">
                 <div className="col-xl-5 col-lg-5 col-sm-5 col-12">
-                    <CheckBoxFieldComponent name="include_billing" className="form-check-input">
-                        Include Billing Address
-                    </CheckBoxFieldComponent>
+                    {/*<CheckBoxFieldComponent name="include_billing" className="form-check-input">*/}
+                    {/*    Include Billing Address*/}
+                    {/*</CheckBoxFieldComponent>*/}
                     <table className="table table-bordered mt-2">
                         <tbody>
                         <tr>
@@ -83,9 +83,9 @@ export default function ({deal, contacts}) {
                     </table>
                 </div>
                 <div className="col-xl-5 col-lg-5 col-sm-5 col-12">
-                    <CheckBoxFieldComponent name="include_shipping" className="form-check-input">
-                        Include Shipping Address
-                    </CheckBoxFieldComponent>
+                    {/*<CheckBoxFieldComponent name="include_shipping" className="form-check-input">*/}
+                    {/*    Include Shipping Address*/}
+                    {/*</CheckBoxFieldComponent>*/}
                     <table className="table table-bordered mt-2">
                         <tbody>
                         <tr>
