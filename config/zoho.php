@@ -20,7 +20,7 @@ return [
         "list_price",
     ],
     "mapDealToZohoDeals" => [
-        "status"=> "Stage",
+        "status"=> "Proposal_Quote_Status",
         "approval_status"=> "Opportunity_Approval_Status",
         "sales_person"=> "Owner",
         "contact"=> "Contact_Name",
