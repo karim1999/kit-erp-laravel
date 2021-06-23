@@ -249,7 +249,6 @@ class DealController extends Controller
 
         array_push($dealRecords, $deal);
         $responseIn= $dealsIns->updateRecords($dealRecords);
-        dd($responseIn->getResponseJSON());
         return $responseIn->getResponseJSON();
     }
     public function pushDeal($id, Request $request){
