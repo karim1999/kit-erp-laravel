@@ -4,16 +4,7 @@
     <list default="true" id="2284fbe7-6c19-421a-a1c6-ce5d74747c2d" name="Default Changelist" comment="fixed all">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ZCRMClientLibrary.log" beforeDir="false" afterPath="$PROJECT_DIR$/ZCRMClientLibrary.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_HeaderComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_HeaderComponent_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PaymentTermsComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PaymentTermsComponent_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PricingTableComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PricingTableComponent_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_TableBody_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_TableBody_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_TableItem_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_TableItem_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_TermsTable_TableBody_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_TermsTable_TableBody_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_TermsTable_TableItem_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_TermsTable_TableItem_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Show_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Show_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/HeaderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/HeaderComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/zoho.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/zoho.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zcrm_oauthtokens.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zcrm_oauthtokens.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +209,8 @@
       <workItem from="1623696595699" duration="484000" />
       <workItem from="1624289221831" duration="29775000" />
       <workItem from="1624377722988" duration="9568000" />
-      <workItem from="1624432003914" duration="8385000" />
+      <workItem from="1624432003914" duration="9027000" />
+      <workItem from="1624458305559" duration="359000" />
     </task>
     <task id="LOCAL-00001" summary="items">
       <created>1616576980634</created>
@@ -486,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624440049718</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="active">
+      <created>1624440889390</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1624440889390</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,17 +515,18 @@
     <MESSAGE value="1" />
     <MESSAGE value="fixed reset terms" />
     <MESSAGE value="fixed all" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed all" />
+    <MESSAGE value="active" />
+    <option name="LAST_COMMIT_MESSAGE" value="active" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1624305847311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624305847311" />
-    <state x="719" y="125" key="CommitChangelistDialog2" timestamp="1624440047714">
+    <state x="719" y="125" key="CommitChangelistDialog2" timestamp="1624440887578">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="719" y="125" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1624440047714" />
+    <state x="719" y="125" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1624440887578" />
     <state x="838" y="418" key="Github.ShareDialog" timestamp="1616509482095">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -539,10 +539,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616671091305" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1624440051750">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1624440890883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1624440051750" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1624440890883" />
     <state x="560" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1624303220233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
