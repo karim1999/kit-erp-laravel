@@ -110,11 +110,11 @@ export default function ({deal, insert, remove, push, move, products}) {
                                 <img src="/assets/images/plus.svg" alt="" /> Add Item
                             </a>
                         </li>
-                        <li>
-                            <a href="" onClick={insertTextItem}>
-                                <img src="/assets/images/plus.svg" alt="" /> Add New Item
-                            </a>
-                        </li>
+                        {/*<li>*/}
+                        {/*    <a href="" onClick={insertTextItem}>*/}
+                        {/*        <img src="/assets/images/plus.svg" alt="" /> Add New Item*/}
+                        {/*    </a>*/}
+                        {/*</li>*/}
                         <li>
                             <a href="" onClick={moveItemsUp} disabled={!someItemIsSelected()}>
                                 <img src="/assets/images/move_up.svg" alt="" /> Move Item Up

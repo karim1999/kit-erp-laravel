@@ -262,7 +262,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
             }
             return false;
         }
-        let paymentTermsTemp= mapTerms([...data.paymentTerms], data.items)
+        let paymentTermsTemp= mapTerms([...data.paymentTerms], getTotalWithVat(data.items, data.vat, data.customs))
         let itemsTemp= mapItems([...data.items], products)
         return {
             ...data,
@@ -285,6 +285,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
     }
     const generateQuote= async () => {
         let data= await prepareDataBeforeSend(formRef.current.values)
+        console.log({data});
         if(data){
             Inertia.post('/quotes', data)
         }
@@ -335,7 +336,8 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
             return;
         }
         termsSchema.validate([...formRef.current.values.paymentTerms]).then((value) => {
-            let terms= mapTerms(value, formRef.current.values.items)
+            let terms= mapTerms(value, getTotalWithVat(formRef.current.values.items, formRef.current.values.vat, formRef.current.values.customs))
+            console.log({terms})
             Inertia.post('/deals/'+deal?.id+'/push/terms', {
                 terms,
                 contact: formRef.current.values.contact,
@@ -369,7 +371,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
                 innerRef={formRef}
                 onSubmit={onSubmit}>
                 <Form>
-                    <HeaderComponent updateQuote={updateQuote} quote={quote} quotes={quotes} generateQuote={generateQuote} deal={deal}/>
+                    <HeaderComponent pushAll={pushAll} updateQuote={updateQuote} quote={quote} quotes={quotes} generateQuote={generateQuote} deal={deal}/>
                     <QuoteBasicInfoComponent quote={quote} pushDeal={pushDeal} pushQuote={pushQuote} pushAll={pushAll} deal={deal}/>
                     <SalesPersonInfoComponent users={users} deal={deal}/>
                     <ContactInfoComponent contacts={contacts} deal={deal}/>

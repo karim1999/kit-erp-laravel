@@ -62,12 +62,13 @@ export default SortableElement(({itemIndex, remove, products, isEnabled}) => {
     const [percentField, percentFieldMeta] = useField(`paymentTerms.${itemIndex}.percent`);
     const [itemsField] = useField(`items`);
     const [vatField] = useField(`vat`);
+    const [customsField] = useField(`customs`);
 
     const termValue= () => {
         if(itemsField.value.length <= 0)
             return 0;
 
-        let total= getTotalWithVat(itemsField.value, vatField.value)
+        let total= getTotalWithVat(itemsField.value, vatField.value, customsField.value)
         // let total= getTotalNet(itemsField.value)
 
         return precise(percentField.value/100 * total);

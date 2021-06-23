@@ -102,8 +102,7 @@ export const mapItems= (items, products) => {
         }
     })
 }
-export const mapTerms= (terms, items) => {
-    let total= getTotalNet(items)
+export const mapTerms= (terms, total) => {
     return terms.map(term => ({...term, value: precise(term.percent/100 * total)}))
 }
 

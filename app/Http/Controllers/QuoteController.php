@@ -45,7 +45,12 @@ class QuoteController extends Controller
                     $data["version"]= $copying_from_quote_last_child->version;
                     $data["nested"]= $copying_from_quote_last_child->nested | 1;
                     $current_version_num_arr= explode("-",$copying_from_quote_last_child->quote_no);
-                    $current_version_num_arr[2]= "V".(str_replace("V","",$current_version_num_arr[2])+($version/($data["nested"]*10)));
+                    $version_num= str_replace("V","",$current_version_num_arr[2]);
+                    $version_arr= explode(".", $version_num);
+                    $version_arr[count($version_arr) - 1]= $version_arr[count($version_arr) - 1] + 1;
+                    $version_num= implode(".", $version_arr);
+                    $current_version_num_arr[2]= "V".$version_num;
+//                    $current_version_num_arr[2]= "V".(str_replace("V","",$current_version_num_arr[2])+($version/($data["nested"]*10)));
                 }else{
                     $data["version"]= 1;
                     $data["nested"]= $copying_from_quote->nested+1;
@@ -87,7 +92,7 @@ class QuoteController extends Controller
         $quote->shipping()->create(collect($request->post('shipping'))->except(["id"])->toArray());
         $quote->billing()->create(collect($request->post('billing'))->except(["id"])->toArray());
 
-        foreach ($request->post('paymentTerms') as $term){
+        foreach ($request->post('terms') as $term){
             $term["days"]= $term["days"] | 0;
             $term["value"]= $term["value"] | 0;
             $term["percent"]= $term["percent"] | 0;

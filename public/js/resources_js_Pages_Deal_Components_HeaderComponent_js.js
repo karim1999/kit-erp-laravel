@@ -104,7 +104,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       generateQuote = _ref.generateQuote,
       updateQuote = _ref.updateQuote,
       quotes = _ref.quotes,
-      quote = _ref.quote;
+      quote = _ref.quote,
+      pushAll = _ref.pushAll;
   var settings = {
     infinite: false,
     // rows: 0,
@@ -206,7 +207,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 })
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "col-xl-2 col-lg-2 col-sm-2 col-2",
+              className: "col-xl-4 col-lg-4 col-sm-4 col-2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
                 children: "\xA0"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
@@ -218,6 +219,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 type: "button",
                 className: "btn btn-success btn-sm",
                 children: "Generate Quote"
+              }), quote && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+                onClick: function onClick() {
+                  return pushAll();
+                },
+                type: "button",
+                className: "btn btn-warning btn-sm ml-3",
+                children: "Push All"
               })]
             })]
           })

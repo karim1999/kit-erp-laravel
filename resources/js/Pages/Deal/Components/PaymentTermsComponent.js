@@ -18,6 +18,7 @@ export default function ({deal, insert, remove, push, move, request}) {
     const [itemsField] = useField(`items`);
     const [isEnabled, setIsEnabled]= useState(true);
     const [vatField] = useField(`vat`);
+    const [customsField] = useField(`customs`);
 
     const totalPercent= () => {
         if(terms.value.length <= 0)
@@ -29,7 +30,7 @@ export default function ({deal, insert, remove, push, move, request}) {
         if(terms.value.length <= 0)
             return 0;
 
-        let total= getTotalWithVat(itemsField.value, vatField.value)
+        let total= getTotalWithVat(itemsField.value, vatField.value, customsField.value)
         return precise(totalPercent()/100 * total)
     }
     const selectAllToggle= (event) => {

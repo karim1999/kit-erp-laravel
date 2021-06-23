@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { InertiaLink } from '@inertiajs/inertia-react'
 
-export default function ({deal, generateQuote, updateQuote, quotes, quote}){
+export default function ({deal, generateQuote, updateQuote, quotes, quote, pushAll}){
     const settings= {
         infinite: false,
         // rows: 0,
@@ -89,10 +89,14 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote}){
                             {/*        <button onClick={() => updateQuote()} type="button" className="btn btn-warning btn-sm">Update Quote</button>*/}
                             {/*    </div>*/}
                             {/*}*/}
-                            <div className="col-xl-2 col-lg-2 col-sm-2 col-2">
+                            <div className="col-xl-4 col-lg-4 col-sm-4 col-2">
                                 <label>&nbsp;</label>
                                 <div className="clearfix"></div>
                                 <button onClick={() => generateQuote()} type="button" className="btn btn-success btn-sm">Generate Quote</button>
+                                {
+                                    quote &&
+                                        <button onClick={() => pushAll()} type="button" className="btn btn-warning btn-sm ml-3">Push All</button>
+                                }
                             </div>
                         </div>
                     </div>

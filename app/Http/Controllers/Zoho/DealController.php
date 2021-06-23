@@ -214,7 +214,7 @@ class DealController extends Controller
         $this->setRecordValue($this->buildData($billingInfo, config("zoho.mapBillingToZohoDeals")), $deal);
         $this->setRecordValue($this->buildData($shippingInfo, config("zoho.mapShippingToZohoDeals")), $deal);
 
-//        $deal->setFieldValue("Payment_Terms_Details", $this->buildNestedData($termsInfo, config("zoho.mapPaymentTermsToZohoDeals")));
+        $deal->setFieldValue("Payment_Terms_Details", $this->buildNestedData($termsInfo, config("zoho.mapPaymentTermsToZohoDeals")));
 
 //        return $this->buildNestedData(array_filter($itemsInfo, function($item){
 //            return $item["type"] != "Hardware" && $item["type"] != "Service";
@@ -245,7 +245,7 @@ class DealController extends Controller
         $deal->setFieldValue("Hardware_Table", $this->buildNestedData($hardware_items, config("zoho.mapItemsToZohoDeals")));
         $deal->setFieldValue("Pro_Service_Table", $this->buildNestedData($service_items, config("zoho.mapItemsToZohoDeals")));
         $deal->setFieldValue("Quote_Table", $this->buildNestedData($software_items, config("zoho.mapItemsToZohoDeals")));
-        //$finalData["items"]= $this->buildData($shippingInfo, config("zoho.mapItemsToZohoDeals"));
+//        $finalData["items"]= $this->buildData($shippingInfo, config("zoho.mapItemsToZohoDeals"));
 
         array_push($dealRecords, $deal);
         $responseIn= $dealsIns->updateRecords($dealRecords);

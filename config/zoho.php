@@ -145,11 +145,12 @@ return [
     "mapItemsToZohoProducts"=> [
         "name"=> "Product_Name",
         "description"=> "Product_Description",
-        "type"=> "Product_Type",
+        "type"=> "Product_Group",
         "unit_price"=> "Unit_Price",
         "cost_price"=> "Cost_Price",
         "margin"=> "margin_percentage",
         "part_number"=> "Product_Code",
+        "vendor_part_number"=> "SKU_No",
     ],
     "mapGroupToCategory"=> [
         "Cloud" => "software",

@@ -718,8 +718,7 @@ var mapItems = function mapItems(items, products) {
     });
   });
 };
-var mapTerms = function mapTerms(terms, items) {
-  var total = getTotalNet(items);
+var mapTerms = function mapTerms(terms, total) {
   return terms.map(function (term) {
     return _objectSpread(_objectSpread({}, term), {}, {
       value: precise(term.percent / 100 * total)

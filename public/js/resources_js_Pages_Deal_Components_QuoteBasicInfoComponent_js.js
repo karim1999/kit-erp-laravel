@@ -191,17 +191,6 @@ __webpack_require__.r(__webpack_exports__);
             }, status.value);
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "col-xl-2 col-lg-2 col-sm-2 col-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
-          children: "\xA0"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-          disabled: !quote,
-          onClick: pushAll,
-          type: "button",
-          className: "btn btn-success btn-sm btn-block",
-          children: "Push All"
-        })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "row mt-4",

@@ -26,11 +26,11 @@ export default function ({deal, pushDeal, pushQuote, pushAll, quote}) {
                         }
                     </SelectFieldComponent>
                 </div>
-                <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
-                    <label>&nbsp;</label>
-                    <button disabled={!quote} onClick={pushAll} type="button" className="btn btn-success btn-sm btn-block">Push All
-                    </button>
-                </div>
+                {/*<div className="col-xl-2 col-lg-2 col-sm-2 col-3">*/}
+                {/*    <label>&nbsp;</label>*/}
+                {/*    <button disabled={!quote} onClick={pushAll} type="button" className="btn btn-success btn-sm btn-block">Push All*/}
+                {/*    </button>*/}
+                {/*</div>*/}
             </div>
             <div className="row mt-4">
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
