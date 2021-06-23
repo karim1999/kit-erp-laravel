@@ -330,19 +330,31 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         }
     }
     const request= async () => {
-        termsSchema.isValid(formRef.current.values.paymentTerms).then((valid) => {
-            if(valid){
-                let terms= mapTerms([...formRef.current.values.paymentTerms], formRef.current.values.items)
-                Inertia.post('/deals/'+deal?.id+'/push/terms', {
-                    terms,
-                    contact: formRef.current.values.contact,
-                    account: formRef.current.values.account,
-                    deal_name: formRef.current.values.deal_name,
-                })
-            }
-        }).catch(err => {
-            toast.error("Please check your input.", {autoClose: 5000});
-        })
+        termsSchema.validate([...formRef.current.values.paymentTerms]).then((value) => {
+            let terms= mapTerms(value, formRef.current.values.items)
+            Inertia.post('/deals/'+deal?.id+'/push/terms', {
+                terms,
+                contact: formRef.current.values.contact,
+                account: formRef.current.values.account,
+                deal_name: formRef.current.values.deal_name,
+            })
+        }).catch((err) => {
+            if(err.errors && err.errors.length > 0)
+                toast.error(err.errors.flat(2)[0], {autoClose: 5000});
+        });
+        // termsSchema.isValid(formRef.current.values.paymentTerms).then((valid) => {
+        //     if(valid){
+        //         let terms= mapTerms([...formRef.current.values.paymentTerms], formRef.current.values.items)
+        //         Inertia.post('/deals/'+deal?.id+'/push/terms', {
+        //             terms,
+        //             contact: formRef.current.values.contact,
+        //             account: formRef.current.values.account,
+        //             deal_name: formRef.current.values.deal_name,
+        //         })
+        //     }
+        // }).catch(err => {
+        //     toast.error("Please check your input.", {autoClose: 5000});
+        // })
     }
     return (
         <>

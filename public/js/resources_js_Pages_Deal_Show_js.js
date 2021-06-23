@@ -16692,21 +16692,31 @@ function Show(_ref) {
         while (1) {
           switch (_context8.prev = _context8.next) {
             case 0:
-              termsSchema.isValid(formRef.current.values.paymentTerms).then(function (valid) {
-                if (valid) {
-                  var terms = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.mapTerms)(_toConsumableArray(formRef.current.values.paymentTerms), formRef.current.values.items);
-                  _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/deals/' + (deal === null || deal === void 0 ? void 0 : deal.id) + '/push/terms', {
-                    terms: terms,
-                    contact: formRef.current.values.contact,
-                    account: formRef.current.values.account,
-                    deal_name: formRef.current.values.deal_name
-                  });
-                }
+              termsSchema.validate(_toConsumableArray(formRef.current.values.paymentTerms)).then(function (value) {
+                var terms = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.mapTerms)(value, formRef.current.values.items);
+                _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/deals/' + (deal === null || deal === void 0 ? void 0 : deal.id) + '/push/terms', {
+                  terms: terms,
+                  contact: formRef.current.values.contact,
+                  account: formRef.current.values.account,
+                  deal_name: formRef.current.values.deal_name
+                });
               })["catch"](function (err) {
-                react_toastify__WEBPACK_IMPORTED_MODULE_22__.toast.error("Please check your input.", {
+                if (err.errors && err.errors.length > 0) react_toastify__WEBPACK_IMPORTED_MODULE_22__.toast.error(err.errors.flat(2)[0], {
                   autoClose: 5000
                 });
-              });
+              }); // termsSchema.isValid(formRef.current.values.paymentTerms).then((valid) => {
+              //     if(valid){
+              //         let terms= mapTerms([...formRef.current.values.paymentTerms], formRef.current.values.items)
+              //         Inertia.post('/deals/'+deal?.id+'/push/terms', {
+              //             terms,
+              //             contact: formRef.current.values.contact,
+              //             account: formRef.current.values.account,
+              //             deal_name: formRef.current.values.deal_name,
+              //         })
+              //     }
+              // }).catch(err => {
+              //     toast.error("Please check your input.", {autoClose: 5000});
+              // })
 
             case 1:
             case "end":
