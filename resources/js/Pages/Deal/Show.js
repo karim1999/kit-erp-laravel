@@ -330,6 +330,10 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         }
     }
     const request= async () => {
+        if(formRef.current.values.paymentTerms.length === 0){
+            toast.error("You should insert at least 1 term", {autoClose: 5000});
+            return;
+        }
         termsSchema.validate([...formRef.current.values.paymentTerms]).then((value) => {
             let terms= mapTerms(value, formRef.current.values.items)
             Inertia.post('/deals/'+deal?.id+'/push/terms', {

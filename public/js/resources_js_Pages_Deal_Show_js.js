@@ -16692,6 +16692,17 @@ function Show(_ref) {
         while (1) {
           switch (_context8.prev = _context8.next) {
             case 0:
+              if (!(formRef.current.values.paymentTerms.length === 0)) {
+                _context8.next = 3;
+                break;
+              }
+
+              react_toastify__WEBPACK_IMPORTED_MODULE_22__.toast.error("You should insert at least 1 term", {
+                autoClose: 5000
+              });
+              return _context8.abrupt("return");
+
+            case 3:
               termsSchema.validate(_toConsumableArray(formRef.current.values.paymentTerms)).then(function (value) {
                 var terms = (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.mapTerms)(value, formRef.current.values.items);
                 _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/deals/' + (deal === null || deal === void 0 ? void 0 : deal.id) + '/push/terms', {
@@ -16718,7 +16729,7 @@ function Show(_ref) {
               //     toast.error("Please check your input.", {autoClose: 5000});
               // })
 
-            case 1:
+            case 4:
             case "end":
               return _context8.stop();
           }
