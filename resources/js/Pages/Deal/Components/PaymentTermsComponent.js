@@ -135,7 +135,7 @@ export default function ({deal, insert, remove, push, move, request}) {
                                 <thead className="table-info">
                                 <tr>
                                     <th className="fit">
-                                        <input type="text" value={displayNumber(totalPercent())}  className={`form-control ${totalPercent() > 100 && "is-invalid"}`} disabled />
+                                        <input type="text" value={displayNumber(totalPercent())}  className={`form-control ${(totalPercent() !== 100) && "is-invalid"}`} disabled />
                                     </th>
                                     <th className="fit">
                                         <label htmlFor="">Total %</label>

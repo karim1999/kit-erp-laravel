@@ -205,20 +205,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   }, status.value);
                 })
               })
-            }), quote && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-              className: "col-xl-2 col-lg-2 col-sm-2 col-2 text-right",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
-                children: "\xA0"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-                className: "clearfix"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                onClick: function onClick() {
-                  return updateQuote();
-                },
-                type: "button",
-                className: "btn btn-warning btn-sm",
-                children: "Update Quote"
-              })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "col-xl-2 col-lg-2 col-sm-2 col-2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("label", {
@@ -297,59 +283,47 @@ var Constants = Object.freeze({
     name: ""
   },
   productTypes: [{
-    key: "Accessories",
-    value: "Accessories"
-  }, {
-    key: "AMC - Hardware",
-    value: "AMC - Hardware"
-  }, {
-    key: "AMC - Software",
-    value: "AMC - Software"
-  }, {
-    key: "Application",
-    value: "Application"
-  }, {
     key: "Cloud",
     value: "Cloud"
-  }, {
-    key: "Deployment and Field Service",
-    value: "Deployment and Field Service"
-  }, {
-    key: "Development",
-    value: "Development"
-  }, {
-    key: "Hardware",
-    value: "Hardware"
-  }, {
-    key: "Managed Services",
-    value: "Managed Services"
-  }, {
-    key: "Professionals Services",
-    value: "Professionals Services"
   }, {
     key: "Software",
     value: "Software"
   }, {
-    key: "Spare Parts",
-    value: "Spare Parts"
+    key: "Hardware",
+    value: "Hardware"
   }, {
-    key: "Warranty",
-    value: "Warranty"
+    key: "Professional Service",
+    value: "Professional Service"
+  }, {
+    key: "Implementation Service",
+    value: "Implementation Service"
+  }, {
+    key: "Consultancy",
+    value: "Consultancy"
+  }, {
+    key: "Field Service",
+    value: "Field Service"
+  }, {
+    key: "Education and Training",
+    value: "Education and Training"
+  }, {
+    key: "Annual Maintenance Contract",
+    value: "Annual Maintenance Contract"
+  }, {
+    key: "Managed Service",
+    value: "Managed Service"
   }],
   productTypesToGroup: {
-    "Accessories": "hardware",
-    "AMC - Hardware": "service",
-    "AMC - Software": "service",
-    "Application": "software",
     "Cloud": "software",
-    "Deployment and Field Service": "service",
-    "Development": "service",
-    "Hardware": "hardware",
-    "Managed Services": "service",
-    "Professionals Services": "service",
     "Software": "software",
-    "Spare Parts": "hardware",
-    "Warranty": "service"
+    "Hardware": "hardware",
+    "Professional Service": "service",
+    "Implementation Service": "service",
+    "Consultancy": "service",
+    "Field Service": "service",
+    "Education and Training": "service",
+    "Annual Maintenance Contract": "service",
+    "Managed Service": "service"
   },
   sampleShipping: {
     contact: "",
@@ -439,7 +413,7 @@ var Constants = Object.freeze({
     product_id: "",
     part_number: "",
     vendor_part_number: "",
-    type: "Accessories",
+    type: "Cloud",
     name: "",
     description: "",
     quantity: 1,
@@ -458,7 +432,7 @@ var Constants = Object.freeze({
     product_id: "id",
     part_number: "Product_Code",
     vendor_part_number: "SKU_No",
-    type: "Product_Type",
+    type: "Product_Group",
     name: "Product_Name",
     description: "Product_Description",
     unit: "Usage_Unit",

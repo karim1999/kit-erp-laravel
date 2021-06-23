@@ -81,14 +81,14 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote}){
                                     }
                                 </SelectFieldComponent>
                             </div>
-                            {
-                                quote &&
-                                <div className="col-xl-2 col-lg-2 col-sm-2 col-2 text-right">
-                                    <label>&nbsp;</label>
-                                    <div className="clearfix"></div>
-                                    <button onClick={() => updateQuote()} type="button" className="btn btn-warning btn-sm">Update Quote</button>
-                                </div>
-                            }
+                            {/*{*/}
+                            {/*    quote &&*/}
+                            {/*    <div className="col-xl-2 col-lg-2 col-sm-2 col-2 text-right">*/}
+                            {/*        <label>&nbsp;</label>*/}
+                            {/*        <div className="clearfix"></div>*/}
+                            {/*        <button onClick={() => updateQuote()} type="button" className="btn btn-warning btn-sm">Update Quote</button>*/}
+                            {/*    </div>*/}
+                            {/*}*/}
                             <div className="col-xl-2 col-lg-2 col-sm-2 col-2">
                                 <label>&nbsp;</label>
                                 <div className="clearfix"></div>

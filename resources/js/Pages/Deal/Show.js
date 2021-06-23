@@ -46,13 +46,13 @@ const getInitArrayData= (quoteData, value, template) => {
 }
 const termsSchema= Yup.array().test(
     'is-more-than-100',
-    'Total percentage should be less than 100',
+    'Total percentage should equal to 100',
     (value, context) => {
         if(value.length <= 0)
             return true;
 
         let total= value.reduce((accumulator, currentValue) => accumulator*1 + currentValue.percent*1, 0);
-        if(total > 100)
+        if(total !== 100)
             return false
 
         return true
