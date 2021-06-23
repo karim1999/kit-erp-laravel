@@ -13,6 +13,8 @@ return [
         "Payment_Date",
         "Quote_Valid_From",
         "Quote_Valid_To",
+        "Proposal_Quote_Valid_To",
+        "Proposal_Quote_Valid_From",
     ],
     "double_data" => [
         "list_price",
