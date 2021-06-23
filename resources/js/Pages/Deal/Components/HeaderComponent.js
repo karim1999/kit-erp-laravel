@@ -5,8 +5,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { InertiaLink } from '@inertiajs/inertia-react'
+import {useField} from "formik";
 
 export default function ({deal, generateQuote, updateQuote, quotes, quote, pushAll}){
+    const [quoteId] = useField(`quote_id`);
     const settings= {
         infinite: false,
         // rows: 0,
@@ -122,7 +124,7 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote, pushA
                                 {
                                     quotes.map(quote => (
                                         <InertiaLink key={quote.id} href={"/quotes/"+quote.id} method="get" as="div" type="button">
-                                            <span className="horizontal-span">
+                                            <span className={`horizontal-span ${quote.id === quoteId.value && 'active'}`}>
                                                 {quote.quote_no}
                                             </span>
                                         </InertiaLink>
