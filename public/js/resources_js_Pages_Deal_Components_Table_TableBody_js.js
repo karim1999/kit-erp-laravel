@@ -622,9 +622,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _emotion_sheet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/sheet */ "./node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js");
-/* harmony import */ var stylis__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! stylis */ "./node_modules/stylis/index.js");
-/* harmony import */ var _emotion_weak_memoize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/weak-memoize */ "./node_modules/@emotion/weak-memoize/dist/weak-memoize.browser.esm.js");
-/* harmony import */ var _emotion_memoize__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/memoize */ "./node_modules/@emotion/memoize/dist/emotion-memoize.browser.esm.js");
+/* harmony import */ var stylis__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! stylis */ "./node_modules/stylis/src/Tokenizer.js");
+/* harmony import */ var stylis__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! stylis */ "./node_modules/stylis/src/Utility.js");
+/* harmony import */ var stylis__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! stylis */ "./node_modules/stylis/src/Middleware.js");
+/* harmony import */ var stylis__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! stylis */ "./node_modules/stylis/src/Serializer.js");
+/* harmony import */ var stylis__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! stylis */ "./node_modules/stylis/src/Enum.js");
+/* harmony import */ var stylis__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! stylis */ "./node_modules/stylis/src/Parser.js");
+/* harmony import */ var _emotion_weak_memoize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @emotion/weak-memoize */ "./node_modules/@emotion/weak-memoize/dist/weak-memoize.browser.esm.js");
+/* harmony import */ var _emotion_memoize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/memoize */ "./node_modules/@emotion/memoize/dist/emotion-memoize.browser.esm.js");
 
 
 
@@ -640,10 +645,10 @@ var toRules = function toRules(parsed, points) {
   var character = 44;
 
   do {
-    switch ((0,stylis__WEBPACK_IMPORTED_MODULE_1__.token)(character)) {
+    switch ((0,stylis__WEBPACK_IMPORTED_MODULE_3__.token)(character)) {
       case 0:
         // &\f
-        if (character === 38 && (0,stylis__WEBPACK_IMPORTED_MODULE_1__.peek)() === 12) {
+        if (character === 38 && (0,stylis__WEBPACK_IMPORTED_MODULE_3__.peek)() === 12) {
           // this is not 100% correct, we don't account for literal sequences here - like for example quoted strings
           // stylis inserts \f after & to know when & where it should replace this sequence with the context selector
           // and when it should just concatenate the outer and inner selectors
@@ -651,18 +656,18 @@ var toRules = function toRules(parsed, points) {
           points[index] = 1;
         }
 
-        parsed[index] += (0,stylis__WEBPACK_IMPORTED_MODULE_1__.identifier)(stylis__WEBPACK_IMPORTED_MODULE_1__.position - 1);
+        parsed[index] += (0,stylis__WEBPACK_IMPORTED_MODULE_3__.identifier)(stylis__WEBPACK_IMPORTED_MODULE_3__.position - 1);
         break;
 
       case 2:
-        parsed[index] += (0,stylis__WEBPACK_IMPORTED_MODULE_1__.delimit)(character);
+        parsed[index] += (0,stylis__WEBPACK_IMPORTED_MODULE_3__.delimit)(character);
         break;
 
       case 4:
         // comma
         if (character === 44) {
           // colon
-          parsed[++index] = (0,stylis__WEBPACK_IMPORTED_MODULE_1__.peek)() === 58 ? '&\f' : '';
+          parsed[++index] = (0,stylis__WEBPACK_IMPORTED_MODULE_3__.peek)() === 58 ? '&\f' : '';
           points[index] = parsed[index].length;
           break;
         }
@@ -670,15 +675,15 @@ var toRules = function toRules(parsed, points) {
       // fallthrough
 
       default:
-        parsed[index] += (0,stylis__WEBPACK_IMPORTED_MODULE_1__.from)(character);
+        parsed[index] += (0,stylis__WEBPACK_IMPORTED_MODULE_4__.from)(character);
     }
-  } while (character = (0,stylis__WEBPACK_IMPORTED_MODULE_1__.next)());
+  } while (character = (0,stylis__WEBPACK_IMPORTED_MODULE_3__.next)());
 
   return parsed;
 };
 
 var getRules = function getRules(value, points) {
-  return (0,stylis__WEBPACK_IMPORTED_MODULE_1__.dealloc)(toRules((0,stylis__WEBPACK_IMPORTED_MODULE_1__.alloc)(value), points));
+  return (0,stylis__WEBPACK_IMPORTED_MODULE_3__.dealloc)(toRules((0,stylis__WEBPACK_IMPORTED_MODULE_3__.alloc)(value), points));
 }; // WeakSet would be more appropriate, but only WeakMap is supported in IE11
 
 
@@ -799,7 +804,7 @@ var incorrectImportAlarm = function incorrectImportAlarm(element, index, childre
   }
 };
 
-var defaultStylisPlugins = [stylis__WEBPACK_IMPORTED_MODULE_1__.prefixer];
+var defaultStylisPlugins = [stylis__WEBPACK_IMPORTED_MODULE_5__.prefixer];
 
 var createCache = function createCache(options) {
   var key = options.key;
@@ -865,21 +870,21 @@ var createCache = function createCache(options) {
 
   {
     var currentSheet;
-    var finalizingPlugins = [stylis__WEBPACK_IMPORTED_MODULE_1__.stringify,  true ? function (element) {
+    var finalizingPlugins = [stylis__WEBPACK_IMPORTED_MODULE_6__.stringify,  true ? function (element) {
       if (!element.root) {
         if (element["return"]) {
           currentSheet.insert(element["return"]);
-        } else if (element.value && element.type !== stylis__WEBPACK_IMPORTED_MODULE_1__.COMMENT) {
+        } else if (element.value && element.type !== stylis__WEBPACK_IMPORTED_MODULE_7__.COMMENT) {
           // insert empty rule in non-production environments
           // so @emotion/jest can grab `key` from the (JS)DOM for caches without any rules inserted yet
           currentSheet.insert(element.value + "{}");
         }
       }
     } : 0];
-    var serializer = (0,stylis__WEBPACK_IMPORTED_MODULE_1__.middleware)(omnipresentPlugins.concat(stylisPlugins, finalizingPlugins));
+    var serializer = (0,stylis__WEBPACK_IMPORTED_MODULE_5__.middleware)(omnipresentPlugins.concat(stylisPlugins, finalizingPlugins));
 
     var stylis = function stylis(styles) {
-      return (0,stylis__WEBPACK_IMPORTED_MODULE_1__.serialize)((0,stylis__WEBPACK_IMPORTED_MODULE_1__.compile)(styles), serializer);
+      return (0,stylis__WEBPACK_IMPORTED_MODULE_6__.serialize)((0,stylis__WEBPACK_IMPORTED_MODULE_8__.compile)(styles), serializer);
     };
 
     _insert = function insert(selector, serialized, sheet, shouldCache) {
@@ -1258,10 +1263,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _emotion_weak_memoize__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @emotion/weak-memoize */ "./node_modules/@emotion/weak-memoize/dist/weak-memoize.browser.esm.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _isolated_hoist_non_react_statics_do_not_use_this_in_your_code_dist_emotion_react_isolated_hoist_non_react_statics_do_not_use_this_in_your_code_browser_esm_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../isolated-hoist-non-react-statics-do-not-use-this-in-your-code/dist/emotion-react-isolated-hoist-non-react-statics-do-not-use-this-in-your-code.browser.esm.js */ "./node_modules/@emotion/react/isolated-hoist-non-react-statics-do-not-use-this-in-your-code/dist/emotion-react-isolated-hoist-non-react-statics-do-not-use-this-in-your-code.browser.esm.js");
-/* harmony import */ var _emotion_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @emotion/utils */ "./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js");
-/* harmony import */ var _emotion_serialize__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @emotion/serialize */ "./node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js");
-/* harmony import */ var _emotion_sheet__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @emotion/sheet */ "./node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js");
+/* harmony import */ var _emotion_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @emotion/utils */ "./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js");
+/* harmony import */ var _emotion_serialize__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @emotion/serialize */ "./node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js");
+/* harmony import */ var _emotion_sheet__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @emotion/sheet */ "./node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js");
 
 
 
@@ -1386,7 +1390,7 @@ var Global = /* #__PURE__ */(0,_emotion_element_4fbd89c5_browser_esm_js__WEBPACK
   }
 
   var styles = props.styles;
-  var serialized = (0,_emotion_serialize__WEBPACK_IMPORTED_MODULE_8__.serializeStyles)([styles], undefined, typeof styles === 'function' || Array.isArray(styles) ? (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_emotion_element_4fbd89c5_browser_esm_js__WEBPACK_IMPORTED_MODULE_2__.T) : undefined);
+  var serialized = (0,_emotion_serialize__WEBPACK_IMPORTED_MODULE_7__.serializeStyles)([styles], undefined, typeof styles === 'function' || Array.isArray(styles) ? (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_emotion_element_4fbd89c5_browser_esm_js__WEBPACK_IMPORTED_MODULE_2__.T) : undefined);
   // but it is based on a constant that will never change at runtime
   // it's effectively like having two implementations and switching them out
   // so it's not actually breaking anything
@@ -1395,7 +1399,7 @@ var Global = /* #__PURE__ */(0,_emotion_element_4fbd89c5_browser_esm_js__WEBPACK
   var sheetRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
     var key = cache.key + "-global";
-    var sheet = new _emotion_sheet__WEBPACK_IMPORTED_MODULE_9__.StyleSheet({
+    var sheet = new _emotion_sheet__WEBPACK_IMPORTED_MODULE_8__.StyleSheet({
       key: key,
       nonce: cache.sheet.nonce,
       container: cache.sheet.container,
@@ -1420,7 +1424,7 @@ var Global = /* #__PURE__ */(0,_emotion_element_4fbd89c5_browser_esm_js__WEBPACK
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(function () {
     if (serialized.next !== undefined) {
       // insert keyframes
-      (0,_emotion_utils__WEBPACK_IMPORTED_MODULE_7__.insertStyles)(cache, serialized.next, true);
+      (0,_emotion_utils__WEBPACK_IMPORTED_MODULE_6__.insertStyles)(cache, serialized.next, true);
     }
 
     var sheet = sheetRef.current;
@@ -1446,7 +1450,7 @@ function css() {
     args[_key] = arguments[_key];
   }
 
-  return (0,_emotion_serialize__WEBPACK_IMPORTED_MODULE_8__.serializeStyles)(args);
+  return (0,_emotion_serialize__WEBPACK_IMPORTED_MODULE_7__.serializeStyles)(args);
 }
 
 var keyframes = function keyframes() {
@@ -1516,7 +1520,7 @@ var classnames = function classnames(args) {
 
 function merge(registered, css, className) {
   var registeredStyles = [];
-  var rawClassName = (0,_emotion_utils__WEBPACK_IMPORTED_MODULE_7__.getRegisteredStyles)(registered, registeredStyles, className);
+  var rawClassName = (0,_emotion_utils__WEBPACK_IMPORTED_MODULE_6__.getRegisteredStyles)(registered, registeredStyles, className);
 
   if (registeredStyles.length < 2) {
     return className;
@@ -1537,10 +1541,10 @@ var ClassNames = /* #__PURE__ */(0,_emotion_element_4fbd89c5_browser_esm_js__WEB
       args[_key] = arguments[_key];
     }
 
-    var serialized = (0,_emotion_serialize__WEBPACK_IMPORTED_MODULE_8__.serializeStyles)(args, cache.registered);
+    var serialized = (0,_emotion_serialize__WEBPACK_IMPORTED_MODULE_7__.serializeStyles)(args, cache.registered);
 
     {
-      (0,_emotion_utils__WEBPACK_IMPORTED_MODULE_7__.insertStyles)(cache, serialized, false);
+      (0,_emotion_utils__WEBPACK_IMPORTED_MODULE_6__.insertStyles)(cache, serialized, false);
     }
 
     return cache.key + "-" + serialized.name;
@@ -12569,15 +12573,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_sortable_hoc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-sortable-hoc */ "./node_modules/react-sortable-hoc/dist/react-sortable-hoc.esm.js");
 /* harmony import */ var _DragHandlerComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DragHandlerComponent */ "./resources/js/Pages/Deal/Components/Table/DragHandlerComponent.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
-/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
-/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
-/* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
-/* harmony import */ var _Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Fields/TextAreaFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js");
-/* harmony import */ var _Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../Fields/SelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var _Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Fields/ReactSelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/ReactSelectFieldComponent.js");
+/* harmony import */ var _helpers_samples__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../helpers/samples */ "./resources/js/helpers/samples.js");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./resources/js/helpers/helpers.js");
+/* harmony import */ var _Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Fields/CheckBoxFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/CheckBoxFieldComponent.js");
+/* harmony import */ var _Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Fields/TextAreaFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/TextAreaFieldComponent.js");
+/* harmony import */ var _Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Fields/SelectFieldComponent */ "./resources/js/Pages/Deal/Components/Fields/SelectFieldComponent.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -12626,13 +12629,13 @@ var SimpleTextFieldComponent = function SimpleTextFieldComponent(_ref) {
   var label = _ref.label,
       props = _objectWithoutProperties(_ref, ["label"]);
 
-  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)(props),
+  var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)(props),
       _useField2 = _slicedToArray(_useField, 2),
       field = _useField2[0],
       meta = _useField2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", _objectSpread(_objectSpread({}, field), props)), meta.touched && meta.error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
       className: "error",
       children: meta.error
     }) : null]
@@ -12654,24 +12657,24 @@ var createPartLabel = function createPartLabel(name, code) {
       remove = _ref2.remove,
       products = _ref2.products;
 
-  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".product_id")),
+  var _useField3 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex, ".product_id")),
       _useField4 = _slicedToArray(_useField3, 2),
       productIdField = _useField4[0],
       productIdFieldMeta = _useField4[1];
 
-  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex)),
+  var _useField5 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex)),
       _useField6 = _slicedToArray(_useField5, 3),
       itemField = _useField6[0],
       itemFieldMeta = _useField6[1],
       itemFieldHelpers = _useField6[2];
 
-  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)("items.".concat(itemIndex, ".cost_price")),
+  var _useField7 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)("items.".concat(itemIndex, ".cost_price")),
       _useField8 = _slicedToArray(_useField7, 3),
       costPriceField = _useField8[0],
       costPriceFieldMeta = _useField8[1],
       costPriceFieldHelpers = _useField8[2];
 
-  var _useField9 = (0,formik__WEBPACK_IMPORTED_MODULE_6__.useField)('account'),
+  var _useField9 = (0,formik__WEBPACK_IMPORTED_MODULE_5__.useField)('account'),
       _useField10 = _slicedToArray(_useField9, 1),
       accountField = _useField10[0];
 
@@ -12711,15 +12714,15 @@ var createPartLabel = function createPartLabel(name, code) {
                 break;
               }
 
-              itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItem), {}, {
+              itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItem), {}, {
                 product_id: option.value
               }));
               return _context.abrupt("return");
 
             case 4:
               productUpdateObject = {};
-              Object.keys(_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap).map(function (key) {
-                if (product[_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap[key]]) productUpdateObject[key] = product[_helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.samplePricingItemMap[key]];
+              Object.keys(_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap).map(function (key) {
+                if (product[_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap[key]]) productUpdateObject[key] = product[_helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.samplePricingItemMap[key]];
               });
               itemFieldHelpers.setValue(_objectSpread(_objectSpread({}, itemField.value), productUpdateObject));
               Cost_Price = product.Cost_Price || 0; // let Unit_Price= product.Unit_Price || 0
@@ -12758,27 +12761,27 @@ var createPartLabel = function createPartLabel(name, code) {
   // }
 
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("tr", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("tr", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_10__.default, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Fields_CheckBoxFieldComponent__WEBPACK_IMPORTED_MODULE_9__.default, {
         name: "items.".concat(itemIndex, ".selected"),
         className: "form-check-input",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
           type: "text",
           className: "form-control",
           value: itemIndex + 1,
           disabled: true
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("td", {
       className: "fit",
-      children: [isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      children: [isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".name"),
         placeholder: "Name"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_7__.default, {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_6__.default, {
         onChange: onChange,
         label: "",
         name: "items.".concat(itemIndex, ".product_id"),
@@ -12788,129 +12791,129 @@ var createPartLabel = function createPartLabel(name, code) {
             label: createPartLabel(product.Product_Name, product.Product_Code)
           };
         })
-      }), isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_11__.default, {
+      }), isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Fields_TextAreaFieldComponent__WEBPACK_IMPORTED_MODULE_10__.default, {
         label: "",
         className: "form-control",
         rows: "5",
         name: "items.".concat(itemIndex, ".description"),
         placeholder: "Description"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("p", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
         className: "table-para",
         children: (itemField === null || itemField === void 0 ? void 0 : (_itemField$value = itemField.value) === null || _itemField$value === void 0 ? void 0 : _itemField$value.description) || ""
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".vendor_part_number"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".part_number"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_12__.default, {
+      children: isText() ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_11__.default, {
         className: "custom-select",
         name: "items.".concat(itemIndex, ".type"),
-        children: _helpers_samples__WEBPACK_IMPORTED_MODULE_8__.default.productTypes.map(function (status) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("option", {
+        children: _helpers_samples__WEBPACK_IMPORTED_MODULE_7__.default.productTypes.map(function (status) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("option", {
             value: status.key,
             children: status.value
           }, status.key);
         })
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".type"),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".cost_price"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".unit_price"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         min: 0,
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".quantity")
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
         name: "items.".concat(itemIndex, ".unit"),
         disabled: !isText()
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.grossValue)(itemField.value)),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.grossValue)(itemField.value)),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         min: 0,
         type: "text",
         step: .01,
         className: "form-control",
         name: "items.".concat(itemIndex, ".discount_percent")
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.discount)(itemField.value)),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.discount)(itemField.value)),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
         min: 0,
         type: "text",
-        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.marginPercent)(itemField.value) < 0 && "is-invalid"),
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.marginPercent)(itemField.value)),
+        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value) < 0 && "is-invalid"),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value)),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
         type: "text",
-        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.margin)(itemField.value) < 0 && "is-invalid"),
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.margin)(itemField.value)),
+        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value) < 0 && "is-invalid"),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value)),
         disabled: true
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("td", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("input", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
         type: "text",
         className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__.calculateNet)(itemField.value)),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.calculateNet)(itemField.value)),
         disabled: true
       })
     })]
@@ -47824,28 +47827,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createFilter": () => (/* reexport safe */ _Select_dbb12e54_esm_js__WEBPACK_IMPORTED_MODULE_0__.c),
 /* harmony export */   "defaultTheme": () => (/* reexport safe */ _Select_dbb12e54_esm_js__WEBPACK_IMPORTED_MODULE_0__.d),
 /* harmony export */   "mergeStyles": () => (/* reexport safe */ _Select_dbb12e54_esm_js__WEBPACK_IMPORTED_MODULE_0__.m),
-/* harmony export */   "components": () => (/* reexport safe */ _index_4bd03571_esm_js__WEBPACK_IMPORTED_MODULE_5__.c),
+/* harmony export */   "components": () => (/* reexport safe */ _index_4bd03571_esm_js__WEBPACK_IMPORTED_MODULE_4__.c),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "NonceProvider": () => (/* binding */ NonceProvider)
 /* harmony export */ });
 /* harmony import */ var _Select_dbb12e54_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Select-dbb12e54.esm.js */ "./node_modules/react-select/dist/Select-dbb12e54.esm.js");
-/* harmony import */ var _stateManager_845a3300_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stateManager-845a3300.esm.js */ "./node_modules/react-select/dist/stateManager-845a3300.esm.js");
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _index_4bd03571_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-4bd03571.esm.js */ "./node_modules/react-select/dist/index-4bd03571.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @emotion/react */ "./node_modules/@emotion/react/dist/emotion-react.browser.esm.js");
-/* harmony import */ var _emotion_cache__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @emotion/cache */ "./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js");
-/* harmony import */ var memoize_one__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! memoize-one */ "./node_modules/memoize-one/dist/memoize-one.esm.js");
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @babel/runtime/helpers/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
-/* harmony import */ var react_input_autosize__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-input-autosize */ "./node_modules/react-input-autosize/lib/AutosizeInput.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _stateManager_845a3300_esm_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./stateManager-845a3300.esm.js */ "./node_modules/react-select/dist/stateManager-845a3300.esm.js");
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _index_4bd03571_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index-4bd03571.esm.js */ "./node_modules/react-select/dist/index-4bd03571.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @emotion/react */ "./node_modules/@emotion/react/dist/emotion-element-4fbd89c5.browser.esm.js");
+/* harmony import */ var _emotion_cache__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @emotion/cache */ "./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js");
+/* harmony import */ var memoize_one__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! memoize-one */ "./node_modules/memoize-one/dist/memoize-one.esm.js");
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime/helpers/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var react_input_autosize__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-input-autosize */ "./node_modules/react-input-autosize/lib/AutosizeInput.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
 
 
@@ -47868,42 +47871,42 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var NonceProvider = /*#__PURE__*/function (_Component) {
-  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__.default)(NonceProvider, _Component);
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__.default)(NonceProvider, _Component);
 
-  var _super = (0,_index_4bd03571_esm_js__WEBPACK_IMPORTED_MODULE_5__._)(NonceProvider);
+  var _super = (0,_index_4bd03571_esm_js__WEBPACK_IMPORTED_MODULE_4__._)(NonceProvider);
 
   function NonceProvider(props) {
     var _this;
 
-    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_2__.default)(this, NonceProvider);
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__.default)(this, NonceProvider);
 
     _this = _super.call(this, props);
 
     _this.createEmotionCache = function (nonce, key) {
-      return (0,_emotion_cache__WEBPACK_IMPORTED_MODULE_8__.default)({
+      return (0,_emotion_cache__WEBPACK_IMPORTED_MODULE_6__.default)({
         nonce: nonce,
         key: key
       });
     };
 
-    _this.createEmotionCache = (0,memoize_one__WEBPACK_IMPORTED_MODULE_9__.default)(_this.createEmotionCache);
+    _this.createEmotionCache = (0,memoize_one__WEBPACK_IMPORTED_MODULE_15__.default)(_this.createEmotionCache);
     return _this;
   }
 
-  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__.default)(NonceProvider, [{
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__.default)(NonceProvider, [{
     key: "render",
     value: function render() {
       var emotionCache = this.createEmotionCache(this.props.nonce, this.props.cacheKey);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_emotion_react__WEBPACK_IMPORTED_MODULE_7__.CacheProvider, {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_emotion_react__WEBPACK_IMPORTED_MODULE_16__.C, {
         value: emotionCache
       }, this.props.children);
     }
   }]);
 
   return NonceProvider;
-}(react__WEBPACK_IMPORTED_MODULE_6__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_5__.Component);
 
-var index = (0,_stateManager_845a3300_esm_js__WEBPACK_IMPORTED_MODULE_1__.m)(_Select_dbb12e54_esm_js__WEBPACK_IMPORTED_MODULE_0__.S);
+var index = (0,_stateManager_845a3300_esm_js__WEBPACK_IMPORTED_MODULE_17__.m)(_Select_dbb12e54_esm_js__WEBPACK_IMPORTED_MODULE_0__.S);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (index);
 
@@ -50468,101 +50471,6 @@ try {
   // problems, please detail your unique predicament in a GitHub issue.
   Function("r", "regeneratorRuntime = r")(runtime);
 }
-
-
-/***/ }),
-
-/***/ "./node_modules/stylis/index.js":
-/*!**************************************!*\
-  !*** ./node_modules/stylis/index.js ***!
-  \**************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CHARSET": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.CHARSET),
-/* harmony export */   "COMMENT": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.COMMENT),
-/* harmony export */   "COUNTER_STYLE": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.COUNTER_STYLE),
-/* harmony export */   "DECLARATION": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.DECLARATION),
-/* harmony export */   "DOCUMENT": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.DOCUMENT),
-/* harmony export */   "FONT_FACE": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.FONT_FACE),
-/* harmony export */   "FONT_FEATURE_VALUES": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.FONT_FEATURE_VALUES),
-/* harmony export */   "IMPORT": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.IMPORT),
-/* harmony export */   "KEYFRAMES": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.KEYFRAMES),
-/* harmony export */   "MEDIA": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.MEDIA),
-/* harmony export */   "MOZ": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.MOZ),
-/* harmony export */   "MS": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.MS),
-/* harmony export */   "NAMESPACE": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.NAMESPACE),
-/* harmony export */   "PAGE": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.PAGE),
-/* harmony export */   "RULESET": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.RULESET),
-/* harmony export */   "SUPPORTS": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.SUPPORTS),
-/* harmony export */   "VIEWPORT": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.VIEWPORT),
-/* harmony export */   "WEBKIT": () => (/* reexport safe */ _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__.WEBKIT),
-/* harmony export */   "abs": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.abs),
-/* harmony export */   "append": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.append),
-/* harmony export */   "charat": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.charat),
-/* harmony export */   "combine": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.combine),
-/* harmony export */   "from": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.from),
-/* harmony export */   "hash": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.hash),
-/* harmony export */   "indexof": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.indexof),
-/* harmony export */   "match": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.match),
-/* harmony export */   "replace": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.replace),
-/* harmony export */   "sizeof": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.sizeof),
-/* harmony export */   "strlen": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.strlen),
-/* harmony export */   "substr": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.substr),
-/* harmony export */   "trim": () => (/* reexport safe */ _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__.trim),
-/* harmony export */   "comment": () => (/* reexport safe */ _src_Parser_js__WEBPACK_IMPORTED_MODULE_2__.comment),
-/* harmony export */   "compile": () => (/* reexport safe */ _src_Parser_js__WEBPACK_IMPORTED_MODULE_2__.compile),
-/* harmony export */   "declaration": () => (/* reexport safe */ _src_Parser_js__WEBPACK_IMPORTED_MODULE_2__.declaration),
-/* harmony export */   "parse": () => (/* reexport safe */ _src_Parser_js__WEBPACK_IMPORTED_MODULE_2__.parse),
-/* harmony export */   "ruleset": () => (/* reexport safe */ _src_Parser_js__WEBPACK_IMPORTED_MODULE_2__.ruleset),
-/* harmony export */   "prefix": () => (/* reexport safe */ _src_Prefixer_js__WEBPACK_IMPORTED_MODULE_3__.prefix),
-/* harmony export */   "alloc": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.alloc),
-/* harmony export */   "caret": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.caret),
-/* harmony export */   "char": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.char),
-/* harmony export */   "character": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.character),
-/* harmony export */   "characters": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.characters),
-/* harmony export */   "column": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.column),
-/* harmony export */   "commenter": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.commenter),
-/* harmony export */   "copy": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.copy),
-/* harmony export */   "dealloc": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.dealloc),
-/* harmony export */   "delimit": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.delimit),
-/* harmony export */   "delimiter": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.delimiter),
-/* harmony export */   "identifier": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.identifier),
-/* harmony export */   "length": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.length),
-/* harmony export */   "line": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.line),
-/* harmony export */   "next": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.next),
-/* harmony export */   "node": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.node),
-/* harmony export */   "peek": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.peek),
-/* harmony export */   "position": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.position),
-/* harmony export */   "prev": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.prev),
-/* harmony export */   "slice": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.slice),
-/* harmony export */   "token": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.token),
-/* harmony export */   "tokenize": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.tokenize),
-/* harmony export */   "tokenizer": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.tokenizer),
-/* harmony export */   "whitespace": () => (/* reexport safe */ _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__.whitespace),
-/* harmony export */   "serialize": () => (/* reexport safe */ _src_Serializer_js__WEBPACK_IMPORTED_MODULE_5__.serialize),
-/* harmony export */   "stringify": () => (/* reexport safe */ _src_Serializer_js__WEBPACK_IMPORTED_MODULE_5__.stringify),
-/* harmony export */   "middleware": () => (/* reexport safe */ _src_Middleware_js__WEBPACK_IMPORTED_MODULE_6__.middleware),
-/* harmony export */   "namespace": () => (/* reexport safe */ _src_Middleware_js__WEBPACK_IMPORTED_MODULE_6__.namespace),
-/* harmony export */   "prefixer": () => (/* reexport safe */ _src_Middleware_js__WEBPACK_IMPORTED_MODULE_6__.prefixer),
-/* harmony export */   "rulesheet": () => (/* reexport safe */ _src_Middleware_js__WEBPACK_IMPORTED_MODULE_6__.rulesheet)
-/* harmony export */ });
-/* harmony import */ var _src_Enum_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/Enum.js */ "./node_modules/stylis/src/Enum.js");
-/* harmony import */ var _src_Utility_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/Utility.js */ "./node_modules/stylis/src/Utility.js");
-/* harmony import */ var _src_Parser_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./src/Parser.js */ "./node_modules/stylis/src/Parser.js");
-/* harmony import */ var _src_Prefixer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./src/Prefixer.js */ "./node_modules/stylis/src/Prefixer.js");
-/* harmony import */ var _src_Tokenizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./src/Tokenizer.js */ "./node_modules/stylis/src/Tokenizer.js");
-/* harmony import */ var _src_Serializer_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./src/Serializer.js */ "./node_modules/stylis/src/Serializer.js");
-/* harmony import */ var _src_Middleware_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./src/Middleware.js */ "./node_modules/stylis/src/Middleware.js");
-
-
-
-
-
-
-
 
 
 /***/ }),

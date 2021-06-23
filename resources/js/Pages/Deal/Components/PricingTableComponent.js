@@ -100,11 +100,11 @@ export default function ({deal, insert, remove, push, move, products}) {
             <div className="row mt-2">
                 <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
                     <ul className="button-ul">
-                        <li>
-                            <a href="" onClick={startImporting}>
-                                <img src="/assets/images/import.svg" alt="" /> Import Items
-                            </a>
-                        </li>
+                        {/*<li>*/}
+                        {/*    <a href="" onClick={startImporting}>*/}
+                        {/*        <img src="/assets/images/import.svg" alt="" /> Import Items*/}
+                        {/*    </a>*/}
+                        {/*</li>*/}
                         <li>
                             <a href="" onClick={insertItem}>
                                 <img src="/assets/images/plus.svg" alt="" /> Add Item
