@@ -54,7 +54,7 @@ class DealController extends Controller
 //                $contact = $contacts_instance->getRecord($contact_field->getEntityId());
 //            }
             $contacts = $contacts_instance->getRecords();
-            $products = $products_instance->getRecords();
+            $products = $this->getAllRecords($products_instance);
         }catch (\Exception $e){
             abort(404);
         }
@@ -67,7 +67,7 @@ class DealController extends Controller
 //        return $deal->getResponseJSON();
         return Inertia::render('Deal/Show', [
             'quotes' => $quotes,
-            'productsObj' => $products->getResponseJSON(),
+            'productsObj' => $products,
             'usersObj' => [
                 "data"=> [$user]
             ],

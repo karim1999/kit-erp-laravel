@@ -5,6 +5,7 @@ import TextFieldComponent from "./Fields/TextFieldComponent";
 import TableBody from "./Table/TableBody";
 import {useField} from "formik";
 import {isNumeric, precise} from "../../../helpers/helpers";
+import MultiSelectModal from "./Table/MultiSelectModal";
 
 export default function ({deal, insert, remove, push, move, products}) {
     const [items, itemsFieldMeta, itemsFieldHelpers] = useField(`items`);
@@ -91,6 +92,7 @@ export default function ({deal, insert, remove, push, move, products}) {
     }
     return (
         <div className="container my-4">
+            <MultiSelectModal push={push} products={products} />
             <div className="row">
                 <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
                     <label>Quote Table <span className="error">*</span></label>
@@ -105,6 +107,11 @@ export default function ({deal, insert, remove, push, move, products}) {
                         {/*        <img src="/assets/images/import.svg" alt="" /> Import Items*/}
                         {/*    </a>*/}
                         {/*</li>*/}
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#multiModal">
+                                <img src="/assets/images/plus.svg" alt="" /> Add Multi Items
+                            </a>
+                        </li>
                         <li>
                             <a href="" onClick={insertItem}>
                                 <img src="/assets/images/plus.svg" alt="" /> Add Item

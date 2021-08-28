@@ -171,7 +171,7 @@ class QuoteController extends Controller
             if ($account_field) {
                 $account = $accounts_instance->getRecord($account_field->getEntityId());
             }
-            $products = $products_instance->getRecords();
+            $products = $this->getAllRecords($products_instance);
         }catch (\Exception $e){
             abort($e->getCode());
         }
@@ -184,7 +184,7 @@ class QuoteController extends Controller
         return Inertia::render('Deal/Show', [
             'quotes' => $quotes,
             'quote' => $quote,
-            'productsObj' => $products->getResponseJSON(),
+            'productsObj' => $products,
             'usersObj' => [
                 "data"=> [$user]
             ],

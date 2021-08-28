@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {SortableElement} from "react-sortable-hoc";
 import DragHandlerComponent from "./DragHandlerComponent";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -45,6 +45,13 @@ export default SortableElement(({itemIndex, remove, products}) => {
     const [costPriceField, costPriceFieldMeta, costPriceFieldHelpers] = useField(`items.${itemIndex}.cost_price`);
     const [accountField] = useField('account');
     const [isFetchingPrice, setIsFetchingPrice]= useState(false)
+    useEffect(() => {
+        console.log(itemField.value.justAdded)
+        if(itemField.value.justAdded){
+            console.log("onchange")
+            onChange({value: itemField.value.product_id})
+        }
+    }, [])
     const product= () => {
         return products.find(product => product.id === productIdField.value)
     }
