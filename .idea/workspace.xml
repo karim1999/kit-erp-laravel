@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2284fbe7-6c19-421a-a1c6-ce5d74747c2d" name="Default Changelist" comment="fixed all">
-      <change beforePath="$PROJECT_DIR$/ZCRMClientLibrary.log" beforeDir="false" afterPath="$PROJECT_DIR$/ZCRMClientLibrary.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/PricingTableComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/PricingTableComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zcrm_oauthtokens.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zcrm_oauthtokens.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PricingTableComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_PricingTableComponent_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_MultiSelectModal_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_Table_MultiSelectModal_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Show_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Show_js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Table/MultiSelectModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/Table/MultiSelectModal.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -551,34 +553,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1624305847311" />
-    <state x="719" y="125" key="CommitChangelistDialog2" timestamp="1624459266391">
+    <state x="719" y="125" key="CommitChangelistDialog2" timestamp="1630164748599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="719" y="125" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1624459266391" />
-    <state x="838" y="418" key="Github.ShareDialog" timestamp="1616509482095">
+    <state x="719" y="125" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1630164748599" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1630164260799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="838" y="418" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616509482095" />
-    <state x="732" y="219" key="Github.UntrackedFilesDialog" timestamp="1616509486926">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="732" y="219" key="Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616509486926" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1616671091305">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616671091305" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1624459267547">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1624459267547" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1630164260799" />
     <state x="560" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1624303220233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="560" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1624303220233" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617499707826">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1617499707826" />
     <state x="667" y="253" width="585" height="592" key="find.popup" timestamp="1624401193891">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

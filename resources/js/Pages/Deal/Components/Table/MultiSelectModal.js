@@ -302,13 +302,20 @@ export default function ({push, products}){
                                 <li className="page-item">
                                     <button className="page-link" onClick={() => previousPage()} disabled={!canPreviousPage}>{'<'}</button>
                                 </li>
-                                {
-                                    Array.apply(0, Array(pageCount)).map((x, i) => (
-                                        <li className="page-item">
-                                            <button className="page-link" onClick={() => gotoPage(i)} disabled={state.pageIndex === i}>{i+1}</button>
-                                        </li>
-                                    ))
-                                }
+                                <select
+                                    className="form-control w-auto"
+                                    value={state.pageIndex}
+                                    onChange={e => {
+                                        gotoPage(Number(e.target.value))
+                                    }}
+                                >
+                                    {
+                                        Array.apply(0, Array(pageCount)).map((x, i) => (
+                                            <option key={i} value={i}>{i+1}</option>
+                                        ))
+                                    }
+                                </select>
+
                                 <li className="page-item">
                                     <button className="page-link" onClick={() => nextPage()} disabled={!canNextPage}>{'>'}</button>
                                 </li>

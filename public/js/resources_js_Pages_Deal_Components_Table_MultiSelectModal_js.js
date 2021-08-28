@@ -449,18 +449,18 @@ fuzzyTextFilterFn.autoRemove = function (val) {
                   disabled: !canPreviousPage,
                   children: '<'
                 })
-              }), Array.apply(0, Array(pageCount)).map(function (x, i) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
-                  className: "page-item",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                    className: "page-link",
-                    onClick: function onClick() {
-                      return gotoPage(i);
-                    },
-                    disabled: state.pageIndex === i,
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("select", {
+                className: "form-control w-auto",
+                value: state.pageIndex,
+                onChange: function onChange(e) {
+                  gotoPage(Number(e.target.value));
+                },
+                children: Array.apply(0, Array(pageCount)).map(function (x, i) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+                    value: i,
                     children: i + 1
-                  })
-                });
+                  }, i);
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
                 className: "page-item",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
