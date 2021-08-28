@@ -14,7 +14,7 @@ class Controller extends BaseController
         $records= [];
         $page= 1;
         $num= 200;
-        return $instance->getRecords(["page"=>$page, "per_page"=>$num])->getResponseJSON();
+//        return $instance->getRecords(["page"=>$page, "per_page"=>$num])->getResponseJSON();
 
         while(true){
             $newRecords= $instance->getRecords(["page"=>$page, "per_page"=>$num])->getResponseJSON();
