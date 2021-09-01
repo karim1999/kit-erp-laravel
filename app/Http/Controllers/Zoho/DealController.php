@@ -7,6 +7,7 @@ use App\Models\Quote;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use zcrmsdk\crm\crud\ZCRMRecord;
 use zcrmsdk\crm\setup\org\ZCRMOrganization;
@@ -35,8 +36,12 @@ class DealController extends Controller
         $account= null;
         $contact= null;
         $user= null;
+        $products= ["data" => []];
         try {
             $deal = $deals_instance->getRecord($id);
+            if(Str::startsWith($deal->getResponseJSON()["data"][0]["Stage"], "Closed")){
+                abort(404);
+            }
             $dealData= $deal->getData();
             $owner = $dealData->getOwner();
             $user_request = Http::withHeaders([
@@ -48,15 +53,18 @@ class DealController extends Controller
             $account_field= $dealData->getFieldValue("Account_Name");
             if ($account_field) {
                 $account = $accounts_instance->getRecord($account_field->getEntityId());
+                $products["data"]= $this->getRelatedProducts($account_field->getEntityId());
+//                return($products);
             }
 //            $contact_field= $dealData->getFieldValue("Contact_Name");
 //            if ($contact_field) {
 //                $contact = $contacts_instance->getRecord($contact_field->getEntityId());
 //            }
             $contacts = $contacts_instance->getRecords();
-            $products = $this->getAllRecords($products_instance);
+//            $products = $this->getAllRecords($products_instance);
         }catch (\Exception $e){
-            abort(404);
+//            abort(404);
+            dd($e);
         }
         $quotes= Quote::where('zoho_id', $id)->get();
 
@@ -257,6 +265,11 @@ class DealController extends Controller
     }
 
     public function push($id, Request $request){
+        $deals_instance = ZCRMRestClient::getInstance()->getModuleInstance("Deals");
+        $deal = $deals_instance->getRecord($id);
+        if(Str::startsWith($deal->getResponseJSON()["data"][0]["Stage"], "Closed")){
+            abort(404);
+        }
         $this->saveDeal($id, $request);
         $this->saveQuote($id, $request);
 

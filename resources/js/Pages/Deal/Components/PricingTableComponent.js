@@ -112,11 +112,11 @@ export default function ({deal, insert, remove, push, move, products}) {
                                 <img src="/assets/images/plus.svg" alt="" /> Add Multi Items
                             </a>
                         </li>
-                        <li>
-                            <a href="" onClick={insertItem}>
-                                <img src="/assets/images/plus.svg" alt="" /> Add Item
-                            </a>
-                        </li>
+                        {/*<li>*/}
+                        {/*    <a href="" onClick={insertItem}>*/}
+                        {/*        <img src="/assets/images/plus.svg" alt="" /> Add Item*/}
+                        {/*    </a>*/}
+                        {/*</li>*/}
                         {/*<li>*/}
                         {/*    <a href="" onClick={insertTextItem}>*/}
                         {/*        <img src="/assets/images/plus.svg" alt="" /> Add New Item*/}
@@ -157,7 +157,7 @@ export default function ({deal, insert, remove, push, move, products}) {
                                         </div>
                                     </th>
                                     <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Product Name / Description
+                                        <img src="assets/images/eye_icon.svg" alt="" /> Product Name
                                     </th>
                                     <th className="fit">
                                         <img src="assets/images/eye_icon.svg" alt="" /> Vendor Part No.

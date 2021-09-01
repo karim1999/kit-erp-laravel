@@ -112,7 +112,7 @@ export default function ({push, products}){
     const columns = React.useMemo(
         () => [
             {
-                Header: 'Code',
+                Header: 'Part Number',
                 accessor: 'Product_Code',
                 filterable: true,
             },
@@ -123,6 +123,26 @@ export default function ({push, products}){
                 filterable: true,
             },
             {
+                Header: 'Unit Price',
+                accessor: 'Unit_Price',
+                filterable: true,
+            },
+            {
+                Header: 'Cost Price',
+                accessor: 'Cost_Price',
+                filterable: true,
+            },
+            {
+                Header: 'List Price',
+                accessor: 'list_price',
+                filterable: true,
+            },
+            {
+                Header: 'Price Book',
+                accessor: 'price_book_name',
+                filterable: true,
+            },
+            {
                 Header: 'Group',
                 accessor: 'Product_Group',
                 filterable: true,
@@ -130,11 +150,6 @@ export default function ({push, products}){
             {
                 Header: 'Type',
                 accessor: 'Product_Type',
-                filterable: true,
-            },
-            {
-                Header: 'Unit Price',
-                accessor: 'Unit_Price',
                 filterable: true,
             },
             {

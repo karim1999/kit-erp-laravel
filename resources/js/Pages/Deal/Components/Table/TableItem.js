@@ -33,7 +33,7 @@ const SimpleTextFieldComponent= ({ label, ...props }) => {
 
 const createPartLabel= (name, code)=>{
     if(code){
-        return `${name} (${code})`;
+        return `${name}`;
     }else{
         return name;
     }
@@ -77,19 +77,20 @@ export default SortableElement(({itemIndex, remove, products}) => {
         })
         itemFieldHelpers.setValue({...itemField.value, ...productUpdateObject})
 
-        let Cost_Price= product.Cost_Price || 0
+        let Cost_Price= product.list_price || 0
+        // let Cost_Price= product.Cost_Price || 0
         // let Unit_Price= product.Unit_Price || 0
 
-        setIsFetchingPrice(true)
-        await axios.get(`/products/${product.id}/pricing/${accountField.value}`).then(res => {
-            console.log(res.data.price)
-            costPriceFieldHelpers.setValue(res.data.price)
-        }).catch(err => {
-            console.log(err)
+        // setIsFetchingPrice(true)
+        // await axios.get(`/products/${product.id}/pricing/${accountField.value}`).then(res => {
+        //     console.log(res.data.price)
+        //     costPriceFieldHelpers.setValue(res.data.price)
+        // }).catch(err => {
+        //     console.log(err)
             costPriceFieldHelpers.setValue(Cost_Price)
-        }).finally(res => {
-            setIsFetchingPrice(false)
-        })
+        // }).finally(res => {
+        //     setIsFetchingPrice(false)
+        // })
 
     }
     // const grossValue= () => {
@@ -109,23 +110,31 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 </CheckBoxFieldComponent>
             </td>
             <td className="fit">
-                {
-                    isText() ?
-                        <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.name`} placeholder="Name" />
-                        :
-                        <ReactSelectFieldComponent onChange={onChange} label="" name={`items.${itemIndex}.product_id`} options={products.map(product => ({value: product.id, label: createPartLabel(product.Product_Name, product.Product_Code)}))} />
-                }
-                {
-                    isText() ?
-                        <TextAreaFieldComponent label="" className="form-control" rows="5" name={`items.${itemIndex}.description`} placeholder="Description" />
-                        :
-                        <p className="table-para">
-                            {itemField?.value?.description || ""}
-                        </p>
-                }
+                <p className="table-para">
+                    {createPartLabel(product().Product_Name, product().Product_Code) || ""}
+                    <b>({product().price_book_name || ""})</b>
+                </p>
+                <p className="table-para">
+                    {product().Product_Description || ""}
+                </p>
+                {/*{*/}
+                {/*    isText() ?*/}
+                {/*        <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.name`} placeholder="Name" />*/}
+                {/*        :*/}
+                {/*        <ReactSelectFieldComponent onChange={onChange} label="" name={`items.${itemIndex}.product_id`} options={products.map(product => ({value: product.id, label: createPartLabel(product.Product_Name, product.Product_Code)}))} />*/}
+                {/*}*/}
+                {/*{*/}
+                {/*    isText() ?*/}
+                {/*        <TextAreaFieldComponent label="" className="form-control" rows="5" name={`items.${itemIndex}.description`} placeholder="Description" />*/}
+                {/*        :*/}
+                {/*        <p className="table-para">*/}
+                {/*            {itemField?.value?.description || ""}*/}
+                {/*        </p>*/}
+                {/*}*/}
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.vendor_part_number`} disabled={!isText()} />
+                {product().vendor_part_number || ""}
+                {/*<SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.vendor_part_number`} disabled={!isText()} />*/}
             </td>
             <td className="fit">
                 <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.part_number`} disabled={!isText()} />

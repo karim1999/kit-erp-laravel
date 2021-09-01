@@ -243,7 +243,7 @@ fuzzyTextFilterFn.autoRemove = function (val) {
   }, []);
   var columns = react__WEBPACK_IMPORTED_MODULE_0__.useMemo(function () {
     return [{
-      Header: 'Code',
+      Header: 'Part Number',
       accessor: 'Product_Code',
       filterable: true
     }, {
@@ -252,16 +252,28 @@ fuzzyTextFilterFn.autoRemove = function (val) {
       filter: 'fuzzyText',
       filterable: true
     }, {
+      Header: 'Unit Price',
+      accessor: 'Unit_Price',
+      filterable: true
+    }, {
+      Header: 'Cost Price',
+      accessor: 'Cost_Price',
+      filterable: true
+    }, {
+      Header: 'List Price',
+      accessor: 'list_price',
+      filterable: true
+    }, {
+      Header: 'Price Book',
+      accessor: 'price_book_name',
+      filterable: true
+    }, {
       Header: 'Group',
       accessor: 'Product_Group',
       filterable: true
     }, {
       Header: 'Type',
       accessor: 'Product_Type',
-      filterable: true
-    }, {
-      Header: 'Unit Price',
-      accessor: 'Unit_Price',
       filterable: true
     }, {
       Header: 'Category',
