@@ -157,6 +157,7 @@ class QuoteController extends Controller
         $account= null;
         $contact= null;
         $user= null;
+        $products= ["data" => []];
         try {
             $deal = $deals_instance->getRecord($zoho_id);
             $dealData= $deal->getData();
@@ -170,8 +171,9 @@ class QuoteController extends Controller
             $account_field= $dealData->getFieldValue("Account_Name");
             if ($account_field) {
                 $account = $accounts_instance->getRecord($account_field->getEntityId());
+                $products["data"]= $this->getRelatedProducts($account_field->getEntityId());
             }
-            $products = $this->getAllRecords($products_instance);
+//            $products = $this->getAllRecords($products_instance);
         }catch (\Exception $e){
             abort($e->getCode());
         }
