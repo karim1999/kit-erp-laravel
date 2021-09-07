@@ -151,7 +151,7 @@ class DealController extends Controller
         //$finalData["items"]= $this->buildData($shippingInfo, config("zoho.mapItemsToZohoDeals"));
 
         array_push($dealRecords, $deal);
-        $responseIn= $dealsIns->upsertRecords($dealRecords);
+        $responseIn= $dealsIns->upsertRecords($dealRecords, ["workflow"]);
         $new_id= $responseIn->getResponseJSON()['data'][0]['details']['id'];
         $quote_request = Http::withHeaders([
             'Authorization' => 'Zoho-oauthtoken '.$access_token,
