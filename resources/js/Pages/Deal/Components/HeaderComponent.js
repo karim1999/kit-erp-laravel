@@ -94,7 +94,7 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote, pushA
                             <div className="col-xl-4 col-lg-4 col-sm-4 col-2">
                                 <label>&nbsp;</label>
                                 <div className="clearfix"></div>
-                                <button onClick={() => generateQuote()} type="button" className="btn btn-success btn-sm">Generate Quote</button>
+                                <button disabled={deal.Stage ? deal.Stage.startsWith("Closed") : false} onClick={() => generateQuote()} type="button" className="btn btn-success btn-sm">Generate Quote</button>
                                 {
                                     quote &&
                                         <button onClick={() => pushAll()} type="button" className="btn btn-warning btn-sm ml-3">Push All</button>

@@ -173,6 +173,7 @@ class QuoteController extends Controller
                 $account = $accounts_instance->getRecord($account_field->getEntityId());
                 $products["data"]= $this->getRelatedProducts($account_field->getEntityId());
             }
+            $products["data"]= $this->getRelatedProducts($zoho_id, "Deals", "Price_Books20", $products["data"]);
 //            $products = $this->getAllRecords($products_instance);
         }catch (\Exception $e){
             abort($e->getCode());

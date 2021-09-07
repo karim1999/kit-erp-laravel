@@ -157,22 +157,13 @@ export default function ({deal, insert, remove, push, move, products}) {
                                         </div>
                                     </th>
                                     <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Product Name
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Vendor Part No.
-                                    </th>
-                                    <th className="fit">
                                         <img src="assets/images/eye_icon.svg" alt="" /> Part No.
                                     </th>
                                     <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Product Type
+                                        <img src="assets/images/eye_icon.svg" alt="" /> Product Name
                                     </th>
                                     <th className="fit">
-                                        <img src="assets/images/eye_closed.svg" alt="" /> Cost Price
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Unit Price
+                                        <img src="assets/images/eye_icon.svg" alt="" /> Price Book
                                     </th>
                                     <th className="fit">
                                         <img src="assets/images/eye_icon.svg" alt="" /> Quantity
@@ -181,7 +172,19 @@ export default function ({deal, insert, remove, push, move, products}) {
                                         <img src="assets/images/eye_icon.svg" alt="" /> Unit
                                     </th>
                                     <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Gross Value
+                                        <img src="assets/images/eye_icon.svg" alt="" /> List Price
+                                    </th>
+                                    <th className="fit">
+                                        <img src="assets/images/eye_closed.svg" alt="" /> Cost Price
+                                    </th>
+                                    <th className="fit">
+                                        <img src="assets/images/eye_icon.svg" alt="" /> Product Type
+                                    </th>
+                                    <th className="fit">
+                                        <img src="assets/images/eye_closed.svg" alt="" /> Margin %
+                                    </th>
+                                    <th className="fit">
+                                        <img src="assets/images/eye_closed.svg" alt="" /> Margin Value
                                     </th>
                                     <th className="fit">
                                         <img src="assets/images/eye_icon.svg" alt="" /> Discount %
@@ -190,10 +193,7 @@ export default function ({deal, insert, remove, push, move, products}) {
                                         <img src="assets/images/eye_icon.svg" alt="" /> Discount Value
                                     </th>
                                     <th className="fit">
-                                        <img src="assets/images/eye_closed.svg" alt="" /> Margin %
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_closed.svg" alt="" /> Margin Value
+                                        <img src="assets/images/eye_icon.svg" alt="" /> Gross Value
                                     </th>
                                     <th className="fit">
                                         <img src="assets/images/eye_closed.svg" alt="" /> Net Value

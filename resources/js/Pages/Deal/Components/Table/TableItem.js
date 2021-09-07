@@ -111,8 +111,13 @@ export default SortableElement(({itemIndex, remove, products}) => {
             </td>
             <td className="fit">
                 <p className="table-para">
+                    {product().Product_Code}
+                </p>
+                {/*<SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.part_number`} disabled={!isText()} />*/}
+            </td>
+            <td className="fit">
+                <p className="table-para">
                     {createPartLabel(product().Product_Name, product().Product_Code) || ""}
-                    <b>({product().price_book_name || ""})</b>
                 </p>
                 <p className="table-para">
                     {product().Product_Description || ""}
@@ -133,11 +138,20 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 {/*}*/}
             </td>
             <td className="fit">
-                {product().vendor_part_number || ""}
+                {product().price_book_name || ""}
                 {/*<SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.vendor_part_number`} disabled={!isText()} />*/}
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.part_number`} disabled={!isText()} />
+                <SimpleTextFieldComponent min={0} type="text" className="form-control" name={`items.${itemIndex}.quantity`} />
+            </td>
+            <td className="fit">
+                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.unit`} disabled={!isText()} />
+            </td>
+            <td className="fit">
+                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.unit_price`} disabled={!isText()} />
+            </td>
+            <td className="fit">
+                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.cost_price`} disabled={!isText()} />
             </td>
             <td className="fit">
                 {
@@ -153,19 +167,10 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 }
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.cost_price`} disabled={!isText()} />
+                <input min={0} type="text" className={`form-control ${marginPercent(itemField.value) < 0 && "is-invalid"}`} value={displayNumber(marginPercent(itemField.value))} disabled />
             </td>
             <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.unit_price`} disabled={!isText()} />
-            </td>
-            <td className="fit">
-                <SimpleTextFieldComponent min={0} type="text" className="form-control" name={`items.${itemIndex}.quantity`} />
-            </td>
-            <td className="fit">
-                <SimpleTextFieldComponent type="text" className="form-control" name={`items.${itemIndex}.unit`} disabled={!isText()} />
-            </td>
-            <td className="fit">
-                <input type="text" className="form-control" value={displayNumber(grossValue(itemField.value))} disabled />
+                <input type="text" className={`form-control ${margin(itemField.value) < 0 && "is-invalid"}`} value={displayNumber(margin(itemField.value))} disabled />
             </td>
             <td className="fit">
                 <SimpleTextFieldComponent min={0} type="text" step={.01} className="form-control" name={`items.${itemIndex}.discount_percent`} />
@@ -174,10 +179,7 @@ export default SortableElement(({itemIndex, remove, products}) => {
                 <input type="text" className="form-control" value={displayNumber(discount(itemField.value))} disabled />
             </td>
             <td className="fit">
-                <input min={0} type="text" className={`form-control ${marginPercent(itemField.value) < 0 && "is-invalid"}`} value={displayNumber(marginPercent(itemField.value))} disabled />
-            </td>
-            <td className="fit">
-                <input type="text" className={`form-control ${margin(itemField.value) < 0 && "is-invalid"}`} value={displayNumber(margin(itemField.value))} disabled />
+                <input type="text" className="form-control" value={displayNumber(grossValue(itemField.value))} disabled />
             </td>
             <td className="fit">
                 <input type="text" className="form-control" value={displayNumber(calculateNet(itemField.value))} disabled />

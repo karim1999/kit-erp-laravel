@@ -232,6 +232,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "clearfix"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                disabled: deal.Stage ? deal.Stage.startsWith("Closed") : false,
                 onClick: function onClick() {
                   return generateQuote();
                 },

@@ -28,11 +28,11 @@ class Controller extends BaseController
         return ["data" => $records];
     }
 
-    public function getRelatedProducts($id){
-        $account_instance = ZCRMRestClient::getInstance()->getRecordInstance("Accounts", $id);
-        $products= [];
+    public function getRelatedProducts($id, $module= "Accounts", $related_list= "Price_Books16", $products= []){
+        $account_instance = ZCRMRestClient::getInstance()->getRecordInstance($module, $id);
+//        $products= [];
         try {
-            $account_price_books = $account_instance->getRelatedListRecords('Price_Books16')->getData();
+            $account_price_books = $account_instance->getRelatedListRecords($related_list)->getData();
             foreach ($account_price_books as $account_price_book) {
                 try {
                     $price_book_name= $account_price_book->getFieldValue('Price_Book_Price_List')->getLookupLabel();

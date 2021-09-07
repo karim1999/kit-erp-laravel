@@ -13682,6 +13682,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "clearfix"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                disabled: deal.Stage ? deal.Stage.startsWith("Closed") : false,
                 onClick: function onClick() {
                   return generateQuote();
                 },
@@ -14792,37 +14793,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
                     src: "assets/images/eye_icon.svg",
                     alt: ""
-                  }), " Product Name"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
-                  className: "fit",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: "assets/images/eye_icon.svg",
-                    alt: ""
-                  }), " Vendor Part No."]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
-                  className: "fit",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: "assets/images/eye_icon.svg",
-                    alt: ""
                   }), " Part No."]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
                   className: "fit",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
                     src: "assets/images/eye_icon.svg",
                     alt: ""
-                  }), " Product Type"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
-                  className: "fit",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: "assets/images/eye_closed.svg",
-                    alt: ""
-                  }), " Cost Price"]
+                  }), " Product Name"]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
                   className: "fit",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
                     src: "assets/images/eye_icon.svg",
                     alt: ""
-                  }), " Unit Price"]
+                  }), " Price Book"]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
                   className: "fit",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
@@ -14840,7 +14823,31 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
                     src: "assets/images/eye_icon.svg",
                     alt: ""
-                  }), " Gross Value"]
+                  }), " List Price"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
+                  className: "fit",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                    src: "assets/images/eye_closed.svg",
+                    alt: ""
+                  }), " Cost Price"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
+                  className: "fit",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                    src: "assets/images/eye_icon.svg",
+                    alt: ""
+                  }), " Product Type"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
+                  className: "fit",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                    src: "assets/images/eye_closed.svg",
+                    alt: ""
+                  }), " Margin %"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
+                  className: "fit",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+                    src: "assets/images/eye_closed.svg",
+                    alt: ""
+                  }), " Margin Value"]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
                   className: "fit",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
@@ -14856,15 +14863,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
                   className: "fit",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: "assets/images/eye_closed.svg",
+                    src: "assets/images/eye_icon.svg",
                     alt: ""
-                  }), " Margin %"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
-                  className: "fit",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-                    src: "assets/images/eye_closed.svg",
-                    alt: ""
-                  }), " Margin Value"]
+                  }), " Gross Value"]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("th", {
                   className: "fit",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
@@ -15469,6 +15470,10 @@ fuzzyTextFilterFn.autoRemove = function (val) {
   }, []);
   var columns = react__WEBPACK_IMPORTED_MODULE_0__.useMemo(function () {
     return [{
+      Header: 'Price Book',
+      accessor: 'price_book_name',
+      filterable: true
+    }, {
       Header: 'Part Number',
       accessor: 'Product_Code',
       filterable: true
@@ -15479,20 +15484,16 @@ fuzzyTextFilterFn.autoRemove = function (val) {
       filterable: true
     }, {
       Header: 'Unit Price',
-      accessor: 'Unit_Price',
-      filterable: true
+      accessor: 'Unit_Price' // filterable: true,
+
     }, {
       Header: 'Cost Price',
-      accessor: 'Cost_Price',
-      filterable: true
+      accessor: 'Cost_Price' // filterable: true,
+
     }, {
       Header: 'List Price',
-      accessor: 'list_price',
-      filterable: true
-    }, {
-      Header: 'Price Book',
-      accessor: 'price_book_name',
-      filterable: true
+      accessor: 'list_price' // filterable: true,
+
     }, {
       Header: 'Group',
       accessor: 'Product_Group',
@@ -15507,8 +15508,8 @@ fuzzyTextFilterFn.autoRemove = function (val) {
       filterable: true
     }, {
       Header: 'Unit',
-      accessor: 'Usage_Unit',
-      filterable: true
+      accessor: 'Usage_Unit' // filterable: true,
+
     }];
   }, []);
 
@@ -16035,26 +16036,54 @@ var createPartLabel = function createPartLabel(name, code) {
           disabled: true
         })
       })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+      className: "fit",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+        className: "table-para",
+        children: product().Product_Code
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("td", {
       className: "fit",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("p", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
         className: "table-para",
-        children: [createPartLabel(product().Product_Name, product().Product_Code) || "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("b", {
-          children: ["(", product().price_book_name || "", ")"]
-        })]
+        children: createPartLabel(product().Product_Name, product().Product_Code) || ""
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
         className: "table-para",
         children: product().Product_Description || ""
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: product().vendor_part_number || ""
+      children: product().price_book_name || ""
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+      className: "fit",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
+        min: 0,
+        type: "text",
+        className: "form-control",
+        name: "items.".concat(itemIndex, ".quantity")
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
         type: "text",
         className: "form-control",
-        name: "items.".concat(itemIndex, ".part_number"),
+        name: "items.".concat(itemIndex, ".unit"),
+        disabled: !isText()
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+      className: "fit",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
+        type: "text",
+        className: "form-control",
+        name: "items.".concat(itemIndex, ".unit_price"),
+        disabled: !isText()
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
+      className: "fit",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
+        type: "text",
+        className: "form-control",
+        name: "items.".concat(itemIndex, ".cost_price"),
         disabled: !isText()
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
@@ -16076,42 +16105,19 @@ var createPartLabel = function createPartLabel(name, code) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
-        type: "text",
-        className: "form-control",
-        name: "items.".concat(itemIndex, ".cost_price"),
-        disabled: !isText()
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-      className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
-        type: "text",
-        className: "form-control",
-        name: "items.".concat(itemIndex, ".unit_price"),
-        disabled: !isText()
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-      className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
         min: 0,
         type: "text",
-        className: "form-control",
-        name: "items.".concat(itemIndex, ".quantity")
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-      className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SimpleTextFieldComponent, {
-        type: "text",
-        className: "form-control",
-        name: "items.".concat(itemIndex, ".unit"),
-        disabled: !isText()
+        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value) < 0 && "is-invalid"),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value)),
+        disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
         type: "text",
-        className: "form-control",
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.grossValue)(itemField.value)),
+        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value) < 0 && "is-invalid"),
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value)),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
@@ -16134,18 +16140,9 @@ var createPartLabel = function createPartLabel(name, code) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
       className: "fit",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
-        min: 0,
         type: "text",
-        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value) < 0 && "is-invalid"),
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.marginPercent)(itemField.value)),
-        disabled: true
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {
-      className: "fit",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
-        type: "text",
-        className: "form-control ".concat((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value) < 0 && "is-invalid"),
-        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.margin)(itemField.value)),
+        className: "form-control",
+        value: (0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.displayNumber)((0,_helpers_helpers__WEBPACK_IMPORTED_MODULE_8__.grossValue)(itemField.value)),
         disabled: true
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("td", {

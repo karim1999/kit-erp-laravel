@@ -38,10 +38,11 @@ class DealController extends Controller
         $user= null;
         $products= ["data" => []];
         try {
+
             $deal = $deals_instance->getRecord($id);
-            if(Str::startsWith($deal->getResponseJSON()["data"][0]["Stage"], "Closed")){
-                abort(404);
-            }
+//            if(Str::startsWith($deal->getResponseJSON()["data"][0]["Stage"], "Closed")){
+//                abort(404);
+//            }
             $dealData= $deal->getData();
             $owner = $dealData->getOwner();
             $user_request = Http::withHeaders([
@@ -56,6 +57,8 @@ class DealController extends Controller
                 $products["data"]= $this->getRelatedProducts($account_field->getEntityId());
 //                return($products);
             }
+            $products["data"]= $this->getRelatedProducts($id, "Deals", "Price_Books20", $products["data"]);
+//            dd($products["data"]);
 //            $contact_field= $dealData->getFieldValue("Contact_Name");
 //            if ($contact_field) {
 //                $contact = $contacts_instance->getRecord($contact_field->getEntityId());
@@ -63,8 +66,8 @@ class DealController extends Controller
             $contacts = $contacts_instance->getRecords();
 //            $products = $this->getAllRecords($products_instance);
         }catch (\Exception $e){
-            abort(404);
-//            dd($e);
+//            abort(404);
+            dd($e);
         }
         $quotes= Quote::where('zoho_id', $id)->get();
 
