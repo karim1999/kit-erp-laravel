@@ -50,7 +50,7 @@ class Controller extends BaseController
             }
 
         }catch (\Exception $e){
-            return [];
+            return $products;
         }
 
 
