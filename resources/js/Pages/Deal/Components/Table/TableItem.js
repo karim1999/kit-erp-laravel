@@ -43,6 +43,7 @@ export default SortableElement(({itemIndex, remove, products}) => {
     const [productIdField, productIdFieldMeta] = useField(`items.${itemIndex}.product_id`);
     const [itemField, itemFieldMeta, itemFieldHelpers] = useField(`items.${itemIndex}`);
     const [costPriceField, costPriceFieldMeta, costPriceFieldHelpers] = useField(`items.${itemIndex}.cost_price`);
+    const [unitPriceField, unitPriceFieldMeta, unitPriceFieldHelpers] = useField(`items.${itemIndex}.unit_price`);
     const [accountField] = useField('account');
     const [isFetchingPrice, setIsFetchingPrice]= useState(false)
     useEffect(() => {
@@ -77,7 +78,8 @@ export default SortableElement(({itemIndex, remove, products}) => {
         })
         itemFieldHelpers.setValue({...itemField.value, ...productUpdateObject})
 
-        let Cost_Price= product.list_price || 0
+        let NewCostPrice= product.Cost_Price || 0
+        let List_Price= product.list_price || 0
         // let Cost_Price= product.Cost_Price || 0
         // let Unit_Price= product.Unit_Price || 0
 
@@ -87,7 +89,8 @@ export default SortableElement(({itemIndex, remove, products}) => {
         //     costPriceFieldHelpers.setValue(res.data.price)
         // }).catch(err => {
         //     console.log(err)
-            costPriceFieldHelpers.setValue(Cost_Price)
+            costPriceFieldHelpers.setValue(NewCostPrice)
+            unitPriceFieldHelpers.setValue(List_Price)
         // }).finally(res => {
         //     setIsFetchingPrice(false)
         // })
