@@ -4,8 +4,41 @@ import SelectFieldComponent from "./Fields/SelectFieldComponent";
 import TextFieldComponent from "./Fields/TextFieldComponent";
 import CheckBoxFieldComponent from "./Fields/CheckBoxFieldComponent";
 import ReactSelectFieldComponent from "./Fields/ReactSelectFieldComponent";
+import AsyncReactSelectFieldComponent from "./Fields/AsyncReactSelectFieldComponent";
 
 export default function ({deal, contacts}) {
+    const defaultBillingContacts= () => {
+        if (deal?.Billing_Contact_Name){
+            return [{
+                value: deal.Billing_Contact_Name?.id,
+                label: deal.Billing_Contact_Name?.name,
+            }];
+        }
+        return [];
+    }
+    const defaultShippingContacts= () => {
+        if (deal?.Shipping_Contact_Name){
+            return [{
+                value: deal.Shipping_Contact_Name?.id,
+                label: deal.Shipping_Contact_Name?.name,
+            }];
+        }
+        return [];
+    }
+    const searchContacts= (keyword) => {
+        if(keyword.length < 2){
+            return contacts.map(contact => ({value: contact.id, label: contact.Full_Name}));
+        }
+        return axios.get(`/search/Contacts/${keyword}`).then(res => {
+            console.log(res.data)
+            if(Array.isArray(res.data.data)){
+                return res.data.data.map(contact => ({value: contact.id, label: contact.Full_Name}))
+            }
+            return [];
+        }).catch(err => {
+            console.log(err)
+        })
+    }
     return (
         <div className="container my-4">
             <div className="row">
@@ -20,7 +53,7 @@ export default function ({deal, contacts}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Billing Contact Name
                             </th>
                             <td className="text-muted">
-                                <ReactSelectFieldComponent label="" name="billing.contact" options={contacts.map(contact => ({value: contact.id, label: contact.Full_Name}))} />
+                                <AsyncReactSelectFieldComponent asyncFunc={searchContacts} label="" name="billing.contact" options={defaultBillingContacts()} />
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +126,8 @@ export default function ({deal, contacts}) {
                                 <img src="assets/images/eye_icon.svg" alt="" className="mr-2" /> Shipping Contact Name
                             </th>
                             <td className="text-muted">
-                                <ReactSelectFieldComponent label="" name="shipping.contact" options={contacts.map(contact => ({value: contact.id, label: contact.Full_Name}))} />
+                                <AsyncReactSelectFieldComponent asyncFunc={searchContacts} label="" name="shipping.contact" options={defaultShippingContacts()} />
+                                {/*<ReactSelectFieldComponent name="shipping.contact" options={defaultShippingContacts()} />*/}
                             </td>
                         </tr>
                         <tr>

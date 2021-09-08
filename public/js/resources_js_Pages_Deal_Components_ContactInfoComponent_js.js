@@ -2092,7 +2092,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(_ref) {
-  var _contact, _contact2, _contact3, _contact4, _contact5;
+  var _deal$Contact_Name;
 
   var deal = _ref.deal,
       contacts = _ref.contacts;
@@ -2102,10 +2102,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       value = _useField2[0].value,
       meta = _useField2[1];
 
-  var contact = function contact() {
-    return contacts.find(function (contact) {
-      return contact.id === value;
-    });
+  var contact = function contact() {// return contacts.find(contact => contact.id === value)
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
@@ -2115,16 +2112,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         className: "row",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "col-xl-2 col-lg-2 col-sm-2 col-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__.default, {
-            isDisabled: true,
-            label: "Contact ID No.",
-            name: "contact",
-            options: contacts.map(function (contact) {
-              return {
-                value: contact.id,
-                label: contact.Contact_Auto_No
-              };
-            })
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: "assets/images/eye_icon.svg",
+                alt: ""
+              }), "Contact ID No."]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "text",
+              className: "form-control",
+              placeholder: "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Contact_ID_No) || "",
+              disabled: true
+            })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "col-xl-2 col-lg-2 col-sm-2 col-3",
@@ -2139,7 +2140,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_contact = contact()) === null || _contact === void 0 ? void 0 : _contact.Full_Name) || "",
+              value: (deal === null || deal === void 0 ? void 0 : (_deal$Contact_Name = deal.Contact_Name) === null || _deal$Contact_Name === void 0 ? void 0 : _deal$Contact_Name.name) || "",
               disabled: true
             })]
           })
@@ -2156,7 +2157,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_contact2 = contact()) === null || _contact2 === void 0 ? void 0 : _contact2.Email) || "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Account_Generic_Email) || "",
               disabled: true
             })]
           })
@@ -2173,7 +2174,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_contact3 = contact()) === null || _contact3 === void 0 ? void 0 : _contact3.Mobile) || "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Contact_Mobile_No) || "",
               disabled: true
             })]
           })
@@ -2190,7 +2191,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_contact4 = contact()) === null || _contact4 === void 0 ? void 0 : _contact4.Phone) || "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Contact_Landline_No) || "",
               disabled: true
             })]
           })
@@ -2207,7 +2208,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_contact5 = contact()) === null || _contact5 === void 0 ? void 0 : _contact5.Landline_Extension_No) || "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Contact_Extension_No) || "",
               disabled: true
             })]
           })

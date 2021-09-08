@@ -2092,7 +2092,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 /* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(_ref) {
-  var _account, _account2, _account3, _account4, _account5;
+  var _deal$Account_Name;
 
   var deal = _ref.deal,
       accounts = _ref.accounts;
@@ -2102,10 +2102,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       value = _useField2[0].value,
       meta = _useField2[1];
 
-  var account = function account() {
-    return accounts.find(function (account) {
-      return account.id === value;
-    });
+  var account = function account() {// return accounts.find(account => account.id === value)
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
@@ -2115,16 +2112,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         className: "row",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "col-xl-2 col-lg-2 col-sm-2 col-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Fields_ReactSelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__.default, {
-            isDisabled: true,
-            label: "Account ID No.",
-            name: "account",
-            options: accounts.map(function (account) {
-              return {
-                value: account.id,
-                label: account.Account_Auto_ID
-              };
-            })
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: "assets/images/eye_icon.svg",
+                alt: ""
+              }), "Account ID No."]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+              type: "text",
+              className: "form-control",
+              placeholder: "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Account_ID_No) || "",
+              disabled: true
+            })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "col-xl-2 col-lg-2 col-sm-2 col-3",
@@ -2139,7 +2140,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_account = account()) === null || _account === void 0 ? void 0 : _account.Account_Name) || "",
+              value: (deal === null || deal === void 0 ? void 0 : (_deal$Account_Name = deal.Account_Name) === null || _deal$Account_Name === void 0 ? void 0 : _deal$Account_Name.name) || "",
               disabled: true
             })]
           })
@@ -2156,7 +2157,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_account2 = account()) === null || _account2 === void 0 ? void 0 : _account2.Account_TRN_No) || "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Account_TRN_No) || "",
               disabled: true
             })]
           })
@@ -2173,7 +2174,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_account3 = account()) === null || _account3 === void 0 ? void 0 : _account3.Landline_No) || "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Account_Landline_No) || "",
               disabled: true
             })]
           })
@@ -2190,7 +2191,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_account4 = account()) === null || _account4 === void 0 ? void 0 : _account4.Account_Fax_No) || "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Account_Fax_No) || "",
               disabled: true
             })]
           })
@@ -2207,7 +2208,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               type: "text",
               className: "form-control",
               placeholder: "",
-              value: ((_account5 = account()) === null || _account5 === void 0 ? void 0 : _account5.Price_Book_Price_List) || "",
+              value: (deal === null || deal === void 0 ? void 0 : deal.Price_Book_Price_List) || "",
               disabled: true
             })]
           })

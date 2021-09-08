@@ -37,6 +37,7 @@ class DealController extends Controller
         $contact= null;
         $user= null;
         $products= ["data" => []];
+        $contacts= ["data" => []];
         try {
 
             $deal = $deals_instance->getRecord($id);
@@ -63,7 +64,8 @@ class DealController extends Controller
 //            if ($contact_field) {
 //                $contact = $contacts_instance->getRecord($contact_field->getEntityId());
 //            }
-            $contacts = $contacts_instance->getRecords();
+//            $contacts = $contacts_instance->getRecords();
+
 //            $products = $this->getAllRecords($products_instance);
         }catch (\Exception $e){
 //            abort(404);
@@ -82,7 +84,8 @@ class DealController extends Controller
             'usersObj' => [
                 "data"=> [$user]
             ],
-            'contactsObj' => $contacts->getResponseJSON(),
+            'contactsObj' => $contacts,
+//            'contactsObj' => $contacts->getResponseJSON(),
             'accountsObj' => $account->getResponseJSON(),
             'current_deal_id' => $id,
             'current_deal' => $deal->getResponseJSON(),

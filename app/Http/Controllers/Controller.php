@@ -28,6 +28,28 @@ class Controller extends BaseController
         return ["data" => $records];
     }
 
+    public function getAllRelatedRecords($instance, $related_list){
+        $records= [];
+        $page= 1;
+        $num= 200;
+//        return $instance->getRecords(["page"=>$page, "per_page"=>$num])->getResponseJSON();
+
+        while(true){
+            try {
+                $newRecords= $instance->getRelatedListRecords($related_list, ["page"=>$page, "per_page"=>$num])->getResponseJSON();
+                $records= array_merge($records, $newRecords["data"]);
+                $page++;
+
+                if(!$newRecords['info']['more_records'])
+                    break;
+
+            }catch (\Exception $e){
+                break;
+            }
+        }
+        return ["data" => $records];
+    }
+
     public function getRelatedProducts($id, $module= "Accounts", $related_list= "Price_Books16", $products= []){
         $account_instance = ZCRMRestClient::getInstance()->getRecordInstance($module, $id);
 //        $products= [];
@@ -38,7 +60,8 @@ class Controller extends BaseController
                     $price_book_name= $account_price_book->getFieldValue('Price_Book_Price_List')->getLookupLabel();
                     $price_book_id= $account_price_book->getFieldValue('Price_Book_Price_List')->getEntityId();
                     $price_book = ZCRMRestClient::getInstance()->getRecordInstance("Price_Books", $price_book_id);
-                    $new_products= $price_book->getRelatedListRecords("products")->getResponseJSON();
+                    $new_products= $this->getAllRelatedRecords($price_book, "products");
+//                    $new_products= $price_book->getRelatedListRecords("products")->getResponseJSON();
                     foreach ($new_products["data"] as $index => $product) {
                         $new_products["data"][$index]["price_book_id"]= $price_book_id;
                         $new_products["data"][$index]["price_book_name"]= $price_book_name;
