@@ -282,6 +282,11 @@ class DealController extends Controller
         return back()->with(["flash" => ["type" => "success", "msg"=> "The quote was pushed successfully."]]);
     }
     public function saveTerms($id, Request $request){
+        $deals_instance = ZCRMRestClient::getInstance()->getModuleInstance("Deals");
+        $deal = $deals_instance->getRecord($id);
+        $dealData= $deal->getData();
+        $owner = $dealData->getOwner();
+
         $termsIns = ZCRMRestClient::getInstance()->getModuleInstance("Payment_Terms1");
         $termRecord = ZCRMRecord::getInstance("Payment_Terms1", null); // to get the instance of the record
 
@@ -297,9 +302,13 @@ class DealController extends Controller
         $termRecord->setFieldValue("Quote_Name", $deal_name);
 
         $termRecord->setFieldValue("Deal_Name", $id);
-        $termRecord->setFieldValue("Payment_Term_Status", "Revision Required");
+        $termRecord->setFieldValue("Payment_Term_Status", "Requested");
+//        $termRecord->setFieldValue("Payment_Term_Status", "Revision Required");
         $termRecord->setFieldValue("Approval_For1", "Deal");
         $termRecord->setFieldValue("Approval_Status_Reason", "Renegotiate Payment Terms");
+
+        $termRecord->setFieldValue("Owner", $owner->getId());
+
         $termRecord->setFieldValue("Payment_Terms_Table", $this->buildNestedData($termsInfo, config("zoho.mapPaymentTermsToZohoDeals")));
 
         array_push($termRecords, $termRecord);
