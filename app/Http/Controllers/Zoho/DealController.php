@@ -294,8 +294,12 @@ class DealController extends Controller
         $account= $request->post('account');
         $contact= $request->post('contact');
         $deal_name= $request->post('deal_name');
+        $controller= $request->post('controller');
 
         $termRecords= [];
+
+        if($controller)
+            $termRecord->setFieldValue("Credit_Controller", $controller);
 
         $termRecord->setFieldValue("Related_Account_Name", $account);
         $termRecord->setFieldValue("Related_Contact_Name", $contact);

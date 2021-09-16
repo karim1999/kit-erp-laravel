@@ -338,11 +338,13 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         termsSchema.validate([...formRef.current.values.paymentTerms]).then((value) => {
             let terms= mapTerms(value, getTotalWithVat(formRef.current.values.items, formRef.current.values.vat, formRef.current.values.customs))
             console.log({terms})
+            let controller= accounts.find(account => account.id === formRef.current.values.account)?.Credit_Controller?.name
             Inertia.post('/deals/'+deal?.id+'/push/terms', {
                 terms,
                 contact: formRef.current.values.contact,
                 account: formRef.current.values.account,
                 deal_name: formRef.current.values.deal_name,
+                controller,
             })
         }).catch((err) => {
             if(err.errors && err.errors.length > 0)
@@ -373,7 +375,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
                 <Form>
                     <HeaderComponent pushAll={pushAll} updateQuote={updateQuote} quote={quote} quotes={quotes} generateQuote={generateQuote} deal={deal}/>
                     <QuoteBasicInfoComponent quote={quote} pushDeal={pushDeal} pushQuote={pushQuote} pushAll={pushAll} deal={deal}/>
-                    <SalesPersonInfoComponent users={users} deal={deal}/>
+                    <SalesPersonInfoComponent accounts={accounts} users={users} deal={deal}/>
                     <ContactInfoComponent contacts={contacts} deal={deal}/>
                     <AccountInfoComponent accounts={accounts} deal={deal}/>
                     <AddressInfoComponent contacts={contacts} deal={deal}/>

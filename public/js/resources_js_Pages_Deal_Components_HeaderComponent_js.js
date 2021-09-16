@@ -261,7 +261,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
             as: "button",
             type: "button",
             className: "btn btn-primary btn-sm",
-            children: "Back to Deal"
+            children: "Go Back"
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("hr", {}), quotes && quotes.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {

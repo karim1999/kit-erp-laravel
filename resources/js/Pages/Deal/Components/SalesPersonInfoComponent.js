@@ -5,11 +5,15 @@ import TextFieldComponent from "./Fields/TextFieldComponent";
 import {useField} from "formik";
 import ReactSelectFieldComponent from "./Fields/ReactSelectFieldComponent";
 
-export default function ({deal, users}) {
+export default function ({deal, users, accounts}) {
     const [{value}, meta] = useField("sales_person");
+    const [accountData, accountMeta] = useField("account");
 
     const salesPerson= () => {
         return users.find(user => user.id === value)
+    }
+    const account= () => {
+        return accounts.find(account => account.id === accountData.value)
     }
     return (
         <>
@@ -30,6 +34,12 @@ export default function ({deal, users}) {
                         <div className="form-group">
                             <label>Department Name</label>
                             <input type="text" className="form-control" value={salesPerson()?.Department_Name || ""} disabled />
+                        </div>
+                    </div>
+                    <div className="col-xl-2 col-lg-2 col-sm-2 col-3">
+                        <div className="form-group">
+                            <label>Credit Controller</label>
+                            <input type="text" className="form-control" value={account()?.Credit_Controller?.name || ""} disabled />
                         </div>
                     </div>
                 </div>

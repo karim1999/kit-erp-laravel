@@ -108,7 +108,7 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote, pushA
                         {
                             quote &&
                             <InertiaLink href={"/deals/"+deal.id} method="get" as="button" type="button" className="btn btn-primary btn-sm">
-                                Back to Deal
+                                Go Back
                             </InertiaLink>
                         }
                         {/*<button type="button" className="btn btn-primary btn-sm">Back to Deal</button>*/}
