@@ -338,7 +338,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         termsSchema.validate([...formRef.current.values.paymentTerms]).then((value) => {
             let terms= mapTerms(value, getTotalWithVat(formRef.current.values.items, formRef.current.values.vat, formRef.current.values.customs))
             console.log({terms})
-            let controller= accounts.find(account => account.id === formRef.current.values.account)?.Credit_Controller?.name
+            let controller= accounts.find(account => account.id === formRef.current.values.account)?.Credit_Controller?.id
             Inertia.post('/deals/'+deal?.id+'/push/terms', {
                 terms,
                 contact: formRef.current.values.contact,

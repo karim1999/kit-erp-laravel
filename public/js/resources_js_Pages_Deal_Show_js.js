@@ -17337,7 +17337,7 @@ function Show(_ref) {
                 });
                 var controller = (_accounts$find2 = accounts.find(function (account) {
                   return account.id === formRef.current.values.account;
-                })) === null || _accounts$find2 === void 0 ? void 0 : (_accounts$find2$Credi = _accounts$find2.Credit_Controller) === null || _accounts$find2$Credi === void 0 ? void 0 : _accounts$find2$Credi.name;
+                })) === null || _accounts$find2 === void 0 ? void 0 : (_accounts$find2$Credi = _accounts$find2.Credit_Controller) === null || _accounts$find2$Credi === void 0 ? void 0 : _accounts$find2$Credi.id;
                 _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/deals/' + (deal === null || deal === void 0 ? void 0 : deal.id) + '/push/terms', {
                   terms: terms,
                   contact: formRef.current.values.contact,
