@@ -18,6 +18,7 @@ class QuoteController extends Controller
         $data= [
             "quote_id"=> $request->post('quote_id'),
             "zoho_id"=> $request->post('zoho_id'),
+            "quote_stage"=> $request->post('quote_stage'),
             "status"=> $request->post('status'),
             "approval_status"=> $request->post('approval_status'),
             "sales_person"=> $request->post('sales_person'),

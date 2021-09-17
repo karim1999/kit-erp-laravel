@@ -273,6 +273,14 @@ let Constants = Object.freeze({
             color: "dark"
         },
         {
+            value: "Rejected",
+            color: "dark"
+        },
+        {
+            value: "Pending",
+            color: "dark"
+        },
+        {
             value: "Accepted",
             color: "secondary"
         },
@@ -285,6 +293,36 @@ let Constants = Object.freeze({
             color: "info"
         }
 	],
+    quoteStageTypes: [
+        {
+            value: "Draft",
+            color: "warning"
+        },
+        {
+            value: "Negotiation",
+            color: "warning"
+        },
+        {
+            value: "Delivered",
+            color: "success"
+        },
+        {
+            value: "On Hold",
+            color: "dark"
+        },
+        {
+            value: "Confirmed",
+            color: "secondary"
+        },
+        {
+            value: "Closed Won",
+            color: "info"
+        },
+        {
+            value: "Closed Lost",
+            color: "info"
+        }
+    ],
 	approvalStatusTypes: [
 		{
 			value: "Pre-Approved",

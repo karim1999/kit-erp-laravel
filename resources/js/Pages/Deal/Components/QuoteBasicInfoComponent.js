@@ -20,9 +20,16 @@ export default function ({deal, pushDeal, pushQuote, pushAll, quote}) {
                 {/*    <button disabled={!quote} onClick={pushDeal} type="button" className="btn btn-primary btn-sm btn-block">Push Deal</button>*/}
                 {/*</div>*/}
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-9">
-                    <SelectFieldComponent className="custom-select" label="Quote Status" name="status" disabled>
+                    <SelectFieldComponent className="custom-select" label="Quote Status" name="status">
                         {
                             Constants.statusTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
+                        }
+                    </SelectFieldComponent>
+                </div>
+                <div className="col-xl-2 col-lg-2 col-sm-2 col-9">
+                    <SelectFieldComponent className="custom-select" label="Quote Stage" name="quote_stage">
+                        {
+                            Constants.quoteStageTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
                         }
                     </SelectFieldComponent>
                 </div>

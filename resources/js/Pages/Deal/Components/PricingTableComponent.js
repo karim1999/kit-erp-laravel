@@ -109,7 +109,7 @@ export default function ({deal, insert, remove, push, move, products}) {
                         {/*</li>*/}
                         <li>
                             <a href="#" data-toggle="modal" data-target="#multiModal">
-                                <img src="/assets/images/plus.svg" alt="" /> Add Multi Items
+                                <img src="/assets/images/plus.svg" alt="" /> Add Items
                             </a>
                         </li>
                         {/*<li>*/}
@@ -140,72 +140,69 @@ export default function ({deal, insert, remove, push, move, products}) {
                     </ul>
                 </div>
             </div>
-            {
-                items.value.length > 0 &&
-                <div className="row mt-2">
-                    <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
-                        <div className="table-responsive scrollBox">
-                            <table className="table table-bordered">
-                                <thead className="table-info">
-                                <tr>
-                                    <th className="fit">
-                                        <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input" id="custom-check-21" checked={isSelectAll()} onChange={selectAllToggle} />
-                                            <label className="custom-control-label" htmlFor="custom-check-21">
-                                                <img src="assets/images/eye_icon.svg" alt="" /> Line #
-                                            </label>
-                                        </div>
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Part No.
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Product Name
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Price Book
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Quantity
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Unit
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> List Price
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_closed.svg" alt="" /> Cost Price
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Product Type
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_closed.svg" alt="" /> Margin %
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_closed.svg" alt="" /> Margin Value
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Discount %
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Discount Value
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_icon.svg" alt="" /> Gross Value
-                                    </th>
-                                    <th className="fit">
-                                        <img src="assets/images/eye_closed.svg" alt="" /> Net Value
-                                    </th>
-                                </tr>
-                                </thead>
-                                <TableBody useDragHandle products={products} onSortEnd={({oldIndex, newIndex}) => move(oldIndex, newIndex)} remove={remove}/>
-                            </table>
-                        </div>
+            <div className="row mt-2">
+                <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
+                    <div className="table-responsive scrollBox">
+                        <table className="table table-bordered">
+                            <thead className="table-info">
+                            <tr>
+                                <th className="fit">
+                                    <div className="custom-control custom-checkbox">
+                                        <input type="checkbox" className="custom-control-input" id="custom-check-21" checked={isSelectAll()} onChange={selectAllToggle} />
+                                        <label className="custom-control-label" htmlFor="custom-check-21">
+                                            <img src="assets/images/eye_icon.svg" alt="" /> Line #
+                                        </label>
+                                    </div>
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Part No.
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Product Name
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Price Book
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Quantity
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Unit
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> List Price
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_closed.svg" alt="" /> Cost Price
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Product Type
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_closed.svg" alt="" /> Margin %
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_closed.svg" alt="" /> Margin Value
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Discount %
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Discount Value
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_icon.svg" alt="" /> Gross Value
+                                </th>
+                                <th className="fit">
+                                    <img src="assets/images/eye_closed.svg" alt="" /> Net Value
+                                </th>
+                            </tr>
+                            </thead>
+                            <TableBody useDragHandle products={products} onSortEnd={({oldIndex, newIndex}) => move(oldIndex, newIndex)} remove={remove}/>
+                        </table>
                     </div>
                 </div>
-            }
+            </div>
         </div>
     )
 }

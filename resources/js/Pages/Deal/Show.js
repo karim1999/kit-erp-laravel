@@ -144,7 +144,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
         quote_id: getInitData(quote?.id, ""),
         quote_no: getInitData(quote?.quote_no, ""),
         subject: getInitData(quote?.quote_no, ""),
-        quote_stage: getInitData(quote?.Stage, ""),
+        quote_stage: getInitData(quote?.quote_stage, ""),
         status:  getInitData(quote?.status, Constants.statusTypes[0].value),
         approval_status: getInitData(quote?.approval_status, Constants.approvalStatusTypes[0].value),
         sales_person: getInitData(quote?.sales_person, users.find(user => user.id === deal.Owner.id)?.id),

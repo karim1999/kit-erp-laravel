@@ -183,8 +183,20 @@ __webpack_require__.r(__webpack_exports__);
           className: "custom-select",
           label: "Quote Status",
           name: "status",
-          disabled: true,
           children: _helpers_samples__WEBPACK_IMPORTED_MODULE_1__.default.statusTypes.map(function (status) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
+              value: status.value,
+              children: status.value
+            }, status.value);
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "col-xl-2 col-lg-2 col-sm-2 col-9",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__.default, {
+          className: "custom-select",
+          label: "Quote Stage",
+          name: "quote_stage",
+          children: _helpers_samples__WEBPACK_IMPORTED_MODULE_1__.default.quoteStageTypes.map(function (status) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
               value: status.value,
               children: status.value
@@ -484,6 +496,12 @@ var Constants = Object.freeze({
     value: "Revised",
     color: "dark"
   }, {
+    value: "Rejected",
+    color: "dark"
+  }, {
+    value: "Pending",
+    color: "dark"
+  }, {
     value: "Accepted",
     color: "secondary"
   }, {
@@ -491,6 +509,28 @@ var Constants = Object.freeze({
     color: "info"
   }, {
     value: "Archived",
+    color: "info"
+  }],
+  quoteStageTypes: [{
+    value: "Draft",
+    color: "warning"
+  }, {
+    value: "Negotiation",
+    color: "warning"
+  }, {
+    value: "Delivered",
+    color: "success"
+  }, {
+    value: "On Hold",
+    color: "dark"
+  }, {
+    value: "Confirmed",
+    color: "secondary"
+  }, {
+    value: "Closed Won",
+    color: "info"
+  }, {
+    value: "Closed Lost",
     color: "info"
   }],
   approvalStatusTypes: [{

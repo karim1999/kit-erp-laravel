@@ -87,7 +87,7 @@ export default function ({deal, insert, remove, push, move, request}) {
                             </a>
                         </li>
                         <li>
-                            <a href="" onClick={requestApproval}>
+                            <a data-toggle="tooltip" data-placement="top" title="Sends the payment terms to Zoho CRM" href="" onClick={requestApproval}>
                                 Send for Approval
                             </a>
                         </li>
@@ -100,7 +100,6 @@ export default function ({deal, insert, remove, push, move, request}) {
                 </div>
             </div>
             {
-                terms.value.length > 0 &&
                 <div className="row mt-2">
                     <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
                         <div className="table-responsive">
@@ -133,22 +132,25 @@ export default function ({deal, insert, remove, push, move, request}) {
                                 </tr>
                                 </thead>
                                 <TableBody useDragHandle onSortEnd={({oldIndex, newIndex}) => move(oldIndex, newIndex)} isEnabled={isEnabled} remove={remove}/>
-                                <thead className="table-info">
-                                <tr>
-                                    <th className="fit">
-                                        <input type="text" value={displayNumber(totalPercent())}  className={`form-control ${(totalPercent() !== 100) && "is-invalid"}`} disabled />
-                                    </th>
-                                    <th className="fit">
-                                        <label htmlFor="">Total %</label>
-                                    </th>
-                                    <th className="fit">
-                                        <input type="text" value={displayNumber(total())} className="form-control" disabled />
-                                    </th>
-                                    <th className="fit" colSpan="3">
-                                        <label htmlFor="">Total Net Value</label>
-                                    </th>
-                                </tr>
-                                </thead>
+                                {
+                                    terms.value.length > 0 &&
+                                    <thead className="table-info">
+                                    <tr>
+                                        <th className="fit">
+                                            <input type="text" value={displayNumber(totalPercent())}  className={`form-control ${(totalPercent() !== 100) && "is-invalid"}`} disabled />
+                                        </th>
+                                        <th className="fit">
+                                            <label htmlFor="">Total %</label>
+                                        </th>
+                                        <th className="fit">
+                                            <input type="text" value={displayNumber(total())} className="form-control" disabled />
+                                        </th>
+                                        <th className="fit" colSpan="3">
+                                            <label htmlFor="">Total Net Value</label>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                }
                             </table>
                         </div>
                     </div>

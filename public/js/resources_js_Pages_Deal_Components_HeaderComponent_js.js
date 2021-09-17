@@ -125,6 +125,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       _useField2 = _slicedToArray(_useField, 1),
       quoteId = _useField2[0];
 
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  }, []);
   var settings = {
     infinite: false,
     // rows: 0,
@@ -232,6 +235,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "clearfix"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                "data-toggle": "tooltip",
+                "data-placement": "top",
+                title: "Generates a Quote in the ERP without pushing anything to Zoho CRM",
                 disabled: deal.Stage ? deal.Stage.startsWith("Closed") : false,
                 onClick: function onClick() {
                   return generateQuote();
@@ -240,6 +246,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                 className: "btn btn-success btn-sm",
                 children: "Generate Quote"
               }), quote && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("button", {
+                "data-toggle": "tooltip",
+                "data-placement": "top",
+                title: "Updates the deals information and creates a new quote for the deal in Zoho CRM",
                 onClick: function onClick() {
                   return pushAll();
                 },
@@ -256,6 +265,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "clearfix"
           }), quote && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.InertiaLink, {
+            "data-toggle": "tooltip",
+            "data-placement": "top",
+            title: "Go Back in the ERP module to the deal's page",
             href: "/deals/" + deal.id,
             method: "get",
             as: "button",
@@ -520,6 +532,12 @@ var Constants = Object.freeze({
     value: "Revised",
     color: "dark"
   }, {
+    value: "Rejected",
+    color: "dark"
+  }, {
+    value: "Pending",
+    color: "dark"
+  }, {
     value: "Accepted",
     color: "secondary"
   }, {
@@ -527,6 +545,28 @@ var Constants = Object.freeze({
     color: "info"
   }, {
     value: "Archived",
+    color: "info"
+  }],
+  quoteStageTypes: [{
+    value: "Draft",
+    color: "warning"
+  }, {
+    value: "Negotiation",
+    color: "warning"
+  }, {
+    value: "Delivered",
+    color: "success"
+  }, {
+    value: "On Hold",
+    color: "dark"
+  }, {
+    value: "Confirmed",
+    color: "secondary"
+  }, {
+    value: "Closed Won",
+    color: "info"
+  }, {
+    value: "Closed Lost",
     color: "info"
   }],
   approvalStatusTypes: [{
