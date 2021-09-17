@@ -374,7 +374,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
                 onSubmit={onSubmit}>
                 <Form>
                     <HeaderComponent pushAll={pushAll} updateQuote={updateQuote} quote={quote} quotes={quotes} generateQuote={generateQuote} deal={deal}/>
-                    <QuoteBasicInfoComponent quote={quote} pushDeal={pushDeal} pushQuote={pushQuote} pushAll={pushAll} deal={deal}/>
+                    <QuoteBasicInfoComponent quotes={quotes} quote={quote} pushDeal={pushDeal} pushQuote={pushQuote} pushAll={pushAll} deal={deal}/>
                     <SalesPersonInfoComponent accounts={accounts} users={users} deal={deal}/>
                     <ContactInfoComponent contacts={contacts} deal={deal}/>
                     <AccountInfoComponent accounts={accounts} deal={deal}/>

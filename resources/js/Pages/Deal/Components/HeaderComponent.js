@@ -12,49 +12,6 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote, pushA
     useEffect(() => {
         $('[data-toggle="tooltip"]').tooltip();
     }, [])
-    const settings= {
-        infinite: false,
-        // rows: 0,
-        slidesToShow: 10,
-        slidesToScroll: 1,
-        arrows: true,
-        dots: false,
-        draggable: true,
-        touchMove: true,
-        centerMode: false,
-        responsive: [
-            {
-                breakpoint: 1920,
-                settings: {
-                    slidesToShow: 12,
-                }
-            },
-            {
-                breakpoint: 1440,
-                settings: {
-                    slidesToShow: 9,
-                }
-            },
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 6,
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                }
-            }
-        ]
-    }
     return (
         <div className="jumbotron jumbotron-fluid sticky-top">
             <div className="container">
@@ -117,26 +74,6 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote, pushA
                         {/*<button type="button" className="btn btn-primary btn-sm">Back to Deal</button>*/}
                     </div>
                 </div>
-                <hr />
-                {
-                    quotes && quotes.length > 0 &&
-                    <div className="row">
-                        <div className="col-xl-12 col-lg-12 col-sm-12 col-12">
-                            <label>Quote Version</label>
-                            <Slider {...settings}>
-                                {
-                                    quotes.map(quote => (
-                                        <InertiaLink key={quote.id} href={"/quotes/"+quote.id} method="get" as="div" type="button">
-                                            <span className={`horizontal-span ${quote.id === quoteId.value && 'active'}`}>
-                                                {quote.quote_no}
-                                            </span>
-                                        </InertiaLink>
-                                    ))
-                                }
-                            </Slider>
-                        </div>
-                    </div>
-                }
             </div>
         </div>
     )
