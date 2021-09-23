@@ -187,7 +187,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       pushQuote = _ref.pushQuote,
       pushAll = _ref.pushAll,
       quote = _ref.quote,
-      quotes = _ref.quotes;
+      quotes = _ref.quotes,
+      stageValues = _ref.stageValues;
 
   var _useField = (0,formik__WEBPACK_IMPORTED_MODULE_7__.useField)("quote_id"),
       _useField2 = _slicedToArray(_useField, 1),
@@ -269,26 +270,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         className: "col-xl-2 col-lg-2 col-sm-2 col-9",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__.default, {
           className: "custom-select",
-          label: "Quote Status",
-          name: "status",
-          children: _helpers_samples__WEBPACK_IMPORTED_MODULE_1__.default.statusTypes.map(function (status) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
-              value: status.value,
-              children: status.value
-            }, status.value);
-          })
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        className: "col-xl-2 col-lg-2 col-sm-2 col-9",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__.default, {
-          className: "custom-select",
           label: "Quote Stage",
           name: "quote_stage",
-          children: _helpers_samples__WEBPACK_IMPORTED_MODULE_1__.default.quoteStageTypes.map(function (status) {
+          children: stageValues.map(function (status) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
-              value: status.value,
-              children: status.value
-            }, status.value);
+              value: status,
+              children: status
+            }, status);
           })
         })
       })]

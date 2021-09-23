@@ -171,20 +171,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
                   disabled: true
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "col-xl-2 col-lg-2 col-sm-2 col-2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Fields_SelectFieldComponent__WEBPACK_IMPORTED_MODULE_2__.default, {
-                className: "custom-select",
-                label: "Quote Approval Status",
-                disabled: true,
-                name: "approval_status",
-                children: _helpers_samples__WEBPACK_IMPORTED_MODULE_1__.default.approvalStatusTypes.map(function (status) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
-                    value: status.value,
-                    children: status.value
-                  }, status.value);
-                })
-              })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "col-xl-4 col-lg-4 col-sm-4 col-2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {

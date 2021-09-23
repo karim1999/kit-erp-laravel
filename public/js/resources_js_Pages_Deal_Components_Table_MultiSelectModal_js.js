@@ -379,7 +379,7 @@ fuzzyTextFilterFn.autoRemove = function (val) {
           className: "modal-header",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h5", {
             className: "modal-title",
-            children: "Adding Multi Elements"
+            children: "Add List Items"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
             onClick: reset,
             type: "button",
