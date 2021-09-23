@@ -36,13 +36,13 @@ export default function ({deal, generateQuote, updateQuote, quotes, quote, pushA
                                     <input type="text" className="form-control datepicker" value={deal.Opportunity_Auto_No} disabled />
                                 </div>
                             </div>
-                            <div className="col-xl-2 col-lg-2 col-sm-2 col-2">
-                                <SelectFieldComponent className="custom-select" label="Quote Approval Status" disabled name="approval_status">
-                                    {
-                                        Constants.approvalStatusTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
-                                    }
-                                </SelectFieldComponent>
-                            </div>
+                            {/*<div className="col-xl-2 col-lg-2 col-sm-2 col-2">*/}
+                            {/*    <SelectFieldComponent className="custom-select" label="Quote Approval Status" disabled name="approval_status">*/}
+                            {/*        {*/}
+                            {/*            Constants.approvalStatusTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)*/}
+                            {/*        }*/}
+                            {/*    </SelectFieldComponent>*/}
+                            {/*</div>*/}
                             {/*{*/}
                             {/*    quote &&*/}
                             {/*    <div className="col-xl-2 col-lg-2 col-sm-2 col-2 text-right">*/}

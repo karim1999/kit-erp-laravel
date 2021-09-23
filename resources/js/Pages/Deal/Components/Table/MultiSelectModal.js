@@ -250,7 +250,7 @@ export default function ({push, products}){
             <div className="modal-dialog modal-xl" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Adding Multi Elements</h5>
+                        <h5 className="modal-title">Add List Items</h5>
                         <button onClick={reset} type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

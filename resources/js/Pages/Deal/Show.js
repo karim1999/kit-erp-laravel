@@ -107,7 +107,7 @@ const dateOrNull= (date, returnDate= true, format= "MM/DD/YYYY") => {
     return returnDate ? moment().format(format) : null
 }
 
-export default function Show({ quote, current_deal_id, current_deal= Constants.sampleOpportunity, quotes= [], contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
+export default function Show({ stage_values, quote, current_deal_id, current_deal= Constants.sampleOpportunity, quotes= [], contactsObj= {}, usersObj= {}, accountsObj= {}, productsObj= {} }) {
     const [deal, setDeal]= useState({...current_deal.data[0]});
     const [users, setUsers]= useState([usersObj.data[0]]);
     const [contacts, setContacts]= useState(contactsObj.data);
@@ -177,12 +177,12 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
     }, [quote])
 
     const validationSchema= Yup.object({
-        status: Yup.string().typeError('Must be a String')
-            .required('Required')
-            .oneOf(Constants.statusTypes.map(status => status.value)),
-        approval_status: Yup.string().typeError('Must be a String')
-            .required('Required')
-            .oneOf(Constants.approvalStatusTypes.map(status => status.value)),
+        // status: Yup.string().typeError('Must be a String')
+        //     .required('Required')
+        //     .oneOf(Constants.statusTypes.map(status => status.value)),
+        // approval_status: Yup.string().typeError('Must be a String')
+        //     .required('Required')
+        //     .oneOf(Constants.approvalStatusTypes.map(status => status.value)),
         vat: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
         customs: Yup.number().typeError('Must be a Number').min(0, 'Must be greater than 0'),
         items: Yup.array().min(1).test(
@@ -374,7 +374,7 @@ export default function Show({ quote, current_deal_id, current_deal= Constants.s
                 onSubmit={onSubmit}>
                 <Form>
                     <HeaderComponent pushAll={pushAll} updateQuote={updateQuote} quote={quote} quotes={quotes} generateQuote={generateQuote} deal={deal}/>
-                    <QuoteBasicInfoComponent quotes={quotes} quote={quote} pushDeal={pushDeal} pushQuote={pushQuote} pushAll={pushAll} deal={deal}/>
+                    <QuoteBasicInfoComponent stageValues={stage_values} quotes={quotes} quote={quote} pushDeal={pushDeal} pushQuote={pushQuote} pushAll={pushAll} deal={deal}/>
                     <SalesPersonInfoComponent accounts={accounts} users={users} deal={deal}/>
                     <ContactInfoComponent contacts={contacts} deal={deal}/>
                     <AccountInfoComponent accounts={accounts} deal={deal}/>

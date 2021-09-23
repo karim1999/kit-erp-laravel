@@ -148,6 +148,12 @@ class QuoteController extends Controller
         $zoho_id= $quote->zoho_id;
 
         $deals_instance = ZCRMRestClient::getInstance()->getModuleInstance("Deals");
+        $field_instance = $deals_instance->getFieldDetails("4698420000000002565");
+        $stage_data= $field_instance->getData()->getPickListFieldValues();
+        $stage_values= [];
+        foreach ($stage_data as $picklistfieldvalue) {
+            $stage_values[]= $picklistfieldvalue->getDisplayValue();
+        }
         $orgIns = ZCRMOrganization::getInstance(); // to get the organization instance
         $contacts_instance = ZCRMRestClient::getInstance()->getModuleInstance("Contacts");
         $accounts_instance = ZCRMRestClient::getInstance()->getModuleInstance("Accounts");
@@ -186,6 +192,7 @@ class QuoteController extends Controller
 //        return $users->getResponseJSON();
 //        return $deal->getResponseJSON();
         return Inertia::render('Deal/Show', [
+            "stage_values" => $stage_values,
             'quotes' => $quotes,
             'quote' => $quote,
             'productsObj' => $products,

@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import {InertiaLink} from "@inertiajs/inertia-react";
 import {useField} from "formik";
 
-export default function ({deal, pushDeal, pushQuote, pushAll, quote, quotes}) {
+export default function ({deal, pushDeal, pushQuote, pushAll, quote, quotes, stageValues}) {
     const [quoteId] = useField(`quote_id`);
     const settings= {
         infinite: false,
@@ -86,17 +86,17 @@ export default function ({deal, pushDeal, pushQuote, pushAll, quote, quotes}) {
                 {/*    <label>&nbsp;</label>*/}
                 {/*    <button disabled={!quote} onClick={pushDeal} type="button" className="btn btn-primary btn-sm btn-block">Push Deal</button>*/}
                 {/*</div>*/}
-                <div className="col-xl-2 col-lg-2 col-sm-2 col-9">
-                    <SelectFieldComponent className="custom-select" label="Quote Status" name="status">
-                        {
-                            Constants.statusTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
-                        }
-                    </SelectFieldComponent>
-                </div>
+                {/*<div className="col-xl-2 col-lg-2 col-sm-2 col-9">*/}
+                {/*    <SelectFieldComponent className="custom-select" label="Quote Status" name="status">*/}
+                {/*        {*/}
+                {/*            Constants.statusTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)*/}
+                {/*        }*/}
+                {/*    </SelectFieldComponent>*/}
+                {/*</div>*/}
                 <div className="col-xl-2 col-lg-2 col-sm-2 col-9">
                     <SelectFieldComponent className="custom-select" label="Quote Stage" name="quote_stage">
                         {
-                            Constants.quoteStageTypes.map(status => <option key={status.value} value={status.value}>{status.value}</option>)
+                            stageValues.map(status => <option key={status} value={status}>{status}</option>)
                         }
                     </SelectFieldComponent>
                 </div>
