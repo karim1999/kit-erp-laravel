@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2284fbe7-6c19-421a-a1c6-ce5d74747c2d" name="Default Changelist" comment="fixed things">
-      <change beforePath="$PROJECT_DIR$/.idea/kit-erp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kit-erp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ZCRMClientLibrary.log" beforeDir="false" afterPath="$PROJECT_DIR$/ZCRMClientLibrary.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_HeaderComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_HeaderComponent_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_QuoteBasicInfoComponent_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Components_QuoteBasicInfoComponent_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Show_js.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/resources_js_Pages_Deal_Show_js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/HeaderComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/HeaderComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/QuoteBasicInfoComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Components/QuoteBasicInfoComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Deal/Show.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Deal/Show.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuoteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuoteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Zoho/DealController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Zoho/DealController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zcrm_oauthtokens.txt" beforeDir="false" afterPath="$PROJECT_DIR$/zcrm_oauthtokens.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,35 +227,12 @@
       <workItem from="1631728738290" duration="15000" />
       <workItem from="1631729485488" duration="106000" />
       <workItem from="1631783640160" duration="1832000" />
-      <workItem from="1631880123945" duration="4220000" />
-    </task>
-    <task id="LOCAL-00008" summary="prod">
-      <created>1617499776762</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1617499776762</updated>
-    </task>
-    <task id="LOCAL-00009" summary="fixed">
-      <created>1617539972750</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1617539972750</updated>
-    </task>
-    <task id="LOCAL-00010" summary="fixed">
-      <created>1617540014579</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1617540014579</updated>
-    </task>
-    <task id="LOCAL-00011" summary="fixed">
-      <created>1617540362623</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1617540362623</updated>
+      <workItem from="1631880123945" duration="4557000" />
+      <workItem from="1632220585886" duration="15000" />
+      <workItem from="1632387749661" duration="4843000" />
+      <workItem from="1632401277551" duration="29000" />
+      <workItem from="1632407616044" duration="206000" />
+      <workItem from="1632740425616" duration="716000" />
     </task>
     <task id="LOCAL-00012" summary="fixed all">
       <created>1617541320072</created>
@@ -577,7 +549,35 @@
       <option name="project" value="LOCAL" />
       <updated>1631884067703</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="fixed things">
+      <created>1631884409696</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1631884409696</updated>
+    </task>
+    <task id="LOCAL-00058" summary="fixed">
+      <created>1632397143465</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1632397143465</updated>
+    </task>
+    <task id="LOCAL-00059" summary="fixed things">
+      <created>1632407700355</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1632407700355</updated>
+    </task>
+    <task id="LOCAL-00060" summary="fixed quote">
+      <created>1632740997432</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1632740997432</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,9 +586,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Ashwin Changes" />
     <MESSAGE value="prod" />
-    <MESSAGE value="fixed" />
     <MESSAGE value="empty" />
     <MESSAGE value="final" />
     <MESSAGE value="fixed users problem" />
@@ -610,18 +608,20 @@
     <MESSAGE value="fixed no price books" />
     <MESSAGE value="fixed payment terms" />
     <MESSAGE value="controller" />
+    <MESSAGE value="fixed" />
     <MESSAGE value="fixed things" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed things" />
+    <MESSAGE value="fixed quote" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed quote" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1630512568092">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1630512568092" />
-    <state x="854" y="211" key="CommitChangelistDialog2" timestamp="1631884061230">
+    <state x="854" y="211" key="CommitChangelistDialog2" timestamp="1632740993959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="854" y="211" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1631884061230" />
+    <state x="854" y="211" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1632740993959" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1631026490325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -630,10 +630,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1631880692453" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1631884069082">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1632740999158">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1631884069082" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1632740999158" />
     <state x="560" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1624303220233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

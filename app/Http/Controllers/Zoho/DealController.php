@@ -25,8 +25,9 @@ class DealController extends Controller
     public function show($id)
     {
         //
-        $deals_instance = ZCRMRestClient::getInstance()->getModuleInstance("Quotes");
-        $field_instance = $deals_instance->getFieldDetails("4698420000000002873");
+        $deals_instance = ZCRMRestClient::getInstance()->getModuleInstance("Deals");
+        $quotes_instance = ZCRMRestClient::getInstance()->getModuleInstance("Quotes");
+        $field_instance = $quotes_instance->getFieldDetails("4698420000000002873");
         $stage_data= $field_instance->getData()->getPickListFieldValues();
         $stage_values= [];
         foreach ($stage_data as $picklistfieldvalue) {
